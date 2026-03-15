@@ -1,0 +1,416 @@
+{% doc %}
+  @prompt
+    プロダクトの商品紹介
+    左に画像
+    右に
+    商品詳細文言
+    商品名/値段//Viewmoreのボタンで遷移できるようにする
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-intro-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-product-intro__container-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.gap }}px;
+    align-items: center;
+  }
+
+  .ai-product-intro__image-wrapper-{{ ai_gen_id }} {
+    flex: 0 0 {{ block.settings.image_width }}%;
+  }
+
+  .ai-product-intro__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    display: block;
+  }
+
+  .ai-product-intro__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-product-intro__image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-product-intro__content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.content_gap }}px;
+  }
+
+  .ai-product-intro__description-{{ ai_gen_id }} {
+    color: {{ block.settings.description_color }};
+    font-size: {{ block.settings.description_size }}px;
+    line-height: 1.6;
+  }
+
+  .ai-product-intro__title-{{ ai_gen_id }} {
+    color: {{ block.settings.title_color }};
+    font-size: {{ block.settings.title_size }}px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .ai-product-intro__price-{{ ai_gen_id }} {
+    color: {{ block.settings.price_color }};
+    font-size: {{ block.settings.price_size }}px;
+    font-weight: 500;
+  }
+
+  .ai-product-intro__button-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .ai-product-intro__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+  }
+
+  .ai-product-intro__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-intro__container-{{ ai_gen_id }} {
+      flex-direction: column;
+    }
+
+    .ai-product-intro__image-wrapper-{{ ai_gen_id }} {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<product-intro-{{ ai_gen_id }}
+  class="ai-product-intro-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-product-intro__container-{{ ai_gen_id }}">
+    <div class="ai-product-intro__image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.product and block.settings.product.featured_image %}
+        <img
+          src="{{ block.settings.product.featured_image | image_url: width: 800 }}"
+          alt="{{ block.settings.product.featured_image.alt | escape }}"
+          class="ai-product-intro__image-{{ ai_gen_id }}"
+          loading="lazy"
+          width="{{ block.settings.product.featured_image.width }}"
+          height="{{ block.settings.product.featured_image.height }}"
+        >
+      {% else %}
+        <div class="ai-product-intro__image-placeholder-{{ ai_gen_id }}">
+          {{ 'product-1' | placeholder_svg_tag }}
+          {% unless block.settings.product %}
+            <div class="ai-product-intro__empty-state-{{ ai_gen_id }}">
+              商品を選択してください
+            </div>
+          {% endunless %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-product-intro__content-{{ ai_gen_id }}">
+      {% if block.settings.description != blank %}
+        <div class="ai-product-intro__description-{{ ai_gen_id }}">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.product %}
+        <h3 class="ai-product-intro__title-{{ ai_gen_id }}">
+          {{ block.settings.product.title }}
+        </h3>
+
+        <div class="ai-product-intro__price-{{ ai_gen_id }}">
+          {{ block.settings.product.price | money }}
+        </div>
+
+        <a
+          href="{{ block.settings.product.url }}"
+          class="ai-product-intro__button-{{ ai_gen_id }}"
+        >
+          {{ block.settings.button_text }}
+        </a>
+      {% else %}
+        <h3 class="ai-product-intro__title-{{ ai_gen_id }}">
+          商品名
+        </h3>
+
+        <div class="ai-product-intro__price-{{ ai_gen_id }}">
+          ¥0
+        </div>
+
+        <span class="ai-product-intro__button-{{ ai_gen_id }}">
+          {{ block.settings.button_text }}
+        </span>
+      {% endif %}
+    </div>
+  </div>
+</product-intro-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductIntro{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('product-intro-{{ ai_gen_id }}', ProductIntro{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "商品紹介",
+  "settings": [
+    {
+      "type": "header",
+      "content": "商品"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "商品"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "商品説明",
+      "default": "<p>上質な素材と洗練されたデザインが、あなたの日常に静かな輝きを添えます。</p>"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "画像の幅",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "画像とコンテンツの間隔",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "コンテンツ内の間隔",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "画像スタイル"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "画像の角丸",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "説明文"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "フォントサイズ",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "テキストカラー",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "header",
+      "content": "商品名"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "フォントサイズ",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "テキストカラー",
+      "default": "#2e2a39"
+    },
+    {
+      "type": "header",
+      "content": "価格"
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "label": "フォントサイズ",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "テキストカラー",
+      "default": "#2e2a39"
+    },
+    {
+      "type": "header",
+      "content": "ボタン"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "ボタンテキスト",
+      "default": "View more"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "フォントサイズ",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "縦方向のパディング",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "横方向のパディング",
+      "min": 16,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "角丸",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "背景色",
+      "default": "#d4e6e9"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "ホバー時の背景色",
+      "default": "#2e2a39"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "テキストカラー",
+      "default": "#2e2a39"
+    }
+  ],
+  "presets": [
+    {
+      "name": "商品紹介"
+    }
+  ],
+  "tag": null
+}
+{% endschema %}

@@ -1,0 +1,589 @@
+{% doc %}
+  @prompt
+    写真を3枚ランダムな配置で並べつつ、6用くらいの日本語を中央揃えで配置できる
+    ABOUTページ, 写真は最上段
+    テキストの下に細い線を1本
+    その下にさらにテキスト
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-about-section-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 20px;
+    margin: 0 auto;
+  }
+
+  .ai-about-container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.spacing }}px;
+    align-items: center;
+  }
+
+  .ai-about-images-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    max-width: {{ block.settings.images_max_width }}px;
+    height: {{ block.settings.images_height }}px;
+    margin: 0 auto;
+  }
+
+  .ai-about-image-wrapper-{{ ai_gen_id }} {
+    position: absolute;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    box-shadow: 0 {{ block.settings.shadow_vertical }}px {{ block.settings.shadow_blur }}px rgba(0, 0, 0, {{ block.settings.shadow_opacity }});
+  }
+
+  .ai-about-image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-about-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-about-image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-about-image-1-{{ ai_gen_id }} {
+    width: {{ block.settings.image_1_width }}%;
+    height: {{ block.settings.image_1_height }}%;
+    top: {{ block.settings.image_1_top }}%;
+    left: {{ block.settings.image_1_left }}%;
+    z-index: {{ block.settings.image_1_z_index }};
+  }
+
+  .ai-about-image-2-{{ ai_gen_id }} {
+    width: {{ block.settings.image_2_width }}%;
+    height: {{ block.settings.image_2_height }}%;
+    top: {{ block.settings.image_2_top }}%;
+    left: {{ block.settings.image_2_left }}%;
+    z-index: {{ block.settings.image_2_z_index }};
+  }
+
+  .ai-about-image-3-{{ ai_gen_id }} {
+    width: {{ block.settings.image_3_width }}%;
+    height: {{ block.settings.image_3_height }}%;
+    top: {{ block.settings.image_3_top }}%;
+    left: {{ block.settings.image_3_left }}%;
+    z-index: {{ block.settings.image_3_z_index }};
+  }
+
+  .ai-about-text-top-{{ ai_gen_id }} {
+    text-align: center;
+    max-width: {{ block.settings.text_max_width }}px;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: {{ block.settings.line_height }};
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+  }
+
+  .ai-about-divider-{{ ai_gen_id }} {
+    width: {{ block.settings.divider_width }}px;
+    height: {{ block.settings.divider_thickness }}px;
+    background-color: {{ block.settings.divider_color }};
+    margin: 0 auto;
+  }
+
+  .ai-about-text-bottom-{{ ai_gen_id }} {
+    text-align: center;
+    max-width: {{ block.settings.text_max_width }}px;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: {{ block.settings.line_height }};
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-about-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding | times: 0.6 }}px 16px;
+    }
+
+    .ai-about-text-top-{{ ai_gen_id }},
+    .ai-about-text-bottom-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+
+    .ai-about-images-{{ ai_gen_id }} {
+      height: {{ block.settings.images_height | times: 0.7 }}px;
+    }
+
+    .ai-about-divider-{{ ai_gen_id }} {
+      width: {{ block.settings.divider_width | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<ai-about-section-{{ ai_gen_id }} class="ai-about-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-about-container-{{ ai_gen_id }}">
+    <div class="ai-about-images-{{ ai_gen_id }}">
+      <div class="ai-about-image-wrapper-{{ ai_gen_id }} ai-about-image-1-{{ ai_gen_id }}">
+        {% if block.settings.image_1 %}
+          <img
+            src="{{ block.settings.image_1 | image_url: width: 800 }}"
+            alt="{{ block.settings.image_1.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_1.width }}"
+            height="{{ block.settings.image_1.height }}"
+          >
+        {% else %}
+          <div class="ai-about-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-about-image-wrapper-{{ ai_gen_id }} ai-about-image-2-{{ ai_gen_id }}">
+        {% if block.settings.image_2 %}
+          <img
+            src="{{ block.settings.image_2 | image_url: width: 800 }}"
+            alt="{{ block.settings.image_2.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_2.width }}"
+            height="{{ block.settings.image_2.height }}"
+          >
+        {% else %}
+          <div class="ai-about-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-about-image-wrapper-{{ ai_gen_id }} ai-about-image-3-{{ ai_gen_id }}">
+        {% if block.settings.image_3 %}
+          <img
+            src="{{ block.settings.image_3 | image_url: width: 800 }}"
+            alt="{{ block.settings.image_3.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_3.width }}"
+            height="{{ block.settings.image_3.height }}"
+          >
+        {% else %}
+          <div class="ai-about-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if block.settings.text_top != blank %}
+      <div class="ai-about-text-top-{{ ai_gen_id }}">
+        {{ block.settings.text_top }}
+      </div>
+    {% endif %}
+
+    <div class="ai-about-divider-{{ ai_gen_id }}"></div>
+
+    {% if block.settings.text_bottom != blank %}
+      <div class="ai-about-text-bottom-{{ ai_gen_id }}">
+        {{ block.settings.text_bottom }}
+      </div>
+    {% endif %}
+  </div>
+</ai-about-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiAboutSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('ai-about-section-{{ ai_gen_id }}', AiAboutSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "About section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "画像エリア"
+    },
+    {
+      "type": "range",
+      "id": "images_max_width",
+      "label": "画像エリア最大幅",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "images_height",
+      "label": "画像エリア高さ",
+      "min": 300,
+      "max": 700,
+      "step": 50,
+      "unit": "px",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "画像角丸",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "shadow_opacity",
+      "label": "影の濃さ",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.1,
+      "default": 0.1
+    },
+    {
+      "type": "range",
+      "id": "shadow_vertical",
+      "label": "影の垂直位置",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "label": "影のぼかし",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "画像1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "画像1"
+    },
+    {
+      "type": "range",
+      "id": "image_1_width",
+      "label": "幅",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "image_1_height",
+      "label": "高さ",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "image_1_top",
+      "label": "上からの位置",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "image_1_left",
+      "label": "左からの位置",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "image_1_z_index",
+      "label": "重なり順",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "画像2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "画像2"
+    },
+    {
+      "type": "range",
+      "id": "image_2_width",
+      "label": "幅",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "image_2_height",
+      "label": "高さ",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "image_2_top",
+      "label": "上からの位置",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "image_2_left",
+      "label": "左からの位置",
+      "min": 40,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "image_2_z_index",
+      "label": "重なり順",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "画像3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "画像3"
+    },
+    {
+      "type": "range",
+      "id": "image_3_width",
+      "label": "幅",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "image_3_height",
+      "label": "高さ",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "image_3_top",
+      "label": "上からの位置",
+      "min": 30,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "image_3_left",
+      "label": "左からの位置",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "image_3_z_index",
+      "label": "重なり順",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "テキスト"
+    },
+    {
+      "type": "richtext",
+      "id": "text_top",
+      "label": "上部テキスト",
+      "default": "<p>Ciel Perleは、空と真珠のように、静かな気品と輝きを纏う女性のためのジュエリーブランドです。</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_bottom",
+      "label": "下部テキスト",
+      "default": "<p>自立した女性の日常に寄り添い、お守りのような存在として輝き続けます。</p>"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "テキストサイズ",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "label": "行の高さ",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.8
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "文字間隔",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "px",
+      "default": 0.5
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "label": "テキスト最大幅",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "テキストカラー",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "header",
+      "content": "区切り線"
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "線の幅",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "divider_thickness",
+      "label": "線の太さ",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "線のカラー",
+      "default": "#8f9eb2"
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "セクション余白",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "要素間の間隔",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "About section"
+    }
+  ]
+}
+{% endschema %}

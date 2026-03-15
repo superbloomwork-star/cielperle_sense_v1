@@ -1,0 +1,530 @@
+{% doc %}
+  @prompt
+    画像を3枚埋め込むことができるスライドショー
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-slideshow-{{ ai_gen_id }} {
+    position: relative;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    overflow: hidden;
+    display: block;
+  }
+
+  .ai-slideshow-container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    aspect-ratio: {{ block.settings.aspect_ratio }};
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-slideshow-slides-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-slideshow-slide-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity {{ block.settings.transition_speed }}s ease-in-out;
+    pointer-events: none;
+  }
+
+  .ai-slideshow-slide-{{ ai_gen_id }}.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .ai-slideshow-slide-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-slideshow-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-slideshow-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-slideshow-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-slideshow-controls-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    pointer-events: none;
+  }
+
+  .ai-slideshow-button-{{ ai_gen_id }} {
+    width: {{ block.settings.button_size }}px;
+    height: {{ block.settings.button_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.button_color }};
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    opacity: {{ block.settings.button_opacity | divided_by: 100.0 }};
+  }
+
+  .ai-slideshow-button-{{ ai_gen_id }}:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .ai-slideshow-button-{{ ai_gen_id }} svg {
+    width: calc({{ block.settings.button_size }}px * 0.5);
+    height: calc({{ block.settings.button_size }}px * 0.5);
+    fill: {{ block.settings.button_icon_color }};
+  }
+
+  .ai-slideshow-dots-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .ai-slideshow-dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    border: none;
+    cursor: pointer;
+    opacity: {{ block.settings.dot_opacity | divided_by: 100.0 }};
+    transition: all 0.3s ease;
+  }
+
+  .ai-slideshow-dot-{{ ai_gen_id }}.active {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-slideshow-button-{{ ai_gen_id }} {
+      width: calc({{ block.settings.button_size }}px * 0.8);
+      height: calc({{ block.settings.button_size }}px * 0.8);
+    }
+
+    .ai-slideshow-dot-{{ ai_gen_id }} {
+      width: calc({{ block.settings.dot_size }}px * 0.8);
+      height: calc({{ block.settings.dot_size }}px * 0.8);
+    }
+  }
+{% endstyle %}
+
+<slideshow-{{ ai_gen_id }} class="ai-slideshow-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-slideshow-container-{{ ai_gen_id }}">
+    <div class="ai-slideshow-slides-{{ ai_gen_id }}">
+      {% liquid
+        assign has_any_image = false
+        if block.settings.image_1 != blank or block.settings.image_2 != blank or block.settings.image_3 != blank
+          assign has_any_image = true
+        endif
+      %}
+
+      {% if block.settings.image_1 != blank %}
+        <div class="ai-slideshow-slide-{{ ai_gen_id }} active" data-slide="0">
+          <img
+            src="{{ block.settings.image_1 | image_url: width: 2000 }}"
+            alt="{{ block.settings.image_1.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_1.width }}"
+            height="{{ block.settings.image_1.height }}"
+          >
+        </div>
+      {% endif %}
+
+      {% if block.settings.image_2 != blank %}
+        <div class="ai-slideshow-slide-{{ ai_gen_id }}" data-slide="1">
+          <img
+            src="{{ block.settings.image_2 | image_url: width: 2000 }}"
+            alt="{{ block.settings.image_2.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_2.width }}"
+            height="{{ block.settings.image_2.height }}"
+          >
+        </div>
+      {% endif %}
+
+      {% if block.settings.image_3 != blank %}
+        <div class="ai-slideshow-slide-{{ ai_gen_id }}" data-slide="2">
+          <img
+            src="{{ block.settings.image_3 | image_url: width: 2000 }}"
+            alt="{{ block.settings.image_3.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_3.width }}"
+            height="{{ block.settings.image_3.height }}"
+          >
+        </div>
+      {% endif %}
+
+      {% if has_any_image == false %}
+        <div class="ai-slideshow-slide-{{ ai_gen_id }} active" data-slide="0">
+          <div class="ai-slideshow-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <div class="ai-slideshow-empty-state-{{ ai_gen_id }}">
+              画像を追加してスライドショーを開始
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if has_any_image %}
+      <div class="ai-slideshow-controls-{{ ai_gen_id }}">
+        <button
+          class="ai-slideshow-button-{{ ai_gen_id }} ai-slideshow-prev-{{ ai_gen_id }}"
+          aria-label="前のスライド"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <button
+          class="ai-slideshow-button-{{ ai_gen_id }} ai-slideshow-next-{{ ai_gen_id }}"
+          aria-label="次のスライド"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="ai-slideshow-dots-{{ ai_gen_id }}">
+        {% if block.settings.image_1 != blank %}
+          <button class="ai-slideshow-dot-{{ ai_gen_id }} active" data-slide="0" aria-label="スライド 1"></button>
+        {% endif %}
+        {% if block.settings.image_2 != blank %}
+          <button class="ai-slideshow-dot-{{ ai_gen_id }}" data-slide="1" aria-label="スライド 2"></button>
+        {% endif %}
+        {% if block.settings.image_3 != blank %}
+          <button class="ai-slideshow-dot-{{ ai_gen_id }}" data-slide="2" aria-label="スライド 3"></button>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</slideshow-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class Slideshow{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 0;
+        this.autoplayInterval = null;
+      }
+
+      connectedCallback() {
+        this.slides = this.querySelectorAll('.ai-slideshow-slide-{{ ai_gen_id }}');
+        this.dots = this.querySelectorAll('.ai-slideshow-dot-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.ai-slideshow-prev-{{ ai_gen_id }}');
+        this.nextButton = this.querySelector('.ai-slideshow-next-{{ ai_gen_id }}');
+
+        if (this.slides.length <= 1) return;
+
+        this.setupEventListeners();
+        
+        {% if block.settings.autoplay %}
+          this.startAutoplay();
+        {% endif %}
+      }
+
+      setupEventListeners() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => this.previousSlide());
+        }
+
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => this.nextSlide());
+        }
+
+        this.dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        this.addEventListener('mouseenter', () => this.stopAutoplay());
+        this.addEventListener('mouseleave', () => {
+          {% if block.settings.autoplay %}
+            this.startAutoplay();
+          {% endif %}
+        });
+      }
+
+      nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        this.updateSlides();
+      }
+
+      previousSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.updateSlides();
+      }
+
+      goToSlide(index) {
+        this.currentSlide = index;
+        this.updateSlides();
+      }
+
+      updateSlides() {
+        this.slides.forEach((slide, index) => {
+          if (index === this.currentSlide) {
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active');
+          }
+        });
+
+        this.dots.forEach((dot, index) => {
+          if (index === this.currentSlide) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      startAutoplay() {
+        this.stopAutoplay();
+        this.autoplayInterval = setInterval(() => {
+          this.nextSlide();
+        }, {{ block.settings.autoplay_speed }} * 1000);
+      }
+
+      stopAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+          this.autoplayInterval = null;
+        }
+      }
+
+      disconnectedCallback() {
+        this.stopAutoplay();
+      }
+    }
+
+    customElements.define('slideshow-{{ ai_gen_id }}', Slideshow{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "スライドショー",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "画像 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "画像 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "画像 3"
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "アスペクト比",
+      "options": [
+        {
+          "value": "16/9",
+          "label": "16:9"
+        },
+        {
+          "value": "4/3",
+          "label": "4:3"
+        },
+        {
+          "value": "3/2",
+          "label": "3:2"
+        },
+        {
+          "value": "1/1",
+          "label": "1:1"
+        },
+        {
+          "value": "2/3",
+          "label": "2:3"
+        }
+      ],
+      "default": "16/9"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "角の丸み",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "スライド設定"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "自動再生",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "自動再生速度",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "秒",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "transition_speed",
+      "label": "トランジション速度",
+      "min": 0.5,
+      "max": 2,
+      "step": 0.5,
+      "unit": "秒",
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "ナビゲーションボタン"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "ボタンサイズ",
+      "min": 30,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "ボタン背景色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_icon_color",
+      "label": "ボタンアイコン色",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_opacity",
+      "label": "ボタン透明度",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "ドットナビゲーション"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "label": "ドットサイズ",
+      "min": 6,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "ドット色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "dot_opacity",
+      "label": "ドット透明度",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "スライドショー"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,563 @@
+{% doc %}
+  @prompt
+    3枚の画像を埋め込むことができるスライドショー
+    右端の横幅20%に白背景を用意
+    そこにテキストが縦書きで入れられるように作成
+    2枚目は左
+    3枚目は右に白背景を用意する
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-vertical-text-slideshow-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .ai-vertical-text-slideshow__container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.slideshow_height }}px;
+  }
+
+  .ai-vertical-text-slideshow__slides-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-vertical-text-slideshow__slide-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity {{ block.settings.transition_speed }}s ease-in-out;
+    display: flex;
+  }
+
+  .ai-vertical-text-slideshow__slide-{{ ai_gen_id }}.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .ai-vertical-text-slideshow__image-wrapper-{{ ai_gen_id }} {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-vertical-text-slideshow__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-vertical-text-slideshow__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-vertical-text-slideshow__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-vertical-text-slideshow__text-panel-{{ ai_gen_id }} {
+    width: 20%;
+    background-color: {{ block.settings.text_panel_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    flex-shrink: 0;
+  }
+
+  .ai-vertical-text-slideshow__text-content-{{ ai_gen_id }} {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.8;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .ai-vertical-text-slideshow__slide-{{ ai_gen_id }}--left .ai-vertical-text-slideshow__text-panel-{{ ai_gen_id }} {
+    order: -1;
+  }
+
+  .ai-vertical-text-slideshow__slide-{{ ai_gen_id }}--right .ai-vertical-text-slideshow__text-panel-{{ ai_gen_id }} {
+    order: 1;
+  }
+
+  .ai-vertical-text-slideshow__controls-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .ai-vertical-text-slideshow__dot-{{ ai_gen_id }} {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    opacity: 0.5;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 0;
+  }
+
+  .ai-vertical-text-slideshow__dot-{{ ai_gen_id }}.active {
+    opacity: 1;
+  }
+
+  .ai-vertical-text-slideshow__arrows-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 2;
+    padding: 0 20px;
+  }
+
+  .ai-vertical-text-slideshow__arrow-{{ ai_gen_id }} {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: {{ block.settings.arrow_bg_color }};
+    color: {{ block.settings.arrow_color }};
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-vertical-text-slideshow__arrow-{{ ai_gen_id }}:hover {
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-vertical-text-slideshow__container-{{ ai_gen_id }} {
+      height: {{ block.settings.slideshow_height | times: 0.6 }}px;
+    }
+
+    .ai-vertical-text-slideshow__text-panel-{{ ai_gen_id }} {
+      width: 25%;
+      padding: 20px 10px;
+    }
+
+    .ai-vertical-text-slideshow__text-content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.8 }}px;
+    }
+
+    .ai-vertical-text-slideshow__controls-{{ ai_gen_id }} {
+      bottom: 15px;
+    }
+  }
+{% endstyle %}
+
+<vertical-text-slideshow-{{ ai_gen_id }}
+  class="ai-vertical-text-slideshow-{{ ai_gen_id }}"
+  data-autoplay="{{ block.settings.autoplay }}"
+  data-autoplay-speed="{{ block.settings.autoplay_speed }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-vertical-text-slideshow__container-{{ ai_gen_id }}">
+    <div class="ai-vertical-text-slideshow__slides-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        {% liquid
+          assign image_key = 'slide_' | append: i | append: '_image'
+          assign text_key = 'slide_' | append: i | append: '_text'
+          assign image = block.settings[image_key]
+          assign text = block.settings[text_key]
+
+          if i == 1
+            assign position = 'right'
+          elsif i == 2
+            assign position = 'left'
+          else
+            assign position = 'right'
+          endif
+        %}
+
+        <div
+          class="ai-vertical-text-slideshow__slide-{{ ai_gen_id }} ai-vertical-text-slideshow__slide-{{ ai_gen_id }}--{{ position }} {% if i == 1 %}active{% endif %}"
+          data-slide="{{ i }}"
+        >
+          <div class="ai-vertical-text-slideshow__image-wrapper-{{ ai_gen_id }}">
+            {% if image %}
+              <img
+                src="{{ image | image_url: width: 2000 }}"
+                alt="{{ image.alt | escape }}"
+                loading="lazy"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                class="ai-vertical-text-slideshow__image-{{ ai_gen_id }}"
+              >
+            {% else %}
+              <div class="ai-vertical-text-slideshow__image-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="ai-vertical-text-slideshow__text-panel-{{ ai_gen_id }}">
+            <div class="ai-vertical-text-slideshow__text-content-{{ ai_gen_id }}">
+              {{ text }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if block.settings.show_arrows %}
+      <div class="ai-vertical-text-slideshow__arrows-{{ ai_gen_id }}">
+        <button
+          class="ai-vertical-text-slideshow__arrow-{{ ai_gen_id }} ai-vertical-text-slideshow__arrow-prev-{{ ai_gen_id }}"
+          aria-label="前のスライド"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          class="ai-vertical-text-slideshow__arrow-{{ ai_gen_id }} ai-vertical-text-slideshow__arrow-next-{{ ai_gen_id }}"
+          aria-label="次のスライド"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+
+    {% if block.settings.show_dots %}
+      <div class="ai-vertical-text-slideshow__controls-{{ ai_gen_id }}">
+        {% for i in (1..3) %}
+          <button
+            class="ai-vertical-text-slideshow__dot-{{ ai_gen_id }} {% if i == 1 %}active{% endif %}"
+            data-slide="{{ i }}"
+            aria-label="スライド {{ i }} へ移動"
+          ></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</vertical-text-slideshow-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class VerticalTextSlideshow{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 1;
+        this.totalSlides = 3;
+        this.autoplayInterval = null;
+      }
+
+      connectedCallback() {
+        this.slides = this.querySelectorAll('.ai-vertical-text-slideshow__slide-{{ ai_gen_id }}');
+        this.dots = this.querySelectorAll('.ai-vertical-text-slideshow__dot-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.ai-vertical-text-slideshow__arrow-prev-{{ ai_gen_id }}');
+        this.nextButton = this.querySelector('.ai-vertical-text-slideshow__arrow-next-{{ ai_gen_id }}');
+        
+        this.autoplay = this.dataset.autoplay === 'true';
+        this.autoplaySpeed = parseInt(this.dataset.autoplaySpeed) * 1000;
+
+        this.setupEventListeners();
+        
+        if (this.autoplay) {
+          this.startAutoplay();
+        }
+      }
+
+      setupEventListeners() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => {
+            this.goToSlide(this.currentSlide - 1);
+            this.resetAutoplay();
+          });
+        }
+
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => {
+            this.goToSlide(this.currentSlide + 1);
+            this.resetAutoplay();
+          });
+        }
+
+        this.dots.forEach((dot) => {
+          dot.addEventListener('click', (e) => {
+            const slideNumber = parseInt(e.target.dataset.slide);
+            this.goToSlide(slideNumber);
+            this.resetAutoplay();
+          });
+        });
+      }
+
+      goToSlide(slideNumber) {
+        if (slideNumber < 1) {
+          slideNumber = this.totalSlides;
+        } else if (slideNumber > this.totalSlides) {
+          slideNumber = 1;
+        }
+
+        this.slides.forEach((slide) => {
+          slide.classList.remove('active');
+        });
+
+        this.dots.forEach((dot) => {
+          dot.classList.remove('active');
+        });
+
+        const targetSlide = this.querySelector(`[data-slide="${slideNumber}"].ai-vertical-text-slideshow__slide-{{ ai_gen_id }}`);
+        const targetDot = this.querySelector(`[data-slide="${slideNumber}"].ai-vertical-text-slideshow__dot-{{ ai_gen_id }}`);
+
+        if (targetSlide) {
+          targetSlide.classList.add('active');
+        }
+
+        if (targetDot) {
+          targetDot.classList.add('active');
+        }
+
+        this.currentSlide = slideNumber;
+      }
+
+      startAutoplay() {
+        this.autoplayInterval = setInterval(() => {
+          this.goToSlide(this.currentSlide + 1);
+        }, this.autoplaySpeed);
+      }
+
+      stopAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+          this.autoplayInterval = null;
+        }
+      }
+
+      resetAutoplay() {
+        if (this.autoplay) {
+          this.stopAutoplay();
+          this.startAutoplay();
+        }
+      }
+
+      disconnectedCallback() {
+        this.stopAutoplay();
+      }
+    }
+
+    customElements.define('vertical-text-slideshow-{{ ai_gen_id }}', VerticalTextSlideshow{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "縦書きテキストスライドショー",
+  "settings": [
+    {
+      "type": "header",
+      "content": "スライド 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_1_image",
+      "label": "画像"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_1_text",
+      "label": "縦書きテキスト",
+      "default": "静かな気品"
+    },
+    {
+      "type": "header",
+      "content": "スライド 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_2_image",
+      "label": "画像"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_2_text",
+      "label": "縦書きテキスト",
+      "default": "空と真珠"
+    },
+    {
+      "type": "header",
+      "content": "スライド 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_3_image",
+      "label": "画像"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_3_text",
+      "label": "縦書きテキスト",
+      "default": "お守りのような存在"
+    },
+    {
+      "type": "header",
+      "content": "スライドショー設定"
+    },
+    {
+      "type": "range",
+      "id": "slideshow_height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "高さ",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "自動再生",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "秒",
+      "label": "自動再生速度",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "transition_speed",
+      "min": 0.5,
+      "max": 2,
+      "step": 0.5,
+      "unit": "秒",
+      "label": "トランジション速度",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "矢印を表示",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "ドットを表示",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "テキストパネルスタイル"
+    },
+    {
+      "type": "color",
+      "id": "text_panel_bg_color",
+      "label": "背景色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "テキスト色",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "テキストサイズ",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "コントロールスタイル"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "ドット色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg_color",
+      "label": "矢印背景色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "矢印色",
+      "default": "#4b4b4b"
+    }
+  ],
+  "presets": [
+    {
+      "name": "縦書きテキストスライドショー"
+    }
+  ]
+}
+{% endschema %}
