@@ -1,6 +1,518 @@
+{% doc %}
+  @prompt
+    3枚のスライドショー
+    カルーセルは中央下部に白点で表現。
+    
+    画像の真ん中にロゴとコンセプト文章を入れる。(中央揃え)
+    フォントと改行が自由にできるようにカスタマイズ
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-slideshow-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+  }
+
+  .ai-slideshow-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.slideshow_height }}px;
+  }
+
+  .ai-slideshow-slides-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-slideshow-slide-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+  }
+
+  .ai-slideshow-slide-{{ ai_gen_id }}.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .ai-slideshow-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-slideshow-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-slideshow-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .ai-slideshow-content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+  }
+
+  .ai-slideshow-logo-{{ ai_gen_id }} {
+    margin-bottom: {{ block.settings.logo_margin_bottom }}px;
+  }
+
+  .ai-slideshow-logo-{{ ai_gen_id }} img {
+    max-width: {{ block.settings.logo_width }}px;
+    height: auto;
+  }
+
+  .ai-slideshow-text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: {{ block.settings.line_height }};
+    white-space: pre-wrap;
+    font-family: {{ block.settings.text_font.family }}, {{ block.settings.text_font.fallback_families }};
+    font-weight: {{ block.settings.text_font.weight }};
+    font-style: {{ block.settings.text_font.style }};
+  }
+
+  .ai-slideshow-dots-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: {{ block.settings.dots_bottom_position }}px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: {{ block.settings.dots_gap }}px;
+    z-index: 3;
+  }
+
+  .ai-slideshow-dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    opacity: {{ block.settings.dot_opacity }};
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-slideshow-dot-{{ ai_gen_id }}.active {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-slideshow-wrapper-{{ ai_gen_id }} {
+      height: {{ block.settings.slideshow_height_mobile }}px;
+    }
+
+    .ai-slideshow-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_mobile }}px;
+    }
+
+    .ai-slideshow-logo-{{ ai_gen_id }} img {
+      max-width: {{ block.settings.logo_width_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<slideshow-carousel-{{ ai_gen_id }} class="ai-slideshow-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-slideshow-wrapper-{{ ai_gen_id }}">
+    <div class="ai-slideshow-slides-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        {% liquid
+          assign image_key = 'slide_' | append: i | append: '_image'
+          assign text_key = 'slide_' | append: i | append: '_text'
+          assign logo_key = 'slide_' | append: i | append: '_logo'
+          
+          assign slide_image = block.settings[image_key]
+          assign slide_text = block.settings[text_key]
+          assign slide_logo = block.settings[logo_key]
+        %}
+        
+        <div class="ai-slideshow-slide-{{ ai_gen_id }} {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.index }}">
+          {% if slide_image %}
+            <img
+              src="{{ slide_image | image_url: width: 2000 }}"
+              alt="{{ slide_image.alt | escape }}"
+              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+              width="{{ slide_image.width }}"
+              height="{{ slide_image.height }}"
+              class="ai-slideshow-image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-slideshow-placeholder-{{ ai_gen_id }}">
+              {{ 'hero-apparel-1' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+          
+          <div class="ai-slideshow-content-{{ ai_gen_id }}">
+            {% if slide_logo %}
+              <div class="ai-slideshow-logo-{{ ai_gen_id }}">
+                <img
+                  src="{{ slide_logo | image_url: width: 800 }}"
+                  alt="Logo"
+                  loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                  width="{{ slide_logo.width }}"
+                  height="{{ slide_logo.height }}"
+                >
+              </div>
+            {% endif %}
+            
+            {% if slide_text != blank %}
+              <div class="ai-slideshow-text-{{ ai_gen_id }}">{{ slide_text }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div class="ai-slideshow-dots-{{ ai_gen_id }}">
+      {% for i in (1..3) %}
+        <button
+          class="ai-slideshow-dot-{{ ai_gen_id }} {% if forloop.first %}active{% endif %}"
+          data-slide="{{ forloop.index }}"
+          aria-label="スライド {{ forloop.index }} に移動"
+        ></button>
+      {% endfor %}
+    </div>
+  </div>
+</slideshow-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class SlideshowCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentSlide = 1;
+        this.totalSlides = 3;
+        this.autoplayInterval = null;
+      }
+
+      connectedCallback() {
+        this.slides = this.querySelectorAll('.ai-slideshow-slide-{{ ai_gen_id }}');
+        this.dots = this.querySelectorAll('.ai-slideshow-dot-{{ ai_gen_id }}');
+        
+        this.setupEventListeners();
+        this.startAutoplay();
+      }
+
+      setupEventListeners() {
+        this.dots.forEach((dot) => {
+          dot.addEventListener('click', (e) => {
+            const slideNumber = parseInt(e.target.dataset.slide);
+            this.goToSlide(slideNumber);
+            this.resetAutoplay();
+          });
+        });
+      }
+
+      goToSlide(slideNumber) {
+        this.slides.forEach((slide) => {
+          slide.classList.remove('active');
+        });
+        this.dots.forEach((dot) => {
+          dot.classList.remove('active');
+        });
+
+        this.slides[slideNumber - 1].classList.add('active');
+        this.dots[slideNumber - 1].classList.add('active');
+        this.currentSlide = slideNumber;
+      }
+
+      nextSlide() {
+        let next = this.currentSlide + 1;
+        if (next > this.totalSlides) {
+          next = 1;
+        }
+        this.goToSlide(next);
+      }
+
+      startAutoplay() {
+        const autoplayEnabled = {{ block.settings.autoplay }};
+        const autoplaySpeed = {{ block.settings.autoplay_speed }} * 1000;
+        
+        if (autoplayEnabled) {
+          this.autoplayInterval = setInterval(() => {
+            this.nextSlide();
+          }, autoplaySpeed);
+        }
+      }
+
+      resetAutoplay() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+          this.startAutoplay();
+        }
+      }
+
+      disconnectedCallback() {
+        if (this.autoplayInterval) {
+          clearInterval(this.autoplayInterval);
+        }
+      }
+    }
+
+    customElements.define('slideshow-carousel-{{ ai_gen_id }}', SlideshowCarousel{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "スライドショー",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "スライドショー設定"
+    },
+    {
+      "type": "range",
+      "id": "slideshow_height",
+      "label": "高さ（デスクトップ）",
+      "min": 300,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "slideshow_height_mobile",
+      "label": "高さ（モバイル）",
+      "min": 200,
+      "max": 700,
+      "step": 50,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "自動再生",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "自動再生速度",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "秒",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "ドット設定"
+    },
+    {
+      "type": "range",
+      "id": "dots_bottom_position",
+      "label": "下からの位置",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "label": "ドットサイズ",
+      "min": 6,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "dots_gap",
+      "label": "ドット間隔",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "ドット色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "dot_opacity",
+      "label": "非アクティブドット透明度",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "テキスト設定"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "フォント",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "テキストサイズ（デスクトップ）",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "テキストサイズ（モバイル）",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "label": "行の高さ",
+      "min": 1,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.5
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "テキスト色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "ロゴ設定"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "ロゴ幅（デスクトップ）",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "label": "ロゴ幅（モバイル）",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "logo_margin_bottom",
+      "label": "ロゴ下マージン",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "スライド 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_1_image",
+      "label": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_1_logo",
+      "label": "ロゴ"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_1_text",
+      "label": "テキスト"
+    },
+    {
+      "type": "header",
+      "content": "スライド 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_2_image",
+      "label": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_2_logo",
+      "label": "ロゴ"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_2_text",
+      "label": "テキスト"
+    },
+    {
+      "type": "header",
+      "content": "スライド 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_3_image",
+      "label": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide_3_logo",
+      "label": "ロゴ"
+    },
+    {
+      "type": "textarea",
+      "id": "slide_3_text",
+      "label": "テキスト"
+    }
+  ],
+  "presets": [
+    {
+      "name": "スライドショー"
+    }
+  ]
+}
 {% endschema %}
