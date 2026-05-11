@@ -9,11 +9,49 @@
  */
 {
   "sections": {
+    "177851721124d1461e": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d8e5b73_YFkqLT": {
+          "type": "ai_gen_block_d8e5b73",
+          "settings": {
+            "slideshow_height": 900,
+            "slideshow_height_mobile": 400,
+            "autoplay": false,
+            "autoplay_speed": 2,
+            "dots_bottom_position": 30,
+            "dot_size": 10,
+            "dots_gap": 10,
+            "dot_color": "#ffffff",
+            "dot_opacity": 0.5,
+            "text_font": "biz_udpmincho_n4",
+            "text_size": 12,
+            "text_size_mobile": 16,
+            "line_height": 2.5,
+            "text_color": "#ffffff",
+            "logo_width": 310,
+            "logo_width_mobile": 150,
+            "logo_margin_bottom": 0,
+            "slide_1_image": "shopify://shop_images/20260419_cielperle0299.jpg",
+            "slide_1_logo": "shopify://shop_images/CielPerle_logo_rgb_service_white_meincolor.png",
+            "slide_1_text": "スキンケアは、単なる習慣ではなく、肌を真味のようにと整え、\n心を解き放ち、「私らしく生きる力」を育むための時間。\nあなたはもっと自由に、もっと美しく。\nCiel Perle が、その一歩をやさしく支えます。",
+            "slide_2_text": "",
+            "slide_3_text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d8e5b73_YFkqLT"
+      ],
+      "settings": {}
+    },
     "177267933708d8d7ab": {
       "type": "_blocks",
       "blocks": {
         "ai_gen_block_31f9391_FaVyri": {
           "type": "ai_gen_block_31f9391",
+          "disabled": true,
           "settings": {
             "slide_1_image": "shopify://shop_images/20260419_cielperle0531.jpg",
             "slide_1_text": "Sky and Pearl. Future and Self.",
@@ -358,6 +396,7 @@
     }
   },
   "order": [
+    "177851721124d1461e",
     "177267933708d8d7ab",
     "image-with-text",
     "featured-collection"
