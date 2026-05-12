@@ -157,8 +157,8 @@
             "shadow_opacity": 0.1,
             "text": "<p><br/><br/>When you gaze up at the sky, your spirit finds a moment of true freedom.</p><p>Just as a pearl gathers its inner light over many years, your skin gains a deeper radiance the more it is cherished.</p><p>For its debut, <strong>Ciel Perle</strong> has created a booster serum designed to awaken your skin’s \"receptivity.\"</p><p>Offer a drop of pearl to your skin, pure and bare after cleansing.</p><p>It serves as a signal to soften the skin, allowing the hydration that follows to penetrate deeply into every corner.</p><p>Even amidst the rush of daily life, we hope that the moment you face yourself in the mirror, you are enveloped in a sense of liberation—like looking up at the vast sky.</p><p>Bestow your skin with the quiet elegance of a single pearl and the strength of unwavering self-love.</p>",
             "text_size": 12,
-            "text_max_width": 600,
-            "line_height": 2,
+            "text_max_width": 800,
+            "line_height": 1.6,
             "letter_spacing": 0,
             "text_color": "#4b4b4b",
             "spacing": 80,
@@ -182,8 +182,36 @@
           },
           "blocks": {}
         },
+        "ai_gen_block_f556067_cYCfRa": {
+          "type": "ai_gen_block_f556067",
+          "settings": {
+            "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
+            "overlay_opacity": 8,
+            "section_height": 80,
+            "product_image": "shopify://shop_images/20260419_cielperle0257_8d3ad7bb-f8c8-44c9-a11a-0d45ae951efb.jpg",
+            "image_aspect_ratio": 135,
+            "card_padding": 20,
+            "card_background": "#FFFFFF",
+            "label": "商品詳細",
+            "product_title_en": "Essence Serum",
+            "product_title_jp": "エッセンスセラム",
+            "product_price": "120ml　¥9,800 tax in",
+            "product_description": "肌本来の輝きを引き出す、贅沢なエッセンスセラム。厳選された天然成分が、深く浸透し、しなやかで透明感のある肌へと導きます。",
+            "label_color": "#F5F0E8",
+            "title_color": "#F5F0E8",
+            "price_color": "#F5F0E8",
+            "description_color": "#F5F0E8",
+            "label_font_size": 12,
+            "title_en_font_size": 18,
+            "title_jp_font_size": 16,
+            "price_font_size": 14,
+            "description_font_size": 14
+          },
+          "blocks": {}
+        },
         "ai_gen_block_139cc59_tXRgKd": {
           "type": "ai_gen_block_139cc59",
+          "disabled": true,
           "settings": {
             "product": "brightest-first-essence",
             "description": "<p><br/><br/><br/><br/>空はどこまでも高く。<br/>肌はどこまでも清らかに。<br/><br/></p>",
@@ -233,6 +261,7 @@
         },
         "ai_gen_block_0285db5_LkYB8F": {
           "type": "ai_gen_block_0285db5",
+          "disabled": true,
           "settings": {
             "spacer_height": 60,
             "spacer_height_mobile": 40
@@ -241,6 +270,7 @@
         },
         "ai_gen_block_0285db5_MyjdRF": {
           "type": "ai_gen_block_0285db5",
+          "disabled": true,
           "settings": {
             "spacer_height": 60,
             "spacer_height_mobile": 40
@@ -308,6 +338,48 @@
             "content_padding": 40
           },
           "blocks": {}
+        },
+        "ai_gen_block_72a1b51_LyVXdh": {
+          "type": "ai_gen_block_72a1b51",
+          "settings": {
+            "heading_text": "CONTACT",
+            "heading_font": "cormorant_n3",
+            "font_size": 48,
+            "text_color": "#4b4b4b",
+            "text_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_4f2f39b_NxTBW7": {
+          "type": "ai_gen_block_4f2f39b",
+          "settings": {
+            "description": "<p>Ciel Perle商品に関するお問い合わせは、<br/>下記のお問い合わせフォームから受け付けております。</p><p>また、Ciel Perleに関するよくあるご質問は、当サイトに掲載しております。</p><p>お問い合わせの前にぜひご覧ください。</p>",
+            "button_text": "Contact form",
+            "button_link": "",
+            "desktop_width_percent": 100,
+            "padding": 32,
+            "spacing": 24,
+            "text_alignment": "center",
+            "border_radius": 0,
+            "text_size": 13,
+            "text_color": "#4b4b4b",
+            "background_color": "#ffffff",
+            "button_text_size": 16,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0,
+            "button_border_thickness": 1,
+            "button_border_color": "#8f9eb2",
+            "button_text_color": "#8f9eb2",
+            "button_hover_background_color": "#8f9eb2",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#8f9eb2"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -317,12 +389,15 @@
         "ai_gen_block_72a1b51_Pqzcz8",
         "ai_gen_block_be5da36_xDKrHn",
         "ai_gen_block_72a1b51_QfMRCU",
+        "ai_gen_block_f556067_cYCfRa",
         "ai_gen_block_139cc59_tXRgKd",
         "ai_gen_block_ec89a6e_rig3GP",
         "ai_gen_block_0285db5_LkYB8F",
         "ai_gen_block_0285db5_MyjdRF",
         "ai_gen_block_ae48c2e_TGXdhg",
-        "ai_gen_block_f3554c2_eGz7fj"
+        "ai_gen_block_f3554c2_eGz7fj",
+        "ai_gen_block_72a1b51_LyVXdh",
+        "ai_gen_block_4f2f39b_NxTBW7"
       ],
       "settings": {}
     },
