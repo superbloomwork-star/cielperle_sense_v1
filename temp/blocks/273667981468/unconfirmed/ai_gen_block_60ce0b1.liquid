@@ -1,6 +1,318 @@
+{% doc %}
+  @prompt
+    【デザインコンセプト】
+    高級スキンケアブランドの洗練されたヒーローセクション。
+    
+    【ビジュアルの詳細】
+    ・背景画像：16:9の比率。自然光が差し込む、柔らかいベージュやダスティピンクのトーン。目を閉じてリラックスしている女性の横顔のクローズアップ。
+    ・レイアウト：すべての要素を中央揃え（Center-aligned）。
+    ・メインタイトル：「CielPerle」をセリフ体（Serif）で大きく中央に配置。色は白（#FFFFFF）。
+    ・サブテキスト：タイトルの下に配置。
+    「スキンケアは、単なる習慣ではなく、肌を真珠のように整え、心を解き放ち、『私らしく生きる力』を育むための時間。
+    あなたはもっと自由に、もっと美しく。
+    Ciel Perle が、その一歩をやさしく支えます。」
+    
+    【技術的仕様】
+    ・セクション幅：フルワイド（横幅いっぱい）
+    ・アスペクト比：PC表示で16:9を維持。
+    ・視認性：文字を読みやすくするため、背景画像に20%〜30%程度の薄いブラウン系オーバーレイを適用。
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hero-section-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+  }
+
+  .ai-hero-container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .ai-hero-image-wrapper-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-hero-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-hero-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-hero-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .ai-hero-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-hero-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+    pointer-events: none;
+  }
+
+  .ai-hero-content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    z-index: 1;
+  }
+
+  .ai-hero-title-{{ ai_gen_id }} {
+    font-family: {{ block.settings.title_font.family }}, {{ block.settings.title_font.fallback_families }};
+    font-weight: {{ block.settings.title_font.weight }};
+    font-style: {{ block.settings.title_font.style }};
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 {{ block.settings.text_spacing }}px 0;
+    line-height: 1.2;
+    max-width: 90%;
+  }
+
+  .ai-hero-subtext-{{ ai_gen_id }} {
+    font-family: {{ block.settings.subtext_font.family }}, {{ block.settings.subtext_font.fallback_families }};
+    font-weight: {{ block.settings.subtext_font.weight }};
+    font-style: {{ block.settings.subtext_font.style }};
+    font-size: {{ block.settings.subtext_size }}px;
+    color: {{ block.settings.subtext_color }};
+    line-height: 1.8;
+    max-width: {{ block.settings.subtext_max_width }}px;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-hero-container-{{ ai_gen_id }} {
+      padding-top: {{ block.settings.mobile_aspect_ratio }}%;
+    }
+
+    .ai-hero-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.6 }}px;
+    }
+
+    .ai-hero-subtext-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subtext_size | times: 0.8 }}px;
+      max-width: 100%;
+    }
+
+    .ai-hero-content-{{ ai_gen_id }} {
+      padding: 30px 15px;
+    }
+  }
+{% endstyle %}
+
+<hero-section-{{ ai_gen_id }} class="ai-hero-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-hero-container-{{ ai_gen_id }}">
+    <div class="ai-hero-image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.background_image %}
+        <img
+          src="{{ block.settings.background_image | image_url: width: 2000 }}"
+          alt="{{ block.settings.background_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.background_image.width }}"
+          height="{{ block.settings.background_image.height }}"
+          class="ai-hero-image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-hero-placeholder-{{ ai_gen_id }}">
+          {{ 'hero-apparel-1' | placeholder_svg_tag }}
+          <div class="ai-hero-empty-state-{{ ai_gen_id }}">
+            背景画像を追加してください
+          </div>
+        </div>
+      {% endif %}
+      <div class="ai-hero-overlay-{{ ai_gen_id }}"></div>
+    </div>
+
+    <div class="ai-hero-content-{{ ai_gen_id }}">
+      {% if block.settings.title != blank %}
+        <h1 class="ai-hero-title-{{ ai_gen_id }}">{{ block.settings.title }}</h1>
+      {% endif %}
+
+      {% if block.settings.subtext != blank %}
+        <div class="ai-hero-subtext-{{ ai_gen_id }}">{{ block.settings.subtext }}</div>
+      {% endif %}
+    </div>
+  </div>
+</hero-section-{{ ai_gen_id }}>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Luxury hero section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "背景画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "背景画像"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "オーバーレイカラー",
+      "default": "#8B7355"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "オーバーレイの不透明度",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "mobile_aspect_ratio",
+      "min": 100,
+      "max": 150,
+      "step": 5,
+      "unit": "%",
+      "label": "モバイルアスペクト比",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "タイトル"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "タイトル",
+      "default": "CielPerle"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "label": "タイトルフォント",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "タイトルサイズ",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "タイトルカラー",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "サブテキスト"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "サブテキスト",
+      "default": "スキンケアは、単なる習慣ではなく、肌を真珠のように整え、心を解き放ち、『私らしく生きる力』を育むための時間。\nあなたはもっと自由に、もっと美しく。\nCiel Perle が、その一歩をやさしく支えます。"
+    },
+    {
+      "type": "font_picker",
+      "id": "subtext_font",
+      "label": "サブテキストフォント",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "サブテキストサイズ",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "サブテキストカラー",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "subtext_max_width",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "label": "サブテキスト最大幅",
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "text_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "タイトルとサブテキストの間隔",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury hero section"
+    }
+  ]
+}
 {% endschema %}
