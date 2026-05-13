@@ -769,6 +769,90 @@
             "spacing_mobile": 30
           },
           "blocks": {}
+        },
+        "ai_gen_block_1f53d73_nbEED9": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_fNha7G": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b91897f_FaAxRb": {
+          "type": "ai_gen_block_b91897f",
+          "settings": {
+            "title": "",
+            "description": "<p>ご使用上の注意</p><p>お肌に異常が生じていないかよく注意して使用してください。化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医等にご相談されることをおすすめします。</p><p>(1)使用中、赤味、はれ、かゆみ、刺激、色抜け(白斑等)や黒ずみ等の異常があらわれた場合</p><p>(2)使用したお肌に、直接日光があたって上記のような異常があらわれた場合</p><p>傷やはれもの、しっしん等、異常のある部位にはお使いにならないでください</p><p>目に入らないようご注意ください。目に入った場合はこすらず、すぐに水で洗い流してください。</p><p>合成成分の特性上、ロットや経時変化により色味の違いや分離が生じる場合がございますが、品質には問題ございません。</p>",
+            "spacing": 0,
+            "padding": 15,
+            "desktop_width_percent": 100,
+            "title_size": 18,
+            "title_color": "#707070",
+            "title_weight": "300",
+            "description_size": 18,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_a3yCJC": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_RGL443": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_WbeiyU": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b91897f_WNFWBi": {
+          "type": "ai_gen_block_b91897f",
+          "settings": {
+            "title": "",
+            "description": "<p>配送方法・配送時間の指定</p><p>配送方法:クロネコヤマト便(ヤマト運輸)配送時間の指定について下記の時間帯指定が可能でございます。ご希望の方は、ご購入の際にご指定頂きますようお願いいたします。</p><p>午前中、14:00〜16:00、16:00〜18:00、18:00〜20:00、19:00〜21:00のいずれかでご指定可能です。</p><p>送料</p><p>ご注文金額が税込13,000円以上の場合、送料は以下のとおりとなります。</p>",
+            "spacing": 0,
+            "padding": 15,
+            "desktop_width_percent": 100,
+            "title_size": 18,
+            "title_color": "#707070",
+            "title_weight": "300",
+            "description_size": 18,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_DqecUt": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -796,7 +880,15 @@
         "ai_gen_block_1f53d73_qyhdfi",
         "ai_gen_block_8f0134b_Cq7cDM",
         "ai_gen_block_2b4055d_tHMm7n",
-        "ai_gen_block_8f0134b_amYKb4"
+        "ai_gen_block_8f0134b_amYKb4",
+        "ai_gen_block_1f53d73_nbEED9",
+        "ai_gen_block_8f0134b_fNha7G",
+        "ai_gen_block_b91897f_FaAxRb",
+        "ai_gen_block_8f0134b_a3yCJC",
+        "ai_gen_block_1f53d73_RGL443",
+        "ai_gen_block_8f0134b_WbeiyU",
+        "ai_gen_block_b91897f_WNFWBi",
+        "ai_gen_block_8f0134b_DqecUt"
       ],
       "settings": {}
     }
