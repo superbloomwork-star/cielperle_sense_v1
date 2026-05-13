@@ -443,7 +443,7 @@
             "description": "<p>水の代わりに、より保湿力の高い「コラーゲン水を80%以上」配合。コラーゲン由来のアミノ酸やペプチドが角質層に親和し、うるおいを抱え込む土台を形成します。肌を満たしながらキメを整え、表面だけでなく内側から(※角質層まで)みずみずしく光を放つ\"水光肌\"へ導きます。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -461,7 +461,7 @@
             "description": "<p>高い保湿力と浸透性があるヒアルロン酸Naに加え、楊貴妃も美容のために用いたと伝えられるシロキクラゲ由来の多糖体などの高保水成分をバランスよく配合。角質層にうるおいを与え、時間が経っても乾燥しにくい肌へ整えます。時間が経ってもうるおいが逃げにくい設計です。日中の乾燥によるくすみやメイク崩れを防ぎ、素肌そのものがしっとりと艶めく状態を保ちます。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -479,7 +479,7 @@
             "description": "<p>発酵技術により整えられた成分が、角質層まで浸透。保湿成分が、うるおいを与え、なめらかな肌へ導き、美容成分を受け取りやすい肌状態へ整えます。導入美容液として使うことで、内側から光がにじむような、なめらかで透明感のある質感を引き出します。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -497,7 +497,7 @@
             "description": "<p>α-ｱﾙﾌﾞﾁﾝに加え、セイヨウネズ果実エキスやセイヨウオオバコ種子エキスを配合。乾燥によるくすみを防ぎ、うるおいに満ちた明るい印象の肌へ導きます。角層までうるおいを届け、光を美しく反射する澄んだ透明感のある肌へ。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -515,7 +515,7 @@
             "description": "<p>ナイアシンアミドや発酵由来成分(※コメ発酵液、乳酸桿菌/乳発酵液など)を配合。乾燥によるくすみを防ぎ、うるおいを与えることで、明るく健やかな印象の肌へ導きます。いきいきとしたツヤ感のある肌印象へ。忙しい日々で肌の元気が失われがちな方にもおすすめのアプローチです。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -533,7 +533,7 @@
             "description": "<p>水溶性プロテオグリカンや加水分解コラーゲンエキスが角質水分量を高め、肌の弾力をサポート。ハリ不足にアプローチし、内側から押し返すようなふっくら感を与えます。使うたびに、なめらかで立体感のある肌印象へ導きます。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -551,7 +551,7 @@
             "description": "<p>抗糖化作用を持つカルノシンと発酵イソフラボン(アスペルギルス/ダイズ種子エキス発酵エキス液)を配合。年齢によるくすみ印象やハリ不足に多角的にアプローチ。乾燥による黄ぐすみを防ぎ、ハリのある印象へ。透明感と弾力を同時に守り、肌本来の若々しい質感を保つエイジング対策です。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -569,7 +569,43 @@
             "description": "<p>アルテロモナス発酵エキスを中心に、うるおいにより乾燥から肌を守ります。乾燥や紫外線、環境ストレスによって乱れがちな角質層を整え、外部刺激から肌を守ります。ダメージを受けた肌を整えながら、水分保持力を高め、ゆらぎにくく安定したツヤ肌へ。毎日のケアで、コンディションに左右されない健やかな肌状態を維持します。</p>",
             "content_width": 50,
             "spacing": 8,
-            "padding": 12,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_8QCyDw": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_fDnTx4": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 60,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_3HnQa8": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "８. 外的刺激に負けない安定した輝きを保つバリア機能サポート",
+            "image": "shopify://shop_images/2__1-08.jpg",
+            "description": "<p>アルテロモナス発酵エキスを中心に、うるおいにより乾燥から肌を守ります。乾燥や紫外線、環境ストレスによって乱れがちな角質層を整え、外部刺激から肌を守ります。ダメージを受けた肌を整えながら、水分保持力を高め、ゆらぎにくく安定したツヤ肌へ。毎日のケアで、コンディションに左右されない健やかな肌状態を維持します。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
@@ -588,11 +624,18 @@
         "ai_gen_block_2b4055d_MwyHR8",
         "ai_gen_block_2b4055d_hRyk88",
         "ai_gen_block_2b4055d_GCWybY",
-        "ai_gen_block_2b4055d_WEmnFC"
+        "ai_gen_block_2b4055d_WEmnFC",
+        "ai_gen_block_1f53d73_8QCyDw",
+        "ai_gen_block_8f0134b_fDnTx4",
+        "ai_gen_block_2b4055d_3HnQa8"
       ],
       "custom_css": [
         ".説明文のクラス {text-align: justify; text-align-last: left;}"
       ],
+      "settings": {}
+    },
+    "17786675861f68031a": {
+      "type": "_blocks",
       "settings": {}
     }
   },
@@ -600,6 +643,7 @@
     "177851721124d1461e",
     "177267933708d8d7ab",
     "featured-collection",
-    "177865441852f01f17"
+    "177865441852f01f17",
+    "17786675861f68031a"
   ]
 }
