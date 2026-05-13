@@ -589,7 +589,7 @@
           },
           "blocks": {}
         },
-        "ai_gen_block_8f0134b_fDnTx4": {
+        "ai_gen_block_8f0134b_DUn6fm": {
           "type": "ai_gen_block_8f0134b",
           "settings": {
             "spacing_desktop": 50,
@@ -633,11 +633,65 @@
           },
           "blocks": {}
         },
-        "ai_gen_block_8f0134b_EdynzW": {
+        "ai_gen_block_8f0134b_hAeyHP": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 20,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_pfjQjx": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_fDnTx4": {
           "type": "ai_gen_block_8f0134b",
           "settings": {
             "spacing_desktop": 50,
             "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_AkRtim": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "香り",
+            "image": "shopify://shop_images/2__1-08.jpg",
+            "description": "<p>ゼラニウムの香りが心身のパランスを整えるような穏やかなアロマを感じる仕上がり。肌だけでなく、気分までやさしくリセットするスキンケア体験を提供します。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_EdynzW": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 20,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_gdDFaE": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
           },
           "blocks": {}
         }
@@ -652,10 +706,15 @@
         "ai_gen_block_2b4055d_GCWybY",
         "ai_gen_block_2b4055d_WEmnFC",
         "ai_gen_block_1f53d73_8QCyDw",
-        "ai_gen_block_8f0134b_fDnTx4",
+        "ai_gen_block_8f0134b_DUn6fm",
         "ai_gen_block_2b4055d_3HnQa8",
         "ai_gen_block_2b4055d_9hLbjP",
-        "ai_gen_block_8f0134b_EdynzW"
+        "ai_gen_block_8f0134b_hAeyHP",
+        "ai_gen_block_1f53d73_pfjQjx",
+        "ai_gen_block_8f0134b_fDnTx4",
+        "ai_gen_block_2b4055d_AkRtim",
+        "ai_gen_block_8f0134b_EdynzW",
+        "ai_gen_block_1f53d73_gdDFaE"
       ],
       "custom_css": [
         ".説明文のクラス {text-align: justify; text-align-last: left;}"
