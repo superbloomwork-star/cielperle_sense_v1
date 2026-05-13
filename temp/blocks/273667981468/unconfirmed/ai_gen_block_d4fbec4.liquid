@@ -1,6 +1,338 @@
+{% doc %}
+  @prompt
+    【デザイン要件：ブランドストーリーセクション】
+    ・全体の構成：2カラムレイアウト。左側に商品イメージ画像、右側にブランドメッセージテキストを配置。
+    ・背景色：清潔感のある白（#FFFFFF）。
+    
+    【左側：ビジュアルの詳細】
+    ・画像の内容：商品のボトルと外箱が並んだ物撮り写真。
+    ・トーン：ニュートラルで落ち着いたグレー、ベージュ、ホワイトのトーン。柔らかい自然光と影を感じる高品質な質感。
+    
+    【右側：テキスト内容とスタイル】
+    ・レイアウト：中央揃え（Center-aligned）。
+    ・フォント：エレガントなセリフ体（Serif）。
+    ・配色：チャコールグレーまたは深いグレー。
+    
+    •ブランドロゴ
+    
+    •ロゴのふりがな
+    
+    ・メインストーリー（適切な行間で配置）：
+    空を見上げると、心がふっと軽くなる。
+    自分に自信を持つと、自然と視線は上を向き、歩く姿も凛と美しくなる。
+    そんな“前を向く力”を象徴するのが、空＝Ciel。
+    
+    そして、真珠＝Perleは、長い時をかけて生まれる自然の宝石。
+    白く艶やかで、きめ細やかな光を放つその姿は、理想とする肌の象徴です。
+    派手ではなく、静かな気品をたたえるその美しさは、
+    自分を受け入れ、穏やかに輝く心を映し出します。
+    , 左はすべてが画像にして
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-brand-story-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-brand-story-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-brand-story-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.column_gap }}px;
+    align-items: center;
+  }
+
+  .ai-brand-story-image-column-{{ ai_gen_id }} {
+    width: 100%;
+    position: relative;
+  }
+
+  .ai-brand-story-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ai-brand-story-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-brand-story-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-brand-story-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-brand-story-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-brand-story-text-column-{{ ai_gen_id }} {
+    width: 100%;
+    text-align: center;
+    padding: {{ block.settings.text_padding }}px;
+  }
+
+  .ai-brand-story-text-{{ ai_gen_id }} {
+    font-family: {{ block.settings.story_font.family }}, {{ block.settings.story_font.fallback_families }};
+    font-weight: {{ block.settings.story_font.weight }};
+    font-size: {{ block.settings.story_font_size }}px;
+    line-height: {{ block.settings.story_line_height }};
+    color: {{ block.settings.text_color }};
+    white-space: pre-line;
+  }
+
+  .ai-brand-story-text-{{ ai_gen_id }} p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-brand-story-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_gap }}px;
+    }
+
+    .ai-brand-story-text-column-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_text_padding }}px;
+    }
+
+    .ai-brand-story-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_font_size }}px;
+    }
+  }
+{% endstyle %}
+
+<brand-story-{{ ai_gen_id }} class="ai-brand-story-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-brand-story-container-{{ ai_gen_id }}">
+    <div class="ai-brand-story-grid-{{ ai_gen_id }}">
+      <div class="ai-brand-story-image-column-{{ ai_gen_id }}">
+        <div class="ai-brand-story-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.product_image %}
+            <img
+              src="{{ block.settings.product_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.product_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.product_image.width }}"
+              height="{{ block.settings.product_image.height }}"
+              class="ai-brand-story-image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-brand-story-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+              <div class="ai-brand-story-empty-state-{{ ai_gen_id }}">
+                商品画像を追加してください
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-brand-story-text-column-{{ ai_gen_id }}">
+        {% if block.settings.brand_story != blank %}
+          <div class="ai-brand-story-text-{{ ai_gen_id }}">
+            {{ block.settings.brand_story }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</brand-story-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class BrandStory{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+
+    customElements.define('brand-story-{{ ai_gen_id }}', BrandStory{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Brand story",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "商品画像"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "画像の角丸",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "ブランドストーリー"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_story",
+      "label": "ストーリーテキスト"
+    },
+    {
+      "type": "font_picker",
+      "id": "story_font",
+      "label": "ストーリーフォント",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "story_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "フォントサイズ（デスクトップ）",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "フォントサイズ（モバイル）",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "story_line_height",
+      "min": 1,
+      "max": 2.5,
+      "step": 0.1,
+      "label": "行間",
+      "default": 1.8
+    },
+    {
+      "type": "header",
+      "content": "色"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "テキスト色",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "コンテナ幅",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "セクション上下余白",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "カラム間隔（デスクトップ）",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "カラム間隔（モバイル）",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "text_padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "テキストエリア内余白（デスクトップ）",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "テキストエリア内余白（モバイル）",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand story"
+    }
+  ]
+}
 {% endschema %}
