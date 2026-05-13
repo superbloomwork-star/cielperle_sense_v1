@@ -1,6 +1,380 @@
+{% doc %}
+  @prompt
+    【デザイン要件：ヒーローセクション】
+    ・背景画像：アスペクト比 16:9。横顔の女性のクローズアップ。全体的に柔らかなセピア～ベージュのトーンで、淡い光が差し込んでいるような幻想的な質感。
+    ・画面サイズ：PC表示で横幅いっぱいのフルワイド（Full-width）。
+    ・レイアウト：中央揃え（Center-aligned）。
+    ・メイン見出し：「CielPerle」
+    ・見出しスタイル：白字、エレガントなセリフ体（Serif）、大きなフォントサイズ。
+    ・説明文（下記をコピー）：
+    スキンケアは、単なる習慣ではなく、肌を真珠のように整え、
+    心を解き放ち、「私らしく生きる力」を育むための時間。
+    あなたはもっと自由に、もっと美しく。
+    Ciel Perle が、その一歩をやさしく支えます。
+    ・その他：画像全体に薄いブラウンのオーバーレイをかけ、文字の視認性を確保。下部にスライドドットを表示。
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hero-section-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    display: block;
+  }
+
+  .ai-hero-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-hero-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-hero-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-hero-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .ai-hero-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-hero-overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+    pointer-events: none;
+  }
+
+  .ai-hero-content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    z-index: 2;
+  }
+
+  .ai-hero-heading-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-style: {{ block.settings.heading_font.style }};
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 {{ block.settings.text_spacing }}px;
+    line-height: 1.2;
+  }
+
+  .ai-hero-description-{{ ai_gen_id }} {
+    font-family: {{ block.settings.description_font.family }}, {{ block.settings.description_font.fallback_families }};
+    font-weight: {{ block.settings.description_font.weight }};
+    font-style: {{ block.settings.description_font.style }};
+    color: {{ block.settings.description_color }};
+    font-size: {{ block.settings.description_size }}px;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .ai-hero-dots-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+  }
+
+  .ai-hero-dot-{{ ai_gen_id }} {
+    width: {{ block.settings.dot_size }}px;
+    height: {{ block.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ block.settings.dot_color }};
+    opacity: {{ block.settings.dot_opacity | divided_by: 100.0 }};
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+
+  .ai-hero-dot-{{ ai_gen_id }}.active {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-hero-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.6 }}px;
+    }
+
+    .ai-hero-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size | times: 0.8 }}px;
+    }
+
+    .ai-hero-content-{{ ai_gen_id }} {
+      width: 85%;
+    }
+  }
+{% endstyle %}
+
+<hero-section-{{ ai_gen_id }}
+  class="ai-hero-section-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-hero-image-wrapper-{{ ai_gen_id }}">
+    {% if block.settings.hero_image %}
+      <img
+        src="{{ block.settings.hero_image | image_url: width: 2000 }}"
+        alt="{{ block.settings.hero_image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.hero_image.width }}"
+        height="{{ block.settings.hero_image.height }}"
+        class="ai-hero-image-{{ ai_gen_id }}"
+      >
+    {% else %}
+      <div class="ai-hero-placeholder-{{ ai_gen_id }}">
+        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+        <div class="ai-hero-empty-state-{{ ai_gen_id }}">
+          背景画像を追加してください
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="ai-hero-overlay-{{ ai_gen_id }}"></div>
+
+    <div class="ai-hero-content-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}
+        <h1 class="ai-hero-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h1>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="ai-hero-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.show_dots %}
+      <div class="ai-hero-dots-{{ ai_gen_id }}">
+        {% for i in (1..block.settings.dot_count) %}
+          <button
+            class="ai-hero-dot-{{ ai_gen_id }} {% if forloop.first %}active{% endif %}"
+            aria-label="スライド {{ i }}"
+          ></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</hero-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class HeroSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.dots = this.querySelectorAll('.ai-hero-dot-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            this.dots.forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+          });
+        });
+      }
+    }
+
+    customElements.define('hero-section-{{ ai_gen_id }}', HeroSection{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Hero section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "背景画像"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "オーバーレイカラー",
+      "default": "#8B6F47"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "オーバーレイ不透明度",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "見出し"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "見出しテキスト",
+      "default": "CielPerle"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "見出しフォント",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "見出しサイズ",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "見出しカラー",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "説明文"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "説明文テキスト",
+      "default": "<p>スキンケアは、単なる習慣ではなく、肌を真珠のように整え、<br>心を解き放ち、「私らしく生きる力」を育むための時間。<br>あなたはもっと自由に、もっと美しく。<br>Ciel Perle が、その一歩をやさしく支えます。</p>"
+    },
+    {
+      "type": "font_picker",
+      "id": "description_font",
+      "label": "説明文フォント",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "説明文サイズ",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "説明文カラー",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "text_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "見出しと説明文の間隔",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "スライドドット"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "ドットを表示",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "dot_count",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "ドット数",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "min": 6,
+      "max": 16,
+      "step": 2,
+      "unit": "px",
+      "label": "ドットサイズ",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "ドットカラー",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "dot_opacity",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "非アクティブドット不透明度",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero section"
+    }
+  ]
+}
 {% endschema %}
