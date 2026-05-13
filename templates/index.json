@@ -710,7 +710,7 @@
             "description": "",
             "content_width": 50,
             "spacing": 8,
-            "padding": 16,
+            "padding": 0,
             "text_alignment": "left",
             "title_size": 18,
             "title_color": "#707070",
