@@ -44,6 +44,7 @@
       "block_order": [
         "ai_gen_block_d8e5b73_YFkqLT"
       ],
+      "disabled": true,
       "settings": {}
     },
     "177267933708d8d7ab": {
@@ -191,16 +192,16 @@
             "product_image": "shopify://shop_images/20260419_cielperle0257_8d3ad7bb-f8c8-44c9-a11a-0d45ae951efb.jpg",
             "image_aspect_ratio": 135,
             "card_padding": 20,
-            "card_background": "#FFFFFF",
+            "card_background": "#ffffff",
             "label": "商品詳細",
             "product_title_en": "Essence Serum",
             "product_title_jp": "エッセンスセラム",
             "product_price": "120ml　¥9,800 tax in",
             "product_description": "肌本来の輝きを引き出す、贅沢なエッセンスセラム。厳選された天然成分が、深く浸透し、しなやかで透明感のある肌へと導きます。",
-            "label_color": "#F5F0E8",
-            "title_color": "#F5F0E8",
-            "price_color": "#F5F0E8",
-            "description_color": "#F5F0E8",
+            "label_color": "#f5f0e8",
+            "title_color": "#f5f0e8",
+            "price_color": "#f5f0e8",
+            "description_color": "#f5f0e8",
             "label_font_size": 12,
             "title_en_font_size": 18,
             "title_jp_font_size": 16,
@@ -399,46 +400,8 @@
         "ai_gen_block_72a1b51_LyVXdh",
         "ai_gen_block_4f2f39b_NxTBW7"
       ],
+      "disabled": true,
       "settings": {}
-    },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our Philosophy",
-            "heading_size": "h2"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "View",
-            "button_link": "shopify://policies/privacy-policy",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/20260419_cielperle0082.jpg",
-        "height": "large",
-        "desktop_image_width": "large",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     },
     "featured-collection": {
       "type": "featured-collection",
@@ -468,12 +431,77 @@
         "padding_top": 56,
         "padding_bottom": 68
       }
+    },
+    "177865441852f01f17": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2b4055d_bgB9mD": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "１. うるおいそのものを肌に仕込む高密度保湿",
+            "description": "<p>水の代わりに、より保湿力の高い「コラーゲン水を80%以上」配合。コラーゲン由来のアミノ酸やペプチドが角質層に親和し、うるおいを抱え込む土台を形成します。肌を満たしながらキメを整え、表面だけでなく内側から（※角質層まで）みずみずしく光を放つ・水光肌\"へ導きます。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 8,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_DHQKxx": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "２. みずみずしさが続く持続型モイスチャーケア",
+            "description": "<p>高い保湿力と浸透性があるヒアルロン酸Naに加え、楊貴妃も美容のために用いたと伝えられるシロキクラゲ由来の多糖体などの高保水成分をバランスよく配合。角質層にうるおいを与え、時間が経っても乾燥しにくい肌へ整えます。時間が経ってもうるおいが逃げにくい設計です。日中の乾燥によるくすみやメイク崩れを防ぎ、素肌そのものがしっとりと艶めく状態を保ちます。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 8,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_VnBEmi": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "３. 発酵の力で角質までなじむ高い浸透力",
+            "description": "<p>高い保湿力と浸透性があるヒアルロン酸Naに加え、楊貴妃も美容のために用いたと伝えられるシロキクラゲ由来の多糖体などの高保水成分をバランスよく配合。角質層にうるおいを与え、時間が経っても乾燥しにくい肌へ整えます。時間が経ってもうるおいが逃げにくい設計です。日中の乾燥によるくすみやメイク崩れを防ぎ、素肌そのものがしっとりと艶めく状態を保ちます。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 8,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2b4055d_bgB9mD",
+        "ai_gen_block_2b4055d_DHQKxx",
+        "ai_gen_block_2b4055d_VnBEmi"
+      ],
+      "custom_css": [
+        ".説明文のクラス {text-align: justify; text-align-last: left;}"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "177851721124d1461e",
     "177267933708d8d7ab",
-    "image-with-text",
-    "featured-collection"
+    "featured-collection",
+    "177865441852f01f17"
   ]
 }
