@@ -697,7 +697,7 @@
         "ai_gen_block_8f0134b_LwctMj": {
           "type": "ai_gen_block_8f0134b",
           "settings": {
-            "spacing_desktop": 50,
+            "spacing_desktop": 40,
             "spacing_mobile": 30
           },
           "blocks": {}
@@ -743,6 +743,32 @@
             "spacing_mobile": 30
           },
           "blocks": {}
+        },
+        "ai_gen_block_2b4055d_tHMm7n": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "角質層までうるおいを与え、ツヤとハリのある水光肌へ。",
+            "image": "shopify://shop_images/2__1-08.jpg",
+            "description": "<p>洗顔後、適量(5〜6プッシュ)を手に取り、顔や首になじませてください。</p><p>また、全身にもお使いいただけます。日中、乾燥が気になる際の保湿ケアにもおすすめです。</p><p>1本を使い切るまでの目安期間:1ヶ月半〜2ヶ月程度</p><p>(1回5〜6プッシュを朝晩使用した場合)</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_amYKb4": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -768,7 +794,9 @@
         "ai_gen_block_b91897f_CdFVEW",
         "ai_gen_block_8f0134b_7Jhzpg",
         "ai_gen_block_1f53d73_qyhdfi",
-        "ai_gen_block_8f0134b_Cq7cDM"
+        "ai_gen_block_8f0134b_Cq7cDM",
+        "ai_gen_block_2b4055d_tHMm7n",
+        "ai_gen_block_8f0134b_amYKb4"
       ],
       "settings": {}
     }
