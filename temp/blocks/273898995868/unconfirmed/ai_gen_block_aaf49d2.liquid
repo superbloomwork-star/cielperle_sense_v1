@@ -1,6 +1,938 @@
+{% doc %}
+  @prompt
+    【LP構成：商品詳細セクション】
+    ・全体の雰囲気：クリーン、ミニマル、高級感のあるスキンケアブランド。
+    ・レイアウト：2カラム構成（商品のメイン画像を大きく配置。その下に、テクスチャーや使用シーンを示す4枚の画像、右側にテキストと数量カウンターと購入ボタンと定期購入ボタン）ボタンは左寄せ。
+    
+    【右側下部のコンテンツ指定】
+    ・見出し：「これ1本で叶える、8つのスキンケアポイント」
+    ・説明文：「保湿・整肌・保護など、スキンケアに必要な8つの機能をバランスよく配合。毎日のケアで肌本来の美しさを引き出します。」
+    ・メディア配置：説明文の直下に、画像を1枚配置するためのスロット（プレースホルダー）を作成してください。
+    
+    【テキスト情報】
+    Moisture Veil Spray Pack
+    コラーゲンヴェール プッシュパック
+    120ml　¥9,800 tax in
+    「満ちる透明感 水光肌へ」
+    内側からうるおいがにじむような水光肌へ導く美容液。透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-detail-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-product-detail__container-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.column_gap }}px;
+  }
+
+  .ai-product-detail__left-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.image_gap }}px;
+  }
+
+  .ai-product-detail__main-image-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-product-detail__main-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-product-detail__main-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-product-detail__main-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-product-detail__sub-images-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: {{ block.settings.sub_image_gap }}px;
+  }
+
+  .ai-product-detail__sub-image-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-product-detail__sub-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-product-detail__sub-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-product-detail__sub-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-product-detail__right-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.content_gap }}px;
+  }
+
+  .ai-product-detail__product-name-en-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_name_en_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .ai-product-detail__product-name-ja-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_name_ja_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .ai-product-detail__product-info-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_info_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    font-weight: 300;
+  }
+
+  .ai-product-detail__product-price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_price_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .ai-product-detail__product-tagline-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_tagline_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    font-weight: 300;
+  }
+
+  .ai-product-detail__product-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_description_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .ai-product-detail__quantity-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ai-product-detail__quantity-label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-product-detail__quantity-controls-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-product-detail__quantity-button-{{ ai_gen_id }} {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-product-detail__quantity-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+  }
+
+  .ai-product-detail__quantity-input-{{ ai_gen_id }} {
+    width: 60px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-product-detail__buttons-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .ai-product-detail__button-{{ ai_gen_id }} {
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.primary_button_bg }};
+    color: {{ block.settings.primary_button_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_text_size }}px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    min-width: {{ block.settings.button_min_width }}px;
+    text-align: center;
+  }
+
+  .ai-product-detail__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.primary_button_hover_bg }};
+  }
+
+  .ai-product-detail__button--secondary-{{ ai_gen_id }} {
+    background-color: {{ block.settings.secondary_button_bg }};
+    color: {{ block.settings.secondary_button_color }};
+  }
+
+  .ai-product-detail__button--secondary-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.secondary_button_hover_bg }};
+  }
+
+  .ai-product-detail__features-{{ ai_gen_id }} {
+    margin-top: {{ block.settings.features_margin_top }}px;
+  }
+
+  .ai-product-detail__features-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.features_heading_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 {{ block.settings.features_heading_margin }}px 0;
+    font-weight: 400;
+  }
+
+  .ai-product-detail__features-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.features_description_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.8;
+    margin: 0 0 {{ block.settings.features_description_margin }}px 0;
+  }
+
+  .ai-product-detail__features-image-{{ ai_gen_id }} {
+    width: 100%;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-product-detail__features-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-product-detail__features-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-product-detail__features-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-detail__container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_gap }}px;
+    }
+
+    .ai-product-detail__buttons-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-product-detail__button-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<product-detail-{{ ai_gen_id }} class="ai-product-detail-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-product-detail__container-{{ ai_gen_id }}">
+    <div class="ai-product-detail__left-{{ ai_gen_id }}">
+      <div class="ai-product-detail__main-image-{{ ai_gen_id }}">
+        {% if block.settings.main_image %}
+          <img
+            src="{{ block.settings.main_image | image_url: width: 1200 }}"
+            alt="{{ block.settings.main_image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.main_image.width }}"
+            height="{{ block.settings.main_image.height }}"
+          >
+        {% else %}
+          <div class="ai-product-detail__main-image-placeholder-{{ ai_gen_id }}">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-product-detail__sub-images-{{ ai_gen_id }}">
+        {% for i in (1..4) %}
+          {% liquid
+            assign sub_image_key = 'sub_image_' | append: i
+            assign sub_image = block.settings[sub_image_key]
+          %}
+          <div class="ai-product-detail__sub-image-{{ ai_gen_id }}">
+            {% if sub_image %}
+              <img
+                src="{{ sub_image | image_url: width: 400 }}"
+                alt="{{ sub_image.alt | escape }}"
+                loading="lazy"
+                width="{{ sub_image.width }}"
+                height="{{ sub_image.height }}"
+              >
+            {% else %}
+              <div class="ai-product-detail__sub-image-placeholder-{{ ai_gen_id }}">
+                {{ 'product-1' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ai-product-detail__right-{{ ai_gen_id }}">
+      {% if block.settings.product_name_en != blank %}
+        <h2 class="ai-product-detail__product-name-en-{{ ai_gen_id }}">{{ block.settings.product_name_en }}</h2>
+      {% endif %}
+
+      {% if block.settings.product_name_ja != blank %}
+        <h3 class="ai-product-detail__product-name-ja-{{ ai_gen_id }}">{{ block.settings.product_name_ja }}</h3>
+      {% endif %}
+
+      {% if block.settings.product_info != blank %}
+        <p class="ai-product-detail__product-info-{{ ai_gen_id }}">{{ block.settings.product_info }}</p>
+      {% endif %}
+
+      {% if block.settings.product_price != blank %}
+        <p class="ai-product-detail__product-price-{{ ai_gen_id }}">{{ block.settings.product_price }}</p>
+      {% endif %}
+
+      {% if block.settings.product_tagline != blank %}
+        <p class="ai-product-detail__product-tagline-{{ ai_gen_id }}">{{ block.settings.product_tagline }}</p>
+      {% endif %}
+
+      {% if block.settings.product_description != blank %}
+        <div class="ai-product-detail__product-description-{{ ai_gen_id }}">{{ block.settings.product_description }}</div>
+      {% endif %}
+
+      <div class="ai-product-detail__quantity-{{ ai_gen_id }}">
+        <span class="ai-product-detail__quantity-label-{{ ai_gen_id }}">{{ block.settings.quantity_label }}</span>
+        <div class="ai-product-detail__quantity-controls-{{ ai_gen_id }}">
+          <button
+            class="ai-product-detail__quantity-button-{{ ai_gen_id }}"
+            data-action="decrease"
+            aria-label="数量を減らす"
+          >
+            −
+          </button>
+          <input
+            type="number"
+            class="ai-product-detail__quantity-input-{{ ai_gen_id }}"
+            value="1"
+            min="1"
+            max="99"
+            aria-label="数量"
+          >
+          <button
+            class="ai-product-detail__quantity-button-{{ ai_gen_id }}"
+            data-action="increase"
+            aria-label="数量を増やす"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="ai-product-detail__buttons-{{ ai_gen_id }}">
+        <button class="ai-product-detail__button-{{ ai_gen_id }}">
+          {{ block.settings.purchase_button_label }}
+        </button>
+        <button class="ai-product-detail__button-{{ ai_gen_id }} ai-product-detail__button--secondary-{{ ai_gen_id }}">
+          {{ block.settings.subscription_button_label }}
+        </button>
+      </div>
+
+      <div class="ai-product-detail__features-{{ ai_gen_id }}">
+        {% if block.settings.features_heading != blank %}
+          <h4 class="ai-product-detail__features-heading-{{ ai_gen_id }}">{{ block.settings.features_heading }}</h4>
+        {% endif %}
+
+        {% if block.settings.features_description != blank %}
+          <div class="ai-product-detail__features-description-{{ ai_gen_id }}">{{ block.settings.features_description }}</div>
+        {% endif %}
+
+        <div class="ai-product-detail__features-image-{{ ai_gen_id }}">
+          {% if block.settings.features_image %}
+            <img
+              src="{{ block.settings.features_image | image_url: width: 800 }}"
+              alt="{{ block.settings.features_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.features_image.width }}"
+              height="{{ block.settings.features_image.height }}"
+            >
+          {% else %}
+            <div class="ai-product-detail__features-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</product-detail-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductDetail{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.quantityInput = this.querySelector('.ai-product-detail__quantity-input-{{ ai_gen_id }}');
+        this.decreaseButton = this.querySelector('[data-action="decrease"]');
+        this.increaseButton = this.querySelector('[data-action="increase"]');
+
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.decreaseButton.addEventListener('click', () => {
+          const currentValue = parseInt(this.quantityInput.value);
+          const minValue = parseInt(this.quantityInput.min);
+          if (currentValue > minValue) {
+            this.quantityInput.value = currentValue - 1;
+          }
+        });
+
+        this.increaseButton.addEventListener('click', () => {
+          const currentValue = parseInt(this.quantityInput.value);
+          const maxValue = parseInt(this.quantityInput.max);
+          if (currentValue < maxValue) {
+            this.quantityInput.value = currentValue + 1;
+          }
+        });
+
+        this.quantityInput.addEventListener('input', () => {
+          const value = parseInt(this.quantityInput.value);
+          const minValue = parseInt(this.quantityInput.min);
+          const maxValue = parseInt(this.quantityInput.max);
+
+          if (value < minValue) {
+            this.quantityInput.value = minValue;
+          } else if (value > maxValue) {
+            this.quantityInput.value = maxValue;
+          }
+        });
+      }
+    }
+
+    customElements.define('product-detail-{{ ai_gen_id }}', ProductDetail{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Product detail",
+  "settings": [
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Content gap",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile gap",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "メイン画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image"
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Image gap",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "サブ画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "sub_image_1",
+      "label": "Sub image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "sub_image_2",
+      "label": "Sub image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "sub_image_3",
+      "label": "Sub image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "sub_image_4",
+      "label": "Sub image 4"
+    },
+    {
+      "type": "range",
+      "id": "sub_image_gap",
+      "label": "Sub image gap",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "商品情報"
+    },
+    {
+      "type": "text",
+      "id": "product_name_en",
+      "label": "Product name (English)",
+      "default": "Moisture Veil Spray Pack"
+    },
+    {
+      "type": "text",
+      "id": "product_name_ja",
+      "label": "Product name (Japanese)",
+      "default": "コラーゲンヴェール プッシュパック"
+    },
+    {
+      "type": "text",
+      "id": "product_info",
+      "label": "Product info",
+      "default": "120ml　¥9,800 tax in"
+    },
+    {
+      "type": "text",
+      "id": "product_price",
+      "label": "Product price",
+      "default": "¥9,800"
+    },
+    {
+      "type": "text",
+      "id": "product_tagline",
+      "label": "Product tagline",
+      "default": "「満ちる透明感 水光肌へ」"
+    },
+    {
+      "type": "richtext",
+      "id": "product_description",
+      "label": "Product description",
+      "default": "<p>内側からうるおいがにじむような水光肌へ導く美容液。透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p>"
+    },
+    {
+      "type": "header",
+      "content": "数量カウンター"
+    },
+    {
+      "type": "text",
+      "id": "quantity_label",
+      "label": "Quantity label",
+      "default": "数量"
+    },
+    {
+      "type": "header",
+      "content": "ボタン"
+    },
+    {
+      "type": "text",
+      "id": "purchase_button_label",
+      "label": "Purchase button label",
+      "default": "購入する"
+    },
+    {
+      "type": "text",
+      "id": "subscription_button_label",
+      "label": "Subscription button label",
+      "default": "定期購入する"
+    },
+    {
+      "type": "range",
+      "id": "button_min_width",
+      "label": "Button min width",
+      "min": 150,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "Button padding vertical",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "Button padding horizontal",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "label": "Button text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "特徴セクション"
+    },
+    {
+      "type": "text",
+      "id": "features_heading",
+      "label": "Features heading",
+      "default": "これ1本で叶える、8つのスキンケアポイント"
+    },
+    {
+      "type": "richtext",
+      "id": "features_description",
+      "label": "Features description",
+      "default": "<p>保湿・整肌・保護など、スキンケアに必要な8つの機能をバランスよく配合。毎日のケアで肌本来の美しさを引き出します。</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "features_image",
+      "label": "Features image"
+    },
+    {
+      "type": "range",
+      "id": "features_margin_top",
+      "label": "Features margin top",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "features_heading_margin",
+      "label": "Features heading margin",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "features_description_margin",
+      "label": "Features description margin",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "カラー"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#d0d0d0"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Quantity button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Quantity button hover background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Quantity button text color",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_bg",
+      "label": "Primary button background",
+      "default": "#8f9eb2"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_hover_bg",
+      "label": "Primary button hover background",
+      "default": "#7a8da3"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_color",
+      "label": "Primary button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_bg",
+      "label": "Secondary button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_bg",
+      "label": "Secondary button hover background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_color",
+      "label": "Secondary button text",
+      "default": "#8f9eb2"
+    },
+    {
+      "type": "header",
+      "content": "タイポグラフィ"
+    },
+    {
+      "type": "range",
+      "id": "product_name_en_size",
+      "label": "Product name (EN) size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "product_name_ja_size",
+      "label": "Product name (JA) size",
+      "min": 14,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "product_info_size",
+      "label": "Product info size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "product_price_size",
+      "label": "Product price size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "product_tagline_size",
+      "label": "Product tagline size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "product_description_size",
+      "label": "Product description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "features_heading_size",
+      "label": "Features heading size",
+      "min": 14,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "features_description_size",
+      "label": "Features description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "label": "Input border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product detail"
+    }
+  ],
+  "tag": null
+}
 {% endschema %}
