@@ -44,7 +44,6 @@
       "block_order": [
         "ai_gen_block_d8e5b73_YFkqLT"
       ],
-      "disabled": true,
       "settings": {}
     },
     "177267933708d8d7ab": {
@@ -400,12 +399,10 @@
         "ai_gen_block_72a1b51_LyVXdh",
         "ai_gen_block_4f2f39b_NxTBW7"
       ],
-      "disabled": true,
       "settings": {}
     },
     "featured-collection": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "collection": "all",
         "products_to_show": 4,
@@ -435,26 +432,6 @@
     "177865441852f01f17": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_cc64e8b_4cRwRT": {
-          "type": "ai_gen_block_cc64e8b",
-          "settings": {
-            "slideshow_height": 600,
-            "desktop_width_percent": 100,
-            "logo_width": 200,
-            "description": "<p>あなたのストーリーをここに</p>",
-            "text_size": 18,
-            "text_max_width": 600,
-            "text_color": "#ffffff",
-            "content_spacing": 20,
-            "autoplay": true,
-            "autoplay_speed": 5,
-            "transition_speed": 1,
-            "show_dots": true,
-            "dot_size": 12,
-            "dot_color": "#ffffff"
-          },
-          "blocks": {}
-        },
         "ai_gen_block_848bce3_CLpGgG": {
           "type": "ai_gen_block_848bce3",
           "settings": {
@@ -494,13 +471,13 @@
             "title_size": 32,
             "body_font": "hina_mincho_n4",
             "subtitle_size": 16,
-            "body_size": 14,
+            "body_size": 18,
             "price_size": 18,
             "tagline_size": 18,
             "features_heading_size": 18,
             "button_size": 14,
-            "title_color": "#4b4b4b",
-            "text_color": "#4b4b4b",
+            "title_color": "#707070",
+            "text_color": "#707070",
             "border_color": "#ffffff",
             "primary_button_bg": "#707070",
             "primary_button_color": "#ffffff",
@@ -509,7 +486,7 @@
             "secondary_button_color": "#ffffff",
             "secondary_button_hover_bg": "#707070",
             "quantity_button_bg": "#f4f4f4",
-            "quantity_button_color": "#4b4b4b",
+            "quantity_button_color": "#707070",
             "quantity_button_hover_bg": "#e0e0e0",
             "image_border_radius": 0,
             "thumbnail_border_radius": 0,
@@ -939,7 +916,6 @@
         }
       },
       "block_order": [
-        "ai_gen_block_cc64e8b_4cRwRT",
         "ai_gen_block_848bce3_CLpGgG",
         "ai_gen_block_3f6f335_UKewHb",
         "ai_gen_block_2b4055d_bgB9mD",

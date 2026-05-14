@@ -42,7 +42,6 @@
         "email-form",
         "shop_shop_login_button_app_block_ACgVpi"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "full_width": true,
@@ -52,7 +51,6 @@
     },
     "footer": {
       "type": "footer",
-      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": false,
