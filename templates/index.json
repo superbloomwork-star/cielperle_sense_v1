@@ -548,8 +548,13 @@
         "ai_gen_block_b69e55e_NWJpYF": {
           "type": "ai_gen_block_b69e55e",
           "settings": {
-            "desktop_width_percent": 100,
-            "image_border_radius": 8,
+            "desktop_width_percent": 90,
+            "image_border_radius": 0,
+            "main_image": "shopify://shop_images/p_-2-09.jpg",
+            "sub_image_1": "shopify://shop_images/p_-2-10.jpg",
+            "sub_image_2": "shopify://shop_images/p_-2-15.jpg",
+            "sub_image_3": "shopify://shop_images/p_-2-12.jpg",
+            "sub_image_4": "shopify://shop_images/p_-2-13.jpg",
             "product_title": "Moisture Veil Spray Pack",
             "product_title_size": 28,
             "product_subtitle": "コラーゲンヴェール プッシュパック",
@@ -586,6 +591,7 @@
             "features_heading_size": 18,
             "features_description": "保湿・整肌・保護など、スキンケアに必要な8つの機能をバランスよく配合。毎日のケアで肌本来の美しさを引き出します。",
             "features_description_size": 14,
+            "features_image": "shopify://shop_images/p_-2-14.jpg",
             "text_color": "#4b4b4b"
           },
           "blocks": {}
