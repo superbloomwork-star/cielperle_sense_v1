@@ -339,17 +339,25 @@
           },
           "blocks": {}
         },
+        "ai_gen_block_8f0134b_4FdRqV": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 90,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
         "ai_gen_block_3efd34b_Rq3z9G": {
           "type": "ai_gen_block_3efd34b",
           "settings": {
-            "max_width": 1400,
-            "horizontal_margin": 0,
-            "section_padding": 30,
-            "content_padding": 20,
+            "max_width": 1600,
+            "horizontal_margin": 60,
+            "section_padding": 0,
+            "content_padding": 40,
             "left_bg_color": "#FFFFFF",
             "heading": "Our Philosophy",
             "heading_font": "serif",
-            "heading_size": 40,
+            "heading_size": 34,
             "heading_color": "#4b4b4b",
             "spacing_below_heading": 10,
             "button_text": "View",
@@ -362,9 +370,17 @@
             "button_padding_horizontal": 40,
             "button_radius": 10,
             "image": "shopify://shop_images/p_-2_4ec26996-37bf-40e3-8f19-ead339303f23.jpg",
-            "image_max_width": 500,
-            "image_aspect_ratio": "2/3",
+            "image_max_width": 800,
+            "image_aspect_ratio": "3/4",
             "image_radius": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_fa7Fxa": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 90,
+            "spacing_mobile": 30
           },
           "blocks": {}
         },
@@ -492,7 +508,9 @@
         "ai_gen_block_0285db5_MyjdRF",
         "ai_gen_block_ae48c2e_TGXdhg",
         "ai_gen_block_f3554c2_eGz7fj",
+        "ai_gen_block_8f0134b_4FdRqV",
         "ai_gen_block_3efd34b_Rq3z9G",
+        "ai_gen_block_8f0134b_fa7Fxa",
         "ai_gen_block_72a1b51_LyVXdh",
         "ai_gen_block_4f2f39b_NxTBW7",
         "ai_gen_block_72a1b51_HRdg6W",
