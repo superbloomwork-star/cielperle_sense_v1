@@ -1,6 +1,261 @@
+{% doc %}
+  @prompt
+    タイトルテキスト
+    説明文
+    画像
+    
+    上からこの順番に
+    すべてを右半分に配置
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-right-content-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-right-content-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .ai-right-content-inner-{{ ai_gen_id }} {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.spacing }}px;
+    padding: {{ block.settings.padding }}px;
+  }
+
+  .ai-right-content-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0;
+    font-weight: {{ block.settings.title_weight }};
+  }
+
+  .ai-right-content-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.6;
+  }
+
+  .ai-right-content-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_radius }}px;
+  }
+
+  .ai-right-content-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-right-content-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-right-content-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-right-content-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-right-content-inner-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<right-content-{{ ai_gen_id }}
+  class="ai-right-content-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-right-content-wrapper-{{ ai_gen_id }}">
+    <div class="ai-right-content-inner-{{ ai_gen_id }}">
+      {% if block.settings.title != blank %}
+        <h2 class="ai-right-content-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="ai-right-content-description-{{ ai_gen_id }}">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+
+      <div class="ai-right-content-image-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 1200 }}"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            class="ai-right-content-image-{{ ai_gen_id }}"
+          >
+        {% else %}
+          <div class="ai-right-content-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <div class="ai-right-content-empty-state-{{ ai_gen_id }}">
+              画像を追加してください
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</right-content-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class RightContent{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+
+    customElements.define('right-content-{{ ai_gen_id }}', RightContent{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "右配置コンテンツ",
+  "settings": [
+    {
+      "type": "header",
+      "content": "コンテンツ"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "タイトル",
+      "default": "タイトルテキスト"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "説明文",
+      "default": "<p>ここに説明文を入力してください。</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "画像"
+    },
+    {
+      "type": "header",
+      "content": "スタイル"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "タイトルサイズ",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "title_weight",
+      "label": "タイトルの太さ",
+      "min": 300,
+      "max": 700,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "タイトルカラー",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "説明文サイズ",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "説明文カラー",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "要素間の間隔",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "内側の余白",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "画像の角丸",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "右配置コンテンツ"
+    }
+  ]
+}
 {% endschema %}
