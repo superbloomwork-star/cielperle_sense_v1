@@ -549,32 +549,52 @@
           },
           "blocks": {}
         },
-        "ai_gen_block_eaff15c_DYJgyY": {
-          "type": "ai_gen_block_eaff15c",
+        "ai_gen_block_2b95d13_UBA6We": {
+          "type": "ai_gen_block_2b95d13",
           "settings": {
             "image": "shopify://shop_images/p_-2-19.jpg",
-            "image_width": 40,
+            "image_width": 50,
             "image_border_radius": 0,
-            "text": "<p>ここに説明文を入力してください。</p>",
+            "description": "<p>ここに説明文を入力してください。</p>",
             "text_color": "#707070",
-            "text_size": 14,
-            "line_height": 1.5,
-            "text_padding_bottom": 10,
-            "gap": 40,
-            "desktop_width_percent": 100
+            "text_size": 16,
+            "line_height": 1.6,
+            "gap": 45,
+            "desktop_width_percent": 80,
+            "mobile_text_alignment": "left"
           },
           "blocks": {}
         },
-        "ai_gen_block_0709149_mhVbbL": {
-          "type": "ai_gen_block_0709149",
+        "ai_gen_block_8f0134b_eAFcGc": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 200,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_WrJazE": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7af327c_enN36p": {
+          "type": "ai_gen_block_7af327c",
           "settings": {
             "image": "shopify://shop_images/p_-2-20.jpg",
+            "image_width": 75,
             "image_border_radius": 0,
-            "description": "<p>ここに説明文を入力してください。</p>",
-            "text_size": 14,
+            "description": "<p>ここに説明文を入力してください</p>",
+            "text_width": 50,
+            "text_alignment": "right",
             "text_color": "#707070",
-            "gap": 30,
-            "desktop_width_percent": 100
+            "text_size": 16,
+            "line_height": 1.6,
+            "desktop_width_percent": 50,
+            "gap": 44
           },
           "blocks": {}
         }
@@ -590,8 +610,10 @@
         "ai_gen_block_8f0134b_TyWYKU",
         "ai_gen_block_29e1596_eL6EgA",
         "ai_gen_block_8f0134b_Hz9Cfy",
-        "ai_gen_block_eaff15c_DYJgyY",
-        "ai_gen_block_0709149_mhVbbL"
+        "ai_gen_block_2b95d13_UBA6We",
+        "ai_gen_block_8f0134b_eAFcGc",
+        "ai_gen_block_8f0134b_WrJazE",
+        "ai_gen_block_7af327c_enN36p"
       ],
       "name": "ブランド紹介",
       "settings": {}
