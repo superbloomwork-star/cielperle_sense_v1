@@ -1,6 +1,212 @@
+{% doc %}
+  @prompt
+    左寄りで横並び画像二枚
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-two-images-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-two-images-container-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.gap }}px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .ai-two-images-item-{{ ai_gen_id }} {
+    flex: 0 0 auto;
+    width: {{ block.settings.image_width }}px;
+    max-width: 100%;
+  }
+
+  .ai-two-images-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-two-images-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-two-images-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.border_radius }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-two-images-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-two-images-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-two-images-container-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: {{ block.settings.gap | times: 0.5 }}px;
+    }
+
+    .ai-two-images-item-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<two-images-{{ ai_gen_id }} class="ai-two-images-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-two-images-container-{{ ai_gen_id }}">
+    <div class="ai-two-images-item-{{ ai_gen_id }}">
+      <div class="ai-two-images-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.image_1 %}
+          <img
+            src="{{ block.settings.image_1 | image_url: width: 1000 }}"
+            alt="{{ block.settings.image_1.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_1.width }}"
+            height="{{ block.settings.image_1.height }}"
+          >
+        {% else %}
+          <div class="ai-two-images-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <div class="ai-two-images-empty-state-{{ ai_gen_id }}">
+              画像1を追加
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-two-images-item-{{ ai_gen_id }}">
+      <div class="ai-two-images-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.image_2 %}
+          <img
+            src="{{ block.settings.image_2 | image_url: width: 1000 }}"
+            alt="{{ block.settings.image_2.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_2.width }}"
+            height="{{ block.settings.image_2.height }}"
+          >
+        {% else %}
+          <div class="ai-two-images-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <div class="ai-two-images-empty-state-{{ ai_gen_id }}">
+              画像2を追加
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</two-images-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TwoImages{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+    customElements.define('two-images-{{ ai_gen_id }}', TwoImages{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "横並び画像2枚",
+  "settings": [
+    {
+      "type": "header",
+      "content": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "画像1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "画像2"
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "画像の幅",
+      "min": 100,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "画像間の間隔",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "スタイル"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "角の丸み",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "横並び画像2枚"
+    }
+  ]
+}
 {% endschema %}
