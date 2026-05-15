@@ -1,6 +1,223 @@
+{% doc %}
+  @prompt
+    左画像、画像の右下に説明文、ブロックを中央配置
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-text-block-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .ai-image-text-container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-end;
+    gap: {{ block.settings.gap }}px;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-image-wrapper-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.image_width }}%;
+    position: relative;
+  }
+
+  .ai-image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-text-content-{{ ai_gen_id }} {
+    flex-grow: 1;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: {{ block.settings.line_height }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-image-text-container-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .ai-image-wrapper-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-text-content-{{ ai_gen_id }} {
+      width: 100%;
+      text-align: {{ block.settings.mobile_text_alignment }};
+    }
+  }
+{% endstyle %}
+
+<div class="ai-image-text-block-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-image-text-container-{{ ai_gen_id }}">
+    <div class="ai-image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1000 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+        >
+      {% else %}
+        <div class="ai-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-text-content-{{ ai_gen_id }}">
+      {{ block.settings.description }}
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Image with description",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "画像"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "画像"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "画像の幅",
+      "min": 20,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "画像の角丸",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "説明文"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "説明文",
+      "default": "<p>ここに説明文を入力してください。</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "テキストカラー",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "テキストサイズ",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "label": "行の高さ",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "header",
+      "content": "レイアウト"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "画像とテキストの間隔",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "デスクトップ幅",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 90
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_alignment",
+      "label": "モバイルでのテキスト配置",
+      "options": [
+        {
+          "value": "left",
+          "label": "左"
+        },
+        {
+          "value": "center",
+          "label": "中央"
+        },
+        {
+          "value": "right",
+          "label": "右"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with description"
+    }
+  ]
+}
 {% endschema %}
