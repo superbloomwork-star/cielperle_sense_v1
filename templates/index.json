@@ -1130,21 +1130,21 @@
           },
           "blocks": {}
         },
-        "ai_gen_block_2b4055d_tHMm7n": {
-          "type": "ai_gen_block_2b4055d",
+        "ai_gen_block_3429f52_gjA4Kc": {
+          "type": "ai_gen_block_3429f52",
           "settings": {
-            "title": "角質層までうるおいを与え、ツヤとハリのある水光肌へ。",
+            "title": "フリー処方",
+            "description": "<p>Ciel Perleの製品は腐剤であるパラベン類を配合していません。そのため、肌への刺激やアレルギーリスクを減らし、お肌のことを考えた処方です。</p>",
             "image": "shopify://shop_images/2_e82e5d58-eb24-46ac-8c82-2311120a948c.jpg",
-            "description": "<p>洗顔後、適量(5〜6プッシュ)を手に取り、顔や首になじませてください。</p><p>また、全身にもお使いいただけます。日中、乾燥が気になる際の保湿ケアにもおすすめです。</p><p>1本を使い切るまでの目安期間:1ヶ月半〜2ヶ月程度</p><p>(1回5〜6プッシュを朝晩使用した場合)</p>",
-            "content_width": 50,
-            "spacing": 16,
-            "padding": 16,
-            "text_alignment": "left",
             "title_size": 18,
+            "title_weight": 600,
             "title_color": "#707070",
+            "description_size": 18,
+            "description_color": "#707070",
+            "spacing": 8,
+            "padding": 16,
             "image_radius": 0,
-            "description_size": 14,
-            "description_color": "#707070"
+            "desktop_width_percent": 100
           },
           "blocks": {}
         },
@@ -1269,7 +1269,7 @@
         "ai_gen_block_8f0134b_7Jhzpg",
         "ai_gen_block_1f53d73_qyhdfi",
         "ai_gen_block_8f0134b_Cq7cDM",
-        "ai_gen_block_2b4055d_tHMm7n",
+        "ai_gen_block_3429f52_gjA4Kc",
         "ai_gen_block_8f0134b_amYKb4",
         "ai_gen_block_1f53d73_nbEED9",
         "ai_gen_block_8f0134b_fNha7G",
