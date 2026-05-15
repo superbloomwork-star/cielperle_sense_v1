@@ -182,8 +182,36 @@
           },
           "blocks": {}
         },
+        "ai_gen_block_7604bdb_YGRKc9": {
+          "type": "ai_gen_block_7604bdb",
+          "disabled": true,
+          "settings": {
+            "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
+            "overlay_opacity": 8,
+            "section_height": 85,
+            "product_image": "shopify://shop_images/p_-2-09.jpg",
+            "column_gap": 20,
+            "label": "商品詳細",
+            "product_name_en": "Moisture Veil Spray Pack",
+            "product_name_jp": "コラーゲンヴェールプッシュパック",
+            "capacity_price": "120ml　¥9,800 tax in",
+            "description": "<p>「満ちる透明感水光肌へ」</p><p>内側からうるおいがにじむような水光肌へ導く美容液。</p><p>透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p><p>うるおいを与え角層までしっかり保湿</p><p>し、やわらかな肌へ導き、明るく澄んだ印象へ。</p><p>顔・首はもちろん、全身にも使えるマルチ処方です。</p>",
+            "text_font": "serif",
+            "text_color": "#F5F0E8",
+            "label_size": 13,
+            "product_name_en_size": 18,
+            "product_name_jp_size": 16,
+            "capacity_price_size": 14,
+            "description_size": 14,
+            "product_name_line_height": 1,
+            "capacity_price_line_height": 1,
+            "description_line_height": 1.7
+          },
+          "blocks": {}
+        },
         "ai_gen_block_f556067_cYCfRa": {
           "type": "ai_gen_block_f556067",
+          "disabled": true,
           "settings": {
             "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
             "overlay_opacity": 8,
@@ -206,6 +234,26 @@
             "title_jp_font_size": 16,
             "price_font_size": 14,
             "description_font_size": 14
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_89d4486_Jp3az8": {
+          "type": "ai_gen_block_89d4486",
+          "settings": {
+            "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
+            "overlay_opacity": 10,
+            "section_height": 80,
+            "product_image": "shopify://shop_images/p_-2-09.jpg",
+            "image_max_width": 480,
+            "image_vertical_position": "flex-end",
+            "image_horizontal_position": "flex-end",
+            "label": "商品詳細",
+            "product_name_en": "Moisture Veil Spray Pack",
+            "product_name_jp": "コラーゲンヴェールプッシュパック",
+            "price_info": "120ml　¥9,800 tax in",
+            "description": "<p>「満ちる透明感水光肌へ」</p><p>内側からうるおいがにじむような水光肌へ導く美容液。</p><p>透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p><p>うるおいを与え角層までしっかり保湿</p><p>し、やわらかな肌へ導き、明るく澄んだ印象へ。</p><p>顔・首はもちろん、全身にも使えるマルチ処方です。</p>",
+            "text_font": "serif",
+            "text_color": "#F5F0E8"
           },
           "blocks": {}
         },
@@ -501,7 +549,9 @@
         "ai_gen_block_72a1b51_Pqzcz8",
         "ai_gen_block_be5da36_xDKrHn",
         "ai_gen_block_72a1b51_QfMRCU",
+        "ai_gen_block_7604bdb_YGRKc9",
         "ai_gen_block_f556067_cYCfRa",
+        "ai_gen_block_89d4486_Jp3az8",
         "ai_gen_block_139cc59_tXRgKd",
         "ai_gen_block_ec89a6e_rig3GP",
         "ai_gen_block_0285db5_LkYB8F",
