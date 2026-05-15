@@ -429,30 +429,122 @@
         "padding_bottom": 68
       }
     },
-    "177865441852f01f17": {
+    "blocks_cbTCaA": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_848bce3_CLpGgG": {
-          "type": "ai_gen_block_848bce3",
+        "ai_gen_block_64db611_MBfrzf": {
+          "type": "ai_gen_block_64db611",
           "settings": {
-            "min_height": 800,
-            "logo_width": 200,
-            "logo_spacing": 20,
+            "logo_width": 150,
+            "logo_margin_bottom": 20,
             "furigana": "<p>ブランド名のふりがな</p>",
             "furigana_size": 14,
             "furigana_color": "#8f9eb2",
-            "furigana_spacing": 15,
+            "furigana_margin_bottom": 15,
             "description": "<p>ブランドの説明文をここに入力してください。</p>",
             "description_size": 16,
             "description_color": "#4b4b4b",
             "description_max_width": 500,
-            "content_alignment": "center",
-            "content_padding": 60,
+            "content_padding": 40,
             "content_bg_color": "#fdfbf7",
+            "content_alignment": "center",
             "desktop_width_percent": 100
           },
           "blocks": {}
         },
+        "ai_gen_block_1050321_Q98MVU": {
+          "type": "ai_gen_block_1050321",
+          "settings": {
+            "image_width": 300,
+            "gap": 20,
+            "desktop_width_percent": 100,
+            "border_radius": 12
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_29e1596_KKRDYk": {
+          "type": "ai_gen_block_29e1596",
+          "settings": {
+            "text": "<p>ここに説明文を入力してください。</p>",
+            "desktop_width_percent": 100,
+            "font_size": 16,
+            "line_height": 1.6,
+            "text_color": "#4b4b4b",
+            "background_color": "#fdfbf7",
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_fde510f_6CTzEU": {
+          "type": "ai_gen_block_fde510f",
+          "settings": {
+            "desktop_width_percent": 70,
+            "border_radius": 12
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_29e1596_CznNzN": {
+          "type": "ai_gen_block_29e1596",
+          "settings": {
+            "text": "<p>ここに説明文を入力してください。</p>",
+            "desktop_width_percent": 100,
+            "font_size": 16,
+            "line_height": 1.6,
+            "text_color": "#4b4b4b",
+            "background_color": "#fdfbf7",
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_eaff15c_DYJgyY": {
+          "type": "ai_gen_block_eaff15c",
+          "settings": {
+            "image_width": 50,
+            "image_border_radius": 12,
+            "text": "<p>ここに説明文を入力してください。</p>",
+            "text_color": "#4b4b4b",
+            "text_size": 16,
+            "line_height": 1.5,
+            "text_padding_bottom": 10,
+            "gap": 40,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_0709149_mhVbbL": {
+          "type": "ai_gen_block_0709149",
+          "settings": {
+            "image_border_radius": 12,
+            "description": "<p>ここに説明文を入力してください。</p>",
+            "text_size": 16,
+            "text_color": "#4b4b4b",
+            "gap": 30,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_64db611_MBfrzf",
+        "ai_gen_block_1050321_Q98MVU",
+        "ai_gen_block_29e1596_KKRDYk",
+        "ai_gen_block_fde510f_6CTzEU",
+        "ai_gen_block_29e1596_CznNzN",
+        "ai_gen_block_eaff15c_DYJgyY",
+        "ai_gen_block_0709149_mhVbbL"
+      ],
+      "name": "ブランド紹介",
+      "settings": {}
+    },
+    "177865441852f01f17": {
+      "type": "_blocks",
+      "blocks": {
         "ai_gen_block_3f6f335_UKewHb": {
           "type": "ai_gen_block_3f6f335",
           "settings": {
@@ -916,7 +1008,6 @@
         }
       },
       "block_order": [
-        "ai_gen_block_848bce3_CLpGgG",
         "ai_gen_block_3f6f335_UKewHb",
         "ai_gen_block_2b4055d_bgB9mD",
         "ai_gen_block_2b4055d_DHQKxx",
@@ -959,6 +1050,7 @@
     "177851721124d1461e",
     "177267933708d8d7ab",
     "featured-collection",
+    "blocks_cbTCaA",
     "177865441852f01f17"
   ]
 }
