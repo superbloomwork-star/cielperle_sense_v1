@@ -1,6 +1,442 @@
+{% doc %}
+  @prompt
+    【レイアウト】
+      - セクション高さ 90vh、横幅フル、左右パディングなし
+      - 背景：画像フル表示（image_picker設定、キー名 background_image）、ダークオーバーレイ調整可（0〜50%、初期値8%）
+      - 中央寄せ Group ブロック、2カラム、縦中央揃え、最大幅 1200px、カラム間 80px
+      - モバイル：縦積み、背景画像は全幅維持
+    
+      【左カラム / デスクトップ 5/12幅】
+      - 商品画像ブロック1点、白カード（#FFFFFF）背景
+      - カード内側パディング60px、ドロップシャドウ 0 20px 60px rgba(0,0,0,0.15)
+      - 画像はobject-fit: contain、アスペクト比 3:4
+    
+      【右カラム / 6/12幅、1/12オフセット】
+      - テキストブロックを縦に積む、グループ間24px、文字色アイボリー（#F5F0E8）
+      - ラベル：セリフ12px、字間0.1em（例「商品詳細」）
+      - 商品名EN：セリフ18px
+      - 商品名JP：セリフ16px
+      - 容量＋価格：セリフ14px（例「120ml　¥9,800 tax in」）
+      - 40px空けて説明文：セリフ14px、行間1.9、最大幅420px
+    
+      【タイポ】テーマのセリフフォント、全文左揃え
+      【スキーマで露出する設定】背景画像 / オーバーレイ濃度 / カード色 / 文字色 / セクション高さ
+    
+      雰囲気：日本のハイエンドコスメブランドのエディトリアル。静謐、余白広め、ボタンやバッジなし。
+    , 製品画像の大きさと文字のカラーをカスタマイズしたい
+    
+    カード背景はなし
+    
+    商品画像位置を調整できるように
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-editorial-showcase-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.section_height }}vh;
+    overflow: hidden;
+    display: block;
+  }
+
+  .ai-editorial-showcase__background-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .ai-editorial-showcase__background-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-editorial-showcase__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }});
+    z-index: 2;
+  }
+
+  .ai-editorial-showcase__content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .ai-editorial-showcase__container-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 5fr 1fr 6fr;
+    gap: 0;
+    align-items: center;
+  }
+
+  .ai-editorial-showcase__left-{{ ai_gen_id }} {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ai-editorial-showcase__spacer-{{ ai_gen_id }} {
+    grid-column: 2;
+  }
+
+  .ai-editorial-showcase__right-{{ ai_gen_id }} {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ai-editorial-showcase__image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: {{ block.settings.image_max_width }}px;
+    position: relative;
+  }
+
+  .ai-editorial-showcase__image-container-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    display: flex;
+    align-items: {{ block.settings.image_vertical_position }};
+    justify-content: {{ block.settings.image_horizontal_position }};
+    overflow: hidden;
+  }
+
+  .ai-editorial-showcase__image-container-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-editorial-showcase__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-editorial-showcase__image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-editorial-showcase__text-group-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ai-editorial-showcase__label-{{ ai_gen_id }} {
+    font-family: {{ block.settings.text_font.family }}, serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-editorial-showcase__product-name-en-{{ ai_gen_id }} {
+    font-family: {{ block.settings.text_font.family }}, serif;
+    font-size: 18px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-editorial-showcase__product-name-jp-{{ ai_gen_id }} {
+    font-family: {{ block.settings.text_font.family }}, serif;
+    font-size: 16px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-editorial-showcase__price-info-{{ ai_gen_id }} {
+    font-family: {{ block.settings.text_font.family }}, serif;
+    font-size: 14px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    text-align: left;
+  }
+
+  .ai-editorial-showcase__description-{{ ai_gen_id }} {
+    font-family: {{ block.settings.text_font.family }}, serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: {{ block.settings.text_color }};
+    margin: 40px 0 0 0;
+    text-align: left;
+    max-width: 420px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-editorial-showcase-{{ ai_gen_id }} {
+      height: auto;
+      min-height: {{ block.settings.section_height }}vh;
+    }
+
+    .ai-editorial-showcase__content-{{ ai_gen_id }} {
+      padding: 60px 20px;
+    }
+
+    .ai-editorial-showcase__container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    .ai-editorial-showcase__left-{{ ai_gen_id }} {
+      grid-column: 1;
+    }
+
+    .ai-editorial-showcase__spacer-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-editorial-showcase__right-{{ ai_gen_id }} {
+      grid-column: 1;
+    }
+
+    .ai-editorial-showcase__image-wrapper-{{ ai_gen_id }} {
+      max-width: 100%;
+    }
+  }
+{% endstyle %}
+
+<editorial-showcase-{{ ai_gen_id }} class="ai-editorial-showcase-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-editorial-showcase__background-{{ ai_gen_id }}">
+    {% if block.settings.background_image %}
+      <img
+        src="{{ block.settings.background_image | image_url: width: 2400 }}"
+        alt="{{ block.settings.background_image.alt | escape }}"
+        loading="lazy"
+        width="{{ block.settings.background_image.width }}"
+        height="{{ block.settings.background_image.height }}"
+      >
+    {% endif %}
+  </div>
+
+  <div class="ai-editorial-showcase__overlay-{{ ai_gen_id }}"></div>
+
+  <div class="ai-editorial-showcase__content-{{ ai_gen_id }}">
+    <div class="ai-editorial-showcase__container-{{ ai_gen_id }}">
+      <div class="ai-editorial-showcase__left-{{ ai_gen_id }}">
+        <div class="ai-editorial-showcase__image-wrapper-{{ ai_gen_id }}">
+          <div class="ai-editorial-showcase__image-container-{{ ai_gen_id }}">
+            {% if block.settings.product_image %}
+              <img
+                src="{{ block.settings.product_image | image_url: width: 800 }}"
+                alt="{{ block.settings.product_image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.product_image.width }}"
+                height="{{ block.settings.product_image.height }}"
+              >
+            {% else %}
+              <div class="ai-editorial-showcase__image-placeholder-{{ ai_gen_id }}">
+                {{ 'product-1' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-editorial-showcase__spacer-{{ ai_gen_id }}"></div>
+
+      <div class="ai-editorial-showcase__right-{{ ai_gen_id }}">
+        <div class="ai-editorial-showcase__text-group-{{ ai_gen_id }}">
+          {% if block.settings.label != blank %}
+            <p class="ai-editorial-showcase__label-{{ ai_gen_id }}">{{ block.settings.label }}</p>
+          {% endif %}
+
+          {% if block.settings.product_name_en != blank %}
+            <h2 class="ai-editorial-showcase__product-name-en-{{ ai_gen_id }}">{{ block.settings.product_name_en }}</h2>
+          {% endif %}
+
+          {% if block.settings.product_name_jp != blank %}
+            <h3 class="ai-editorial-showcase__product-name-jp-{{ ai_gen_id }}">{{ block.settings.product_name_jp }}</h3>
+          {% endif %}
+
+          {% if block.settings.price_info != blank %}
+            <p class="ai-editorial-showcase__price-info-{{ ai_gen_id }}">{{ block.settings.price_info }}</p>
+          {% endif %}
+        </div>
+
+        {% if block.settings.description != blank %}
+          <div class="ai-editorial-showcase__description-{{ ai_gen_id }}">
+            {{ block.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</editorial-showcase-{{ ai_gen_id }}>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Editorial showcase",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Section height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 90
+    },
+    {
+      "type": "header",
+      "content": "Product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Image max width",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "select",
+      "id": "image_vertical_position",
+      "label": "Vertical position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "image_horizontal_position",
+      "label": "Horizontal position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "商品詳細"
+    },
+    {
+      "type": "text",
+      "id": "product_name_en",
+      "label": "Product name (EN)",
+      "default": "Radiant Essence Serum"
+    },
+    {
+      "type": "text",
+      "id": "product_name_jp",
+      "label": "Product name (JP)",
+      "default": "ラディアント エッセンス セラム"
+    },
+    {
+      "type": "text",
+      "id": "price_info",
+      "label": "Price info",
+      "default": "120ml　¥9,800 tax in"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>肌本来の輝きを引き出す、贅沢な美容液。厳選された植物エキスが、深く浸透し、内側から潤いに満ちた透明感のある肌へと導きます。</p>"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Font",
+      "default": "serif"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#F5F0E8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial showcase"
+    }
+  ]
+}
 {% endschema %}
