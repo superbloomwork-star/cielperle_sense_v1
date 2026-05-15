@@ -11,6 +11,10 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "177883223391e7507a": {
+      "type": "_blocks",
+      "settings": {}
+    },
     "newsletter": {
       "type": "newsletter",
       "blocks": {
@@ -33,6 +37,7 @@
         },
         "shop_shop_login_button_app_block_ACgVpi": {
           "type": "shopify://apps/shop/blocks/shop-login-button-app-block/7cab7c4a-1dfc-4b7e-8e53-31f104f2fa4e",
+          "disabled": true,
           "settings": {}
         }
       },
@@ -48,6 +53,54 @@
         "padding_top": 44,
         "padding_bottom": 8
       }
+    },
+    "1778832290f14dce8a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ec91145_yzjTEV": {
+          "type": "ai_gen_block_ec91145",
+          "settings": {
+            "desktop_width_percent": 100,
+            "max_width": 1400,
+            "padding_vertical": 40,
+            "padding_horizontal": 40,
+            "gap": 60,
+            "menu_gap": 40,
+            "secondary_gap": 30,
+            "mobile_gap": 30,
+            "mobile_menu_gap": 20,
+            "background_color": "#FFFFFF",
+            "text_color": "#4b4b4b",
+            "border_color": "#e0e0e0",
+            "border_thickness": 1,
+            "font_family": "cormorant_n3",
+            "font_size": 13,
+            "mobile_font_size": 8,
+            "letter_spacing": 0.1,
+            "link_1_text": "ABOUT",
+            "link_1_url": "",
+            "link_2_text": "NEW IN",
+            "link_2_url": "",
+            "link_3_text": "PRODUCTS",
+            "link_3_url": "",
+            "link_4_text": "CONTENTS",
+            "link_4_url": "",
+            "link_5_text": "RESERVATION",
+            "link_5_url": "",
+            "link_6_text": "CONTACT US",
+            "link_6_url": "",
+            "secondary_link_1_text": "PRIVACY POLICY",
+            "secondary_link_1_url": "",
+            "secondary_link_2_text": "特定商取引法",
+            "secondary_link_2_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ec91145_yzjTEV"
+      ],
+      "settings": {}
     },
     "footer": {
       "type": "footer",
@@ -68,7 +121,9 @@
     }
   },
   "order": [
+    "177883223391e7507a",
     "newsletter",
+    "1778832290f14dce8a",
     "footer"
   ]
 }

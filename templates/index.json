@@ -188,7 +188,7 @@
             "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
             "overlay_opacity": 8,
             "section_height": 80,
-            "product_image": "shopify://shop_images/20260419_cielperle0257_8d3ad7bb-f8c8-44c9-a11a-0d45ae951efb.jpg",
+            "product_image": "shopify://shop_images/p_-2-09.jpg",
             "image_aspect_ratio": 135,
             "card_padding": 20,
             "card_background": "#ffffff",
@@ -550,24 +550,24 @@
     "blocks_cbTCaA": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_64db611_MBfrzf": {
-          "type": "ai_gen_block_64db611",
+        "ai_gen_block_aaed733_i6t9gz": {
+          "type": "ai_gen_block_aaed733",
           "settings": {
-            "brand_image": "shopify://shop_images/p_-2-16.jpg",
-            "brand_logo": "shopify://shop_images/Ciel_LOGO.png",
-            "logo_width": 150,
-            "logo_margin_bottom": 0,
-            "furigana": "<p>シエルペール</p>",
+            "image": "shopify://shop_images/p_-2-16.jpg",
+            "min_height": 500,
+            "logo": "shopify://shop_images/Ciel_LOGO.png",
+            "logo_width": 160,
+            "logo_spacing": 10,
+            "furigana": "シエルペール",
             "furigana_size": 14,
-            "furigana_color": "#707070",
-            "furigana_margin_bottom": 15,
-            "description": "<p>\"空を見上げるように心を解放し、真珠のように凛と輝く肌と自己肯定感を育む\"そんな願いを込めたブランドです。</p><p></p><p>空を見上げると、心がふっと軽くなる。自分に自信を持つと、自然と視線は上を向き、歩く姿も凛と美しくなる。そんな\"前を向く力\"を象徴するのが、空=Ciel。</p><p>そして、真珠=Perleは、長い時をかけて生まれる自然の宝石。白く艶やかで、きめ細やかな光を放つその姿は、理想とする肌の象徴です。派手ではなく、静かな気品をたたえるその美しさは、自分を受け入れ、穏やかに輝く心を映し出します。</p>",
-            "description_size": 14,
-            "description_color": "#707070",
-            "description_max_width": 460,
-            "content_padding": 20,
+            "furigana_spacing": 15,
+            "description": "<p>\"空を見上げるように心を解放し、真珠のように凛と輝く肌と自己肯定感を育む\"</p><p>そんな願いを込めたブランドです。</p><p>⠀</p><p>空を見上げると、心がふっと軽くなる。</p><p>自分に自信を持つと、自然と視線は上を向き、歩く姿も凛と美しくなる。</p><p>そんな\"前を向く力\"を象徴するのが、空=Ciel。</p><p>⠀</p><p>そして、真珠=Perleは、長い時をかけて生まれる自然の宝石。</p><p>白く艶やかで、きめ細やかな光を放つその姿は、理想とする肌の象徴です。</p><p>派手ではなく、静かな気品をたたえるその美しさは、</p><p>自分を受け入れ、穏やかに輝く心を映し出します。</p>",
+            "description_size": 13,
+            "description_line_height": 1.1,
+            "description_max_width": 580,
             "content_bg_color": "#ffffff",
-            "content_alignment": "center",
+            "text_color": "#707070",
+            "content_padding": 40,
             "desktop_width_percent": 100
           },
           "blocks": {}
@@ -718,7 +718,7 @@
         }
       },
       "block_order": [
-        "ai_gen_block_64db611_MBfrzf",
+        "ai_gen_block_aaed733_i6t9gz",
         "ai_gen_block_8f0134b_Lmrqxn",
         "ai_gen_block_1050321_Q98MVU",
         "ai_gen_block_8f0134b_LRXN8Y",

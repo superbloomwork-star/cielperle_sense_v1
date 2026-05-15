@@ -1,1 +1,135 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_aW4yza":{"type":"announcement","settings":{"text":"Ours","link":""}}},"block_order":["announcement_aW4yza"],"settings":{"auto_rotate":false,"change_slides_speed":5,"color_scheme":"scheme-5","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"announcement_bar_DeCwWb":{"type":"announcement-bar","blocks":{"announcement_JTJ6Wt":{"type":"announcement","settings":{"text":"NEW ITEM","link":""}}},"block_order":["announcement_JTJ6Wt"],"name":"t:sections.announcement-bar.presets.name","settings":{"auto_rotate":false,"change_slides_speed":5,"color_scheme":"scheme-4","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","settings":{"logo_position":"top-left","mobile_logo_position":"center","menu":"main-menu","menu_type_desktop":"dropdown","sticky_header_type":"reduce-logo-size","show_line_separator":false,"color_scheme":"scheme-3","menu_color_scheme":"scheme-3","enable_country_selector":true,"enable_language_selector":true,"enable_customer_avatar":true,"margin_bottom":24,"padding_top":20,"padding_bottom":20}}},"order":["announcement-bar","announcement_bar_DeCwWb","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar_DeCwWb": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_JTJ6Wt": {
+          "type": "announcement",
+          "settings": {
+            "text": "NEW ITEM",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_JTJ6Wt"
+      ],
+      "disabled": true,
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-4",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "logo_position": "top-left",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "reduce-logo-size",
+        "show_line_separator": false,
+        "color_scheme": "scheme-3",
+        "menu_color_scheme": "scheme-3",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "margin_bottom": 8,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "1778831412394fadc5": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "17788315353a78ccc3": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1778831616e8e9758d": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1778831816b879ad5a": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "17788318904b69f995": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_941a867_3MBqMC": {
+          "type": "ai_gen_block_941a867",
+          "settings": {
+            "logo": "shopify://shop_images/Ciel_LOGO.png",
+            "logo_width": 150,
+            "show_top": true,
+            "top_link": "",
+            "show_about": true,
+            "about_link": "",
+            "show_products": true,
+            "products_link": "",
+            "show_news": true,
+            "news_link": "",
+            "show_faq": true,
+            "faq_link": "",
+            "show_contact": true,
+            "contact_link": "",
+            "show_instagram": true,
+            "instagram_link": "",
+            "nav_font": "cormorant_n4",
+            "nav_font_size": 13,
+            "letter_spacing": 1,
+            "nav_spacing": 30,
+            "nav_margin": 40,
+            "nav_alignment": "flex-end",
+            "nav_text_color": "#4b4b4b",
+            "nav_hover_color": "#f5f0e8",
+            "nav_icon_size": 18,
+            "icon_size": 20,
+            "icon_spacing": 20,
+            "icon_color": "#4b4b4b",
+            "icon_hover_color": "#f5f0e8",
+            "background_color": "#FFFFFF",
+            "vertical_padding": 30,
+            "horizontal_padding": 40,
+            "border_thickness": 1,
+            "border_color": "#e8e8e8"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_941a867_3MBqMC"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement_bar_DeCwWb",
+    "header",
+    "1778831412394fadc5",
+    "17788315353a78ccc3",
+    "1778831616e8e9758d",
+    "1778831816b879ad5a",
+    "17788318904b69f995"
+  ]
+}
