@@ -1,6 +1,539 @@
+{% doc %}
+  @prompt
+    【ヘッダーの構成】
+    ・レイアウト：横幅いっぱいのワイドレイアウト。背景は白（#FFFFFF）。
+    ・左側：ロゴエリア。
+    ・中央〜右寄：ナビゲーションメニュー。項目は「TOP」「ABOUT」「PRODUCTS」「NEWS」「FAQ」「CONTACT US」。全て大文字ので、Cormorantフォントで文字間隔を広めに設定。
+    ・右端：アイコンエリア。「INSTAGRAM」の文字とアイコン、マイページ（人型）、検索（虫眼鏡）、カート（バッグ）のアイコンを等間隔で配置。
+    
+    【デザインスタイル】
+    ・ミニマル、ラグジュアリー、クリーン。
+    ・全体的に細いラインと、十分な余白を持たせた洗練されたスタイル。
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-luxury-header-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    border-bottom: {{ block.settings.border_thickness }}px solid {{ block.settings.border_color }};
+    padding: {{ block.settings.vertical_padding }}px 0;
+  }
+
+  .ai-luxury-header__container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ block.settings.horizontal_padding }}px;
+  }
+
+  .ai-luxury-header__logo-{{ ai_gen_id }} {
+    flex-shrink: 0;
+  }
+
+  .ai-luxury-header__logo-image-{{ ai_gen_id }} {
+    display: block;
+    max-width: {{ block.settings.logo_width }}px;
+    height: auto;
+  }
+
+  .ai-luxury-header__nav-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.nav_spacing }}px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 0 {{ block.settings.horizontal_padding }}px;
+  }
+
+  .ai-luxury-header__nav-link-{{ ai_gen_id }} {
+    font-family: {{ block.settings.nav_font.family }}, {{ block.settings.nav_font.fallback_families }};
+    font-weight: {{ block.settings.nav_font.weight }};
+    font-size: {{ block.settings.nav_font_size }}px;
+    letter-spacing: {{ block.settings.letter_spacing }}em;
+    color: {{ block.settings.nav_color }};
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .ai-luxury-header__nav-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.nav_hover_color }};
+  }
+
+  .ai-luxury-header__icons-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.icon_spacing }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-luxury-header__instagram-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: {{ block.settings.icon_color }};
+    transition: color 0.3s ease;
+  }
+
+  .ai-luxury-header__instagram-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.icon_hover_color }};
+  }
+
+  .ai-luxury-header__instagram-text-{{ ai_gen_id }} {
+    font-family: {{ block.settings.nav_font.family }}, {{ block.settings.nav_font.fallback_families }};
+    font-weight: {{ block.settings.nav_font.weight }};
+    font-size: {{ block.settings.icon_text_size }}px;
+    letter-spacing: {{ block.settings.letter_spacing }}em;
+    text-transform: uppercase;
+  }
+
+  .ai-luxury-header__icon-link-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ block.settings.icon_color }};
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .ai-luxury-header__icon-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.icon_hover_color }};
+  }
+
+  .ai-luxury-header__icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    stroke-width: {{ block.settings.icon_stroke_width }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-luxury-header__nav-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-luxury-header__instagram-text-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-luxury-header__icons-{{ ai_gen_id }} {
+      gap: {{ block.settings.icon_spacing | times: 0.7 }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-luxury-header__container-{{ ai_gen_id }} {
+      padding: 0 {{ block.settings.horizontal_padding | times: 0.5 }}px;
+    }
+
+    .ai-luxury-header__logo-image-{{ ai_gen_id }} {
+      max-width: {{ block.settings.logo_width | times: 0.7 }}px;
+    }
+
+    .ai-luxury-header__icon-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.9 }}px;
+      height: {{ block.settings.icon_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<luxury-header-{{ ai_gen_id }} class="ai-luxury-header-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-luxury-header__container-{{ ai_gen_id }}">
+    <div class="ai-luxury-header__logo-{{ ai_gen_id }}">
+      {% if block.settings.logo %}
+        <a href="/">
+          <img
+            src="{{ block.settings.logo | image_url: width: 600 }}"
+            alt="{{ shop.name }}"
+            class="ai-luxury-header__logo-image-{{ ai_gen_id }}"
+            width="{{ block.settings.logo.width }}"
+            height="{{ block.settings.logo.height }}"
+            loading="eager"
+          >
+        </a>
+      {% else %}
+        <a href="/" style="font-size: {{ block.settings.logo_width | times: 0.2 }}px; font-weight: 300; text-decoration: none; color: {{ block.settings.nav_color }};">
+          {{ shop.name }}
+        </a>
+      {% endif %}
+    </div>
+
+    <nav class="ai-luxury-header__nav-{{ ai_gen_id }}">
+      {% if block.settings.nav_link_1_text != blank %}
+        <a href="{{ block.settings.nav_link_1_url }}" class="ai-luxury-header__nav-link-{{ ai_gen_id }}">
+          {{ block.settings.nav_link_1_text }}
+        </a>
+      {% endif %}
+      {% if block.settings.nav_link_2_text != blank %}
+        <a href="{{ block.settings.nav_link_2_url }}" class="ai-luxury-header__nav-link-{{ ai_gen_id }}">
+          {{ block.settings.nav_link_2_text }}
+        </a>
+      {% endif %}
+      {% if block.settings.nav_link_3_text != blank %}
+        <a href="{{ block.settings.nav_link_3_url }}" class="ai-luxury-header__nav-link-{{ ai_gen_id }}">
+          {{ block.settings.nav_link_3_text }}
+        </a>
+      {% endif %}
+      {% if block.settings.nav_link_4_text != blank %}
+        <a href="{{ block.settings.nav_link_4_url }}" class="ai-luxury-header__nav-link-{{ ai_gen_id }}">
+          {{ block.settings.nav_link_4_text }}
+        </a>
+      {% endif %}
+      {% if block.settings.nav_link_5_text != blank %}
+        <a href="{{ block.settings.nav_link_5_url }}" class="ai-luxury-header__nav-link-{{ ai_gen_id }}">
+          {{ block.settings.nav_link_5_text }}
+        </a>
+      {% endif %}
+      {% if block.settings.nav_link_6_text != blank %}
+        <a href="{{ block.settings.nav_link_6_url }}" class="ai-luxury-header__nav-link-{{ ai_gen_id }}">
+          {{ block.settings.nav_link_6_text }}
+        </a>
+      {% endif %}
+    </nav>
+
+    <div class="ai-luxury-header__icons-{{ ai_gen_id }}">
+      {% if block.settings.instagram_url != blank %}
+        <a href="{{ block.settings.instagram_url }}" class="ai-luxury-header__instagram-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Instagram">
+          <span class="ai-luxury-header__instagram-text-{{ ai_gen_id }}">Instagram</span>
+          <svg class="ai-luxury-header__icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      {% endif %}
+
+      <a href="/account" class="ai-luxury-header__icon-link-{{ ai_gen_id }}" aria-label="Account">
+        <svg class="ai-luxury-header__icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+
+      <a href="/search" class="ai-luxury-header__icon-link-{{ ai_gen_id }}" aria-label="Search">
+        <svg class="ai-luxury-header__icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </a>
+
+      <a href="/cart" class="ai-luxury-header__icon-link-{{ ai_gen_id }}" aria-label="Cart">
+        <svg class="ai-luxury-header__icon-{{ ai_gen_id }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</luxury-header-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class LuxuryHeader{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupStickyBehavior();
+      }
+
+      setupStickyBehavior() {
+        if (!this.hasAttribute('data-sticky')) return;
+
+        let lastScroll = 0;
+        const header = this;
+
+        window.addEventListener('scroll', function() {
+          const currentScroll = window.pageYOffset;
+
+          if (currentScroll <= 0) {
+            header.style.transform = 'translateY(0)';
+          } else if (currentScroll > lastScroll) {
+            header.style.transform = 'translateY(-100%)';
+          } else {
+            header.style.transform = 'translateY(0)';
+          }
+
+          lastScroll = currentScroll;
+        });
+      }
+    }
+
+    customElements.define('luxury-header-{{ ai_gen_id }}', LuxuryHeader{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Luxury header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 150
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_1_text",
+      "label": "Link 1 text",
+      "default": "TOP"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_2_text",
+      "label": "Link 2 text",
+      "default": "ABOUT"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_3_text",
+      "label": "Link 3 text",
+      "default": "PRODUCTS"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_4_text",
+      "label": "Link 4 text",
+      "default": "NEWS"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_4_url",
+      "label": "Link 4 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_5_text",
+      "label": "Link 5 text",
+      "default": "FAQ"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_5_url",
+      "label": "Link 5 URL"
+    },
+    {
+      "type": "text",
+      "id": "nav_link_6_text",
+      "label": "Link 6 text",
+      "default": "CONTACT US"
+    },
+    {
+      "type": "url",
+      "id": "nav_link_6_url",
+      "label": "Link 6 URL"
+    },
+    {
+      "type": "font_picker",
+      "id": "nav_font",
+      "label": "Navigation font",
+      "default": "cormorant_n3"
+    },
+    {
+      "type": "range",
+      "id": "nav_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Navigation font size",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.1,
+      "unit": "em",
+      "label": "Letter spacing",
+      "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "nav_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Navigation spacing",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "nav_color",
+      "label": "Navigation color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "nav_hover_color",
+      "label": "Navigation hover color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "icon_text_size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Instagram text size",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "min": 15,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon spacing",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "icon_stroke_width",
+      "min": 1,
+      "max": 2,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Icon stroke width",
+      "default": 1.5
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_hover_color",
+      "label": "Icon hover color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1800,
+      "step": 100,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "min": 20,
+      "max": 80,
+      "step": 10,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "min": 0,
+      "max": 3,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#E5E5E5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury header"
+    }
+  ]
+}
 {% endschema %}
