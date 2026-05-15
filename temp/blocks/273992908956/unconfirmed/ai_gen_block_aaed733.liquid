@@ -1,6 +1,341 @@
+{% doc %}
+  @prompt
+    左半分を画像
+    右半分をブランドロゴ、ロゴのふりがな、説明文(中央揃え）
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-brand-split-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-brand-split-container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: stretch;
+    min-height: {{ block.settings.min_height }}px;
+  }
+
+  .ai-brand-split-image-{{ ai_gen_id }} {
+    flex: 0 0 50%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-brand-split-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-brand-split-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-brand-split-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .ai-brand-split-content-{{ ai_gen_id }} {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: {{ block.settings.content_padding }}px;
+    background-color: {{ block.settings.content_bg_color }};
+    text-align: center;
+  }
+
+  .ai-brand-split-logo-{{ ai_gen_id }} {
+    margin-bottom: {{ block.settings.logo_spacing }}px;
+  }
+
+  .ai-brand-split-logo-{{ ai_gen_id }} img {
+    max-width: {{ block.settings.logo_width }}px;
+    height: auto;
+  }
+
+  .ai-brand-split-logo-placeholder-{{ ai_gen_id }} {
+    width: {{ block.settings.logo_width }}px;
+    height: 80px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .ai-brand-split-logo-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .ai-brand-split-furigana-{{ ai_gen_id }} {
+    font-size: {{ block.settings.furigana_size }}px;
+    color: {{ block.settings.text_color }};
+    margin-bottom: {{ block.settings.furigana_spacing }}px;
+    line-height: 1.5;
+  }
+
+  .ai-brand-split-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: {{ block.settings.description_line_height }};
+    max-width: {{ block.settings.description_max_width }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-brand-split-container-{{ ai_gen_id }} {
+      flex-direction: column;
+    }
+
+    .ai-brand-split-image-{{ ai_gen_id }},
+    .ai-brand-split-content-{{ ai_gen_id }} {
+      flex: 0 0 100%;
+    }
+
+    .ai-brand-split-image-{{ ai_gen_id }} {
+      min-height: 300px;
+    }
+  }
+{% endstyle %}
+
+<ai-brand-split-{{ ai_gen_id }}
+  class="ai-brand-split-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-brand-split-container-{{ ai_gen_id }}">
+    <div class="ai-brand-split-image-{{ ai_gen_id }}">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1200 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+        >
+      {% else %}
+        <div class="ai-brand-split-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-brand-split-content-{{ ai_gen_id }}">
+      <div class="ai-brand-split-logo-{{ ai_gen_id }}">
+        {% if block.settings.logo %}
+          <img
+            src="{{ block.settings.logo | image_url: width: 600 }}"
+            alt="{{ block.settings.logo.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.logo.width }}"
+            height="{{ block.settings.logo.height }}"
+          >
+        {% else %}
+          <div class="ai-brand-split-logo-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if block.settings.furigana != blank %}
+        <div class="ai-brand-split-furigana-{{ ai_gen_id }}">
+          {{ block.settings.furigana }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="ai-brand-split-description-{{ ai_gen_id }}">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</ai-brand-split-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AiBrandSplit{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+
+    customElements.define('ai-brand-split-{{ ai_gen_id }}', AiBrandSplit{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Brand split layout",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "default": 500
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Brand logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 50,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "logo_spacing",
+      "label": "Logo spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Furigana"
+    },
+    {
+      "type": "text",
+      "id": "furigana",
+      "label": "Furigana text"
+    },
+    {
+      "type": "range",
+      "id": "furigana_size",
+      "label": "Furigana size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "furigana_spacing",
+      "label": "Furigana spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_line_height",
+      "label": "Description line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "description_max_width",
+      "label": "Description max width",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Content background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Content padding",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand split layout"
+    }
+  ]
+}
 {% endschema %}
