@@ -545,6 +545,14 @@
     "177865441852f01f17": {
       "type": "_blocks",
       "blocks": {
+        "ai_gen_block_8f0134b_C3rUKt": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
         "ai_gen_block_b69e55e_NWJpYF": {
           "type": "ai_gen_block_b69e55e",
           "settings": {
@@ -556,11 +564,11 @@
             "sub_image_3": "shopify://shop_images/p_-2-12.jpg",
             "sub_image_4": "shopify://shop_images/p_-2-13.jpg",
             "product_title": "Moisture Veil Spray Pack",
-            "product_title_size": 28,
+            "product_title_size": 26,
             "product_subtitle": "コラーゲンヴェール プッシュパック",
-            "product_subtitle_size": 16,
+            "product_subtitle_size": 14,
             "product_info": "120ml　¥9,800 tax in",
-            "product_info_size": 14,
+            "product_info_size": 17,
             "product_price": "",
             "product_price_size": 20,
             "product_catchphrase": "「満ちる透明感 水光肌へ」",
@@ -569,30 +577,38 @@
             "product_description_size": 14,
             "quantity_label": "数量",
             "quantity_label_size": 14,
-            "quantity_border_color": "#cccccc",
-            "quantity_border_radius": 4,
+            "quantity_border_color": "#ffffff",
+            "quantity_border_radius": 0,
             "quantity_button_bg": "#f4f4f4",
             "quantity_button_hover_bg": "#e0e0e0",
-            "quantity_button_color": "#4b4b4b",
-            "primary_button_text": "購入する",
-            "secondary_button_text": "定期購入する",
-            "button_font_size": 16,
+            "quantity_button_color": "#707070",
+            "primary_button_text": "Add To Cart",
+            "secondary_button_text": "定期購入",
+            "button_font_size": 17,
             "button_padding_vertical": 14,
             "button_padding_horizontal": 32,
-            "button_border_radius": 4,
+            "button_border_radius": 0,
             "button_min_width": 200,
-            "primary_button_bg": "#8f9eb2",
-            "primary_button_hover_bg": "#7a8da3",
+            "primary_button_bg": "#707070",
+            "primary_button_hover_bg": "#4b4b4b",
             "primary_button_color": "#ffffff",
-            "secondary_button_bg": "#f6b775",
-            "secondary_button_hover_bg": "#f4a55d",
+            "secondary_button_bg": "#707070",
+            "secondary_button_hover_bg": "#4b4b4b",
             "secondary_button_color": "#ffffff",
-            "features_heading": "これ1本で叶える、8つのスキンケアポイント",
+            "features_heading": "これ１本で叶える、８つのスキンケアポイント",
             "features_heading_size": 18,
-            "features_description": "保湿・整肌・保護など、スキンケアに必要な8つの機能をバランスよく配合。毎日のケアで肌本来の美しさを引き出します。",
+            "features_description": "保湿・整肌・保護など、スキンケアに必要な８つの機能をバランスよく配合。毎日のケアで肌本来の美しさを引き出します。",
             "features_description_size": 14,
-            "features_image": "shopify://shop_images/p_-2-14.jpg",
-            "text_color": "#4b4b4b"
+            "features_image": "shopify://shop_images/p_-2.jpg",
+            "text_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_A8GVt9": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
           },
           "blocks": {}
         },
@@ -1017,7 +1033,9 @@
         }
       },
       "block_order": [
+        "ai_gen_block_8f0134b_C3rUKt",
         "ai_gen_block_b69e55e_NWJpYF",
+        "ai_gen_block_8f0134b_A8GVt9",
         "ai_gen_block_2b4055d_bgB9mD",
         "ai_gen_block_2b4055d_DHQKxx",
         "ai_gen_block_2b4055d_VnBEmi",
