@@ -1,0 +1,678 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "177268433200359968": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6aa985b_HANJWz": {
+          "type": "ai_gen_block_6aa985b",
+          "disabled": true,
+          "settings": {
+            "images_max_width": 800,
+            "images_height": 500,
+            "image_border_radius": 12,
+            "shadow_opacity": 0.1,
+            "shadow_vertical": 10,
+            "shadow_blur": 20,
+            "image_1_width": 45,
+            "image_1_height": 55,
+            "image_1_top": 5,
+            "image_1_left": 5,
+            "image_1_z_index": 2,
+            "image_2_width": 40,
+            "image_2_height": 50,
+            "image_2_top": 15,
+            "image_2_left": 55,
+            "image_2_z_index": 3,
+            "image_3_width": 35,
+            "image_3_height": 45,
+            "image_3_top": 50,
+            "image_3_left": 25,
+            "image_3_z_index": 1,
+            "text_top": "<p>Ciel Perleは、空と真珠のように、静かな気品と輝きを纏う女性のためのジュエリーブランドです。</p>",
+            "text_bottom": "<p>自立した女性の日常に寄り添い、お守りのような存在として輝き続けます。</p>",
+            "text_size": 16,
+            "line_height": 1.8,
+            "letter_spacing": 0.5,
+            "text_max_width": 700,
+            "text_color": "#4b4b4b",
+            "divider_width": 240,
+            "divider_thickness": 2,
+            "divider_color": "#000000",
+            "desktop_width_percent": 100,
+            "section_padding": 60,
+            "spacing": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6aa985b_HANJWz"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "177268379906cc029c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_be5da36_TBNi3y": {
+          "type": "ai_gen_block_be5da36",
+          "settings": {
+            "image_1": "shopify://shop_images/20260419_cielperle0110.jpg",
+            "image_2": "shopify://shop_images/20260419_cielperle0337.jpg",
+            "image_3": "shopify://shop_images/20260419_cielperle0531.jpg",
+            "images_max_width": 900,
+            "images_height": 600,
+            "image_border_radius": 0,
+            "image_1_width": 60,
+            "image_1_height": 70,
+            "image_1_top": 5,
+            "image_1_left": 0,
+            "image_1_z_index": 2,
+            "image_2_width": 40,
+            "image_2_height": 70,
+            "image_2_top": 25,
+            "image_2_left": 60,
+            "image_2_z_index": 1,
+            "image_3_width": 60,
+            "image_3_height": 70,
+            "image_3_top": 65,
+            "image_3_left": 25,
+            "image_3_z_index": 1,
+            "shadow_vertical": 6,
+            "shadow_blur": 30,
+            "shadow_opacity": 0.1,
+            "text": "<p><br/><br/>When you gaze up at the sky, your spirit finds a moment of true freedom.</p><p>Just as a pearl gathers its inner light over many years, your skin gains a deeper radiance the more it is cherished.</p><p>For its debut, <strong>Ciel Perle</strong> has created a booster serum designed to awaken your skin’s \"receptivity.\"</p><p>Offer a drop of pearl to your skin, pure and bare after cleansing.</p><p>It serves as a signal to soften the skin, allowing the hydration that follows to penetrate deeply into every corner.</p><p>Even amidst the rush of daily life, we hope that the moment you face yourself in the mirror, you are enveloped in a sense of liberation—like looking up at the vast sky.</p><p>Bestow your skin with the quiet elegance of a single pearl and the strength of unwavering self-love.</p>",
+            "text_size": 16,
+            "text_max_width": 600,
+            "line_height": 2,
+            "letter_spacing": 2,
+            "text_color": "#4b4b4b",
+            "spacing": 80,
+            "section_padding": 80,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_be5da36_TBNi3y"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "blocks_6p6fyz": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d8e5b73_RwqtmQ": {
+          "type": "ai_gen_block_d8e5b73",
+          "settings": {
+            "slideshow_height": 900,
+            "slideshow_height_mobile": 400,
+            "autoplay": false,
+            "autoplay_speed": 2,
+            "dots_bottom_position": 30,
+            "dot_size": 10,
+            "dots_gap": 10,
+            "dot_color": "#ffffff",
+            "dot_opacity": 0.5,
+            "text_font": "biz_udpmincho_n4",
+            "text_size": 12,
+            "text_size_mobile": 16,
+            "line_height": 2.5,
+            "text_color": "#ffffff",
+            "logo_width": 310,
+            "logo_width_mobile": 150,
+            "logo_margin_bottom": 0,
+            "slide_1_image": "shopify://shop_images/20260419_cielperle0299.jpg",
+            "slide_1_logo": "shopify://shop_images/CielPerle_logo_rgb_service_white_meincolor.png",
+            "slide_1_text": "スキンケアは、単なる習慣ではなく、肌を真味のようにと整え、\n心を解き放ち、「私らしく生きる力」を育むための時間。\nあなたはもっと自由に、もっと美しく。\nCiel Perle が、その一歩をやさしく支えます。",
+            "slide_2_text": "",
+            "slide_3_text": ""
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_31f9391_hwxtyj": {
+          "type": "ai_gen_block_31f9391",
+          "disabled": true,
+          "settings": {
+            "slide_1_image": "shopify://shop_images/20260419_cielperle0531.jpg",
+            "slide_1_text": "Sky and Pearl. Future and Self.",
+            "slide_2_image": "shopify://shop_images/20260419_cielperle0110.jpg",
+            "slide_2_text": "見つめる先は 自分自身",
+            "slide_3_image": "shopify://shop_images/20260419_cielperle0337.jpg",
+            "slide_3_text": "すっと浸透する お守りのような存在。",
+            "slideshow_height": 600,
+            "desktop_width_percent": 100,
+            "autoplay": true,
+            "autoplay_speed": 5,
+            "transition_speed": 1,
+            "show_arrows": true,
+            "show_dots": true,
+            "text_panel_bg_color": "#ffffff",
+            "text_color": "#4b4b4b",
+            "text_size": 16,
+            "dot_color": "#ffffff",
+            "arrow_bg_color": "#ffffff",
+            "arrow_color": "#4b4b4b"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_a6fb47a_mc6Qik": {
+          "type": "ai_gen_block_a6fb47a",
+          "disabled": true,
+          "settings": {
+            "product": "",
+            "description": "<p>上質な素材と洗練されたデザインが、あなたの日常に静かな気品を添えます。</p>",
+            "button_text": "View more",
+            "desktop_width_percent": 100,
+            "image_width_percent": 45,
+            "image_padding": 0,
+            "gap_between_image_and_content": 50,
+            "gap_between_elements": 15,
+            "image_border_radius": 12,
+            "text_color": "#4b4b4b",
+            "description_font_size": 14,
+            "title_font_size": 24,
+            "title_font_weight": "400",
+            "price_font_size": 18,
+            "button_bg_color": "#8f9eb2",
+            "button_text_color": "#fdfbf7",
+            "button_hover_bg_color": "#4b4b4b",
+            "button_hover_text_color": "#ffffff",
+            "button_font_size": 14,
+            "button_padding_vertical": 17,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 10
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_0285db5_GDLYy4": {
+          "type": "ai_gen_block_0285db5",
+          "settings": {
+            "spacer_height": 60,
+            "spacer_height_mobile": 40
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_72a1b51_78TkXm": {
+          "type": "ai_gen_block_72a1b51",
+          "name": "About",
+          "settings": {
+            "heading_text": "ABOUT",
+            "heading_font": "cormorant_n3",
+            "font_size": 48,
+            "text_color": "#4b4b4b",
+            "text_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 0,
+            "padding_horizontal": 20,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_be5da36_6HVnVV": {
+          "type": "ai_gen_block_be5da36",
+          "settings": {
+            "image_1": "shopify://shop_images/20260419_cielperle0110_e2a529d8-be82-47a9-bbfc-c2c9ff07f528.jpg",
+            "image_2": "shopify://shop_images/20260419_cielperle0531_44c1af7e-78d0-4a34-8852-15b47e26cc9e.jpg",
+            "image_3": "shopify://shop_images/20260419_cielperle0323.jpg",
+            "images_max_width": 900,
+            "images_height": 650,
+            "image_border_radius": 0,
+            "image_1_width": 65,
+            "image_1_height": 60,
+            "image_1_top": 0,
+            "image_1_left": 0,
+            "image_1_z_index": 1,
+            "image_2_width": 40,
+            "image_2_height": 65,
+            "image_2_top": 15,
+            "image_2_left": 60,
+            "image_2_z_index": 2,
+            "image_3_width": 40,
+            "image_3_height": 60,
+            "image_3_top": 55,
+            "image_3_left": 25,
+            "image_3_z_index": 3,
+            "shadow_vertical": 6,
+            "shadow_blur": 30,
+            "shadow_opacity": 0.1,
+            "text": "<p><br/><br/>When you gaze up at the sky, your spirit finds a moment of true freedom.</p><p>Just as a pearl gathers its inner light over many years, your skin gains a deeper radiance the more it is cherished.</p><p>For its debut, <strong>Ciel Perle</strong> has created a booster serum designed to awaken your skin’s \"receptivity.\"</p><p>Offer a drop of pearl to your skin, pure and bare after cleansing.</p><p>It serves as a signal to soften the skin, allowing the hydration that follows to penetrate deeply into every corner.</p><p>Even amidst the rush of daily life, we hope that the moment you face yourself in the mirror, you are enveloped in a sense of liberation—like looking up at the vast sky.</p><p>Bestow your skin with the quiet elegance of a single pearl and the strength of unwavering self-love.</p>",
+            "text_size": 12,
+            "text_max_width": 800,
+            "line_height": 1.6,
+            "letter_spacing": 0,
+            "text_color": "#4b4b4b",
+            "spacing": 80,
+            "section_padding": 80,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_72a1b51_ePiD3T": {
+          "type": "ai_gen_block_72a1b51",
+          "settings": {
+            "heading_text": "PRODUCTS",
+            "heading_font": "cormorant_n3",
+            "font_size": 48,
+            "text_color": "#4b4b4b",
+            "text_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7604bdb_Uixbft": {
+          "type": "ai_gen_block_7604bdb",
+          "disabled": true,
+          "settings": {
+            "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
+            "overlay_opacity": 8,
+            "section_height": 85,
+            "product_image": "shopify://shop_images/p_-2-09.jpg",
+            "column_gap": 20,
+            "label": "商品詳細",
+            "product_name_en": "Moisture Veil Spray Pack",
+            "product_name_jp": "コラーゲンヴェールプッシュパック",
+            "capacity_price": "120ml　¥9,800 tax in",
+            "description": "<p>「満ちる透明感水光肌へ」</p><p>内側からうるおいがにじむような水光肌へ導く美容液。</p><p>透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p><p>うるおいを与え角層までしっかり保湿</p><p>し、やわらかな肌へ導き、明るく澄んだ印象へ。</p><p>顔・首はもちろん、全身にも使えるマルチ処方です。</p>",
+            "text_font": "serif",
+            "text_color": "#f5f0e8",
+            "label_size": 13,
+            "product_name_en_size": 18,
+            "product_name_jp_size": 16,
+            "capacity_price_size": 14,
+            "description_size": 14,
+            "product_name_line_height": 1,
+            "capacity_price_line_height": 1,
+            "description_line_height": 1.7
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_f556067_eXCGYw": {
+          "type": "ai_gen_block_f556067",
+          "disabled": true,
+          "settings": {
+            "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
+            "overlay_opacity": 8,
+            "section_height": 80,
+            "product_image": "shopify://shop_images/p_-2-09.jpg",
+            "image_aspect_ratio": 135,
+            "card_padding": 20,
+            "card_background": "#ffffff",
+            "label": "商品詳細",
+            "product_title_en": "Essence Serum",
+            "product_title_jp": "エッセンスセラム",
+            "product_price": "120ml　¥9,800 tax in",
+            "product_description": "肌本来の輝きを引き出す、贅沢なエッセンスセラム。厳選された天然成分が、深く浸透し、しなやかで透明感のある肌へと導きます。",
+            "label_color": "#f5f0e8",
+            "title_color": "#f5f0e8",
+            "price_color": "#f5f0e8",
+            "description_color": "#f5f0e8",
+            "label_font_size": 12,
+            "title_en_font_size": 18,
+            "title_jp_font_size": 16,
+            "price_font_size": 14,
+            "description_font_size": 14
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_89d4486_PG34ET": {
+          "type": "ai_gen_block_89d4486",
+          "settings": {
+            "background_image": "shopify://shop_images/20260419_cielperle0462.jpg",
+            "overlay_opacity": 10,
+            "section_height": 80,
+            "product_image": "shopify://shop_images/p_-2-09.jpg",
+            "image_max_width": 480,
+            "image_vertical_position": "flex-end",
+            "image_horizontal_position": "flex-end",
+            "label": "商品詳細",
+            "product_name_en": "Moisture Veil Spray Pack",
+            "product_name_jp": "コラーゲンヴェールプッシュパック",
+            "price_info": "120ml　¥9,800 tax in",
+            "description": "<p>「満ちる透明感水光肌へ」</p><p>内側からうるおいがにじむような水光肌へ導く美容液。</p><p>透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p><p>うるおいを与え角層までしっかり保湿</p><p>し、やわらかな肌へ導き、明るく澄んだ印象へ。</p><p>顔・首はもちろん、全身にも使えるマルチ処方です。</p>",
+            "text_font": "serif",
+            "text_color": "#f5f0e8"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_139cc59_AJkEHi": {
+          "type": "ai_gen_block_139cc59",
+          "disabled": true,
+          "settings": {
+            "product": "brightest-first-essence",
+            "description": "<p><br/><br/><br/><br/>空はどこまでも高く。<br/>肌はどこまでも清らかに。<br/><br/></p>",
+            "desktop_width_percent": 100,
+            "image_width": 50,
+            "gap": 70,
+            "content_gap": 30,
+            "image_border_radius": 0,
+            "description_size": 22,
+            "description_color": "#2e2a39",
+            "title_size": 38,
+            "title_color": "#2e2a39",
+            "price_size": 24,
+            "price_color": "#2e2a39",
+            "button_text": "View more",
+            "button_font_size": 17,
+            "button_padding_vertical": 8,
+            "button_padding_horizontal": 48,
+            "button_border_radius": 10,
+            "button_bg_color": "#f7f3ee",
+            "button_hover_bg_color": "#2e2a39",
+            "button_text_color": "#2e2a39"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_ec89a6e_hbEz9r": {
+          "type": "ai_gen_block_ec89a6e",
+          "disabled": true,
+          "settings": {
+            "image_1": "shopify://shop_images/Generated_Image_March_05_2026_-_12_09PM.jpg",
+            "image_2": "shopify://shop_images/Generated_Image_March_05_2026_-_12_32PM.jpg",
+            "desktop_width_percent": 100,
+            "aspect_ratio": "16/9",
+            "border_radius": 12,
+            "autoplay": true,
+            "autoplay_speed": 5,
+            "transition_speed": 0.5,
+            "button_size": 40,
+            "button_color": "#ffffff",
+            "button_icon_color": "#000000",
+            "button_opacity": 70,
+            "dot_size": 10,
+            "dot_color": "#ffffff",
+            "dot_opacity": 50
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_0285db5_pxXC8p": {
+          "type": "ai_gen_block_0285db5",
+          "disabled": true,
+          "settings": {
+            "spacer_height": 60,
+            "spacer_height_mobile": 40
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_0285db5_GbDq4V": {
+          "type": "ai_gen_block_0285db5",
+          "disabled": true,
+          "settings": {
+            "spacer_height": 60,
+            "spacer_height_mobile": 40
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_ae48c2e_U8AXYd": {
+          "type": "ai_gen_block_ae48c2e",
+          "disabled": true,
+          "settings": {
+            "desktop_width_percent": 100,
+            "section_padding": 40,
+            "gap": 60,
+            "content_gap": 20,
+            "title": "ABOUT",
+            "title_font": "cormorant_n3",
+            "title_size": 48,
+            "title_color": "#4b4b4b",
+            "title_letter_spacing": 2,
+            "divider_width": 60,
+            "divider_thickness": 1,
+            "divider_color": "#8f9eb2",
+            "text": "<p>空と真珠が織りなす、静かな気品。<br/>自立した女性のための、お守りのようなジュエリー。</p>",
+            "text_font": "hina_mincho_n4",
+            "text_size": 16,
+            "text_color": "#4b4b4b",
+            "line_height": 1.8,
+            "text_letter_spacing": 0.5,
+            "image_1_width": 45,
+            "image_1_height": 250,
+            "image_1_top": 10,
+            "image_1_left": 5,
+            "image_2_width": 40,
+            "image_2_height": 200,
+            "image_2_top": 40,
+            "image_2_left": 35,
+            "image_3_width": 35,
+            "image_3_height": 180,
+            "image_3_top": 65,
+            "image_3_left": 15,
+            "image_border_radius": 8
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_f3554c2_8GW8xx": {
+          "type": "ai_gen_block_f3554c2",
+          "disabled": true,
+          "settings": {
+            "image_border_radius": 12,
+            "title": "About",
+            "text": "<p>私たちは、日々を丁寧に生きる女性のために、心に寄り添うジュエリーをお届けしています。ひとつひとつの作品に、静かな気品と優しさを込めて。</p>",
+            "title_size": 36,
+            "title_color": "#4b4b4b",
+            "title_margin": 20,
+            "divider_width": 110,
+            "divider_thickness": 3,
+            "divider_color": "#8f9eb2",
+            "divider_margin": 24,
+            "text_size": 16,
+            "text_color": "#4b4b4b",
+            "line_height": 1.8,
+            "desktop_width_percent": 100,
+            "section_padding": 60,
+            "gap": 60,
+            "content_padding": 40
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_XJTWHp": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 90,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_3efd34b_GdrgNX": {
+          "type": "ai_gen_block_3efd34b",
+          "settings": {
+            "max_width": 1600,
+            "horizontal_margin": 60,
+            "section_padding": 0,
+            "content_padding": 40,
+            "left_bg_color": "#ffffff",
+            "heading": "Our Philosophy",
+            "heading_font": "serif",
+            "heading_size": 34,
+            "heading_color": "#4b4b4b",
+            "spacing_below_heading": 10,
+            "button_text": "View",
+            "button_link": "",
+            "button_bg_color": "#707070",
+            "button_hover_bg_color": "#4b4b4b",
+            "button_text_color": "#ffffff",
+            "button_font_size": 15,
+            "button_padding_vertical": 8,
+            "button_padding_horizontal": 40,
+            "button_radius": 10,
+            "image": "shopify://shop_images/p_-2_4ec26996-37bf-40e3-8f19-ead339303f23.jpg",
+            "image_max_width": 800,
+            "image_aspect_ratio": "3/4",
+            "image_radius": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_B6tLez": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 90,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_72a1b51_VdCzCj": {
+          "type": "ai_gen_block_72a1b51",
+          "settings": {
+            "heading_text": "CONTACT",
+            "heading_font": "cormorant_n3",
+            "font_size": 48,
+            "text_color": "#4b4b4b",
+            "text_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_4f2f39b_wtgVkt": {
+          "type": "ai_gen_block_4f2f39b",
+          "settings": {
+            "description": "<p>Ciel Perle商品に関するお問い合わせは、<br/>下記のお問い合わせフォームから受け付けております。</p><p>また、Ciel Perleに関するよくあるご質問は、当サイトに掲載しております。</p><p>お問い合わせの前にぜひご覧ください。</p>",
+            "button_text": "Contact form",
+            "button_link": "",
+            "desktop_width_percent": 100,
+            "padding": 32,
+            "spacing": 24,
+            "text_alignment": "center",
+            "border_radius": 0,
+            "text_size": 13,
+            "text_color": "#4b4b4b",
+            "background_color": "#ffffff",
+            "button_text_size": 16,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0,
+            "button_border_thickness": 1,
+            "button_border_color": "#8f9eb2",
+            "button_text_color": "#8f9eb2",
+            "button_hover_background_color": "#8f9eb2",
+            "button_hover_text_color": "#ffffff",
+            "button_hover_border_color": "#8f9eb2"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_72a1b51_X9UNYM": {
+          "type": "ai_gen_block_72a1b51",
+          "settings": {
+            "heading_text": "INSTAGRAM",
+            "heading_font": "cormorant_n3",
+            "font_size": 48,
+            "text_color": "#4b4b4b",
+            "text_alignment": "center",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_a315b82_bccVa4": {
+          "type": "ai_gen_block_a315b82",
+          "settings": {
+            "desktop_width_percent": 100,
+            "container_max_width": 1200,
+            "grid_gap": 10,
+            "image_border_radius": 0,
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0.7,
+            "overlay_text_color": "#ffffff",
+            "instagram_url_1": "",
+            "instagram_caption_1": "",
+            "instagram_likes_1": "",
+            "instagram_url_2": "",
+            "instagram_caption_2": "",
+            "instagram_likes_2": "",
+            "instagram_url_3": "",
+            "instagram_caption_3": "",
+            "instagram_likes_3": "",
+            "instagram_url_4": "",
+            "instagram_caption_4": "",
+            "instagram_likes_4": "",
+            "instagram_url_5": "",
+            "instagram_caption_5": "",
+            "instagram_likes_5": "",
+            "instagram_url_6": "",
+            "instagram_caption_6": "",
+            "instagram_likes_6": "",
+            "instagram_url_7": "",
+            "instagram_caption_7": "",
+            "instagram_likes_7": "",
+            "instagram_url_8": "",
+            "instagram_caption_8": "",
+            "instagram_likes_8": "",
+            "show_button": true,
+            "button_text": "View More",
+            "instagram_account_url": "",
+            "button_spacing": 40,
+            "button_font": "hina_mincho_n4",
+            "button_font_size": 14,
+            "button_background": "#ffffff",
+            "button_text_color": "#4b4b4b",
+            "button_border_color": "#cccccc",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "button_hover_background": "#f4f4f4",
+            "button_hover_text_color": "#4b4b4b",
+            "button_hover_border_color": "#999999"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d8e5b73_RwqtmQ",
+        "ai_gen_block_31f9391_hwxtyj",
+        "ai_gen_block_a6fb47a_mc6Qik",
+        "ai_gen_block_0285db5_GDLYy4",
+        "ai_gen_block_72a1b51_78TkXm",
+        "ai_gen_block_be5da36_6HVnVV",
+        "ai_gen_block_72a1b51_ePiD3T",
+        "ai_gen_block_7604bdb_Uixbft",
+        "ai_gen_block_f556067_eXCGYw",
+        "ai_gen_block_89d4486_PG34ET",
+        "ai_gen_block_139cc59_AJkEHi",
+        "ai_gen_block_ec89a6e_hbEz9r",
+        "ai_gen_block_0285db5_pxXC8p",
+        "ai_gen_block_0285db5_GbDq4V",
+        "ai_gen_block_ae48c2e_U8AXYd",
+        "ai_gen_block_f3554c2_8GW8xx",
+        "ai_gen_block_8f0134b_XJTWHp",
+        "ai_gen_block_3efd34b_GdrgNX",
+        "ai_gen_block_8f0134b_B6tLez",
+        "ai_gen_block_72a1b51_VdCzCj",
+        "ai_gen_block_4f2f39b_wtgVkt",
+        "ai_gen_block_72a1b51_X9UNYM",
+        "ai_gen_block_a315b82_bccVa4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "177268433200359968",
+    "177268379906cc029c",
+    "blocks_6p6fyz"
+  ]
+}
