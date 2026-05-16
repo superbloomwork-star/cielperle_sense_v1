@@ -1,0 +1,123 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "177268433200359968": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6aa985b_HANJWz": {
+          "type": "ai_gen_block_6aa985b",
+          "disabled": true,
+          "settings": {
+            "images_max_width": 800,
+            "images_height": 500,
+            "image_border_radius": 12,
+            "shadow_opacity": 0.1,
+            "shadow_vertical": 10,
+            "shadow_blur": 20,
+            "image_1_width": 45,
+            "image_1_height": 55,
+            "image_1_top": 5,
+            "image_1_left": 5,
+            "image_1_z_index": 2,
+            "image_2_width": 40,
+            "image_2_height": 50,
+            "image_2_top": 15,
+            "image_2_left": 55,
+            "image_2_z_index": 3,
+            "image_3_width": 35,
+            "image_3_height": 45,
+            "image_3_top": 50,
+            "image_3_left": 25,
+            "image_3_z_index": 1,
+            "text_top": "<p>Ciel Perleは、空と真珠のように、静かな気品と輝きを纏う女性のためのジュエリーブランドです。</p>",
+            "text_bottom": "<p>自立した女性の日常に寄り添い、お守りのような存在として輝き続けます。</p>",
+            "text_size": 16,
+            "line_height": 1.8,
+            "letter_spacing": 0.5,
+            "text_max_width": 700,
+            "text_color": "#4b4b4b",
+            "divider_width": 240,
+            "divider_thickness": 2,
+            "divider_color": "#000000",
+            "desktop_width_percent": 100,
+            "section_padding": 60,
+            "spacing": 40
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6aa985b_HANJWz"
+      ],
+      "settings": {}
+    },
+    "177268379906cc029c": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_be5da36_TBNi3y": {
+          "type": "ai_gen_block_be5da36",
+          "settings": {
+            "image_1": "shopify://shop_images/20260419_cielperle0110.jpg",
+            "image_2": "shopify://shop_images/20260419_cielperle0337.jpg",
+            "image_3": "shopify://shop_images/20260419_cielperle0531.jpg",
+            "images_max_width": 900,
+            "images_height": 600,
+            "image_border_radius": 0,
+            "image_1_width": 60,
+            "image_1_height": 70,
+            "image_1_top": 5,
+            "image_1_left": 0,
+            "image_1_z_index": 2,
+            "image_2_width": 40,
+            "image_2_height": 70,
+            "image_2_top": 25,
+            "image_2_left": 60,
+            "image_2_z_index": 1,
+            "image_3_width": 60,
+            "image_3_height": 70,
+            "image_3_top": 65,
+            "image_3_left": 25,
+            "image_3_z_index": 1,
+            "shadow_vertical": 6,
+            "shadow_blur": 30,
+            "shadow_opacity": 0.1,
+            "text": "<p><br/><br/>When you gaze up at the sky, your spirit finds a moment of true freedom.</p><p>Just as a pearl gathers its inner light over many years, your skin gains a deeper radiance the more it is cherished.</p><p>For its debut, <strong>Ciel Perle</strong> has created a booster serum designed to awaken your skin’s \"receptivity.\"</p><p>Offer a drop of pearl to your skin, pure and bare after cleansing.</p><p>It serves as a signal to soften the skin, allowing the hydration that follows to penetrate deeply into every corner.</p><p>Even amidst the rush of daily life, we hope that the moment you face yourself in the mirror, you are enveloped in a sense of liberation—like looking up at the vast sky.</p><p>Bestow your skin with the quiet elegance of a single pearl and the strength of unwavering self-love.</p>",
+            "text_size": 16,
+            "text_max_width": 600,
+            "line_height": 2,
+            "letter_spacing": 2,
+            "text_color": "#4b4b4b",
+            "spacing": 80,
+            "section_padding": 80,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_be5da36_TBNi3y"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "177268433200359968",
+    "177268379906cc029c"
+  ]
+}
