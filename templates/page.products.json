@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -64,6 +65,7 @@
       "block_order": [
         "ai_gen_block_6aa985b_HANJWz"
       ],
+      "disabled": true,
       "settings": {}
     },
     "177268379906cc029c": {
@@ -112,12 +114,750 @@
       "block_order": [
         "ai_gen_block_be5da36_TBNi3y"
       ],
+      "disabled": true,
+      "settings": {}
+    },
+    "blocks_AN3KGm": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_aaed733_fdABbn": {
+          "type": "ai_gen_block_aaed733",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-16.jpg",
+            "min_height": 500,
+            "logo": "shopify://shop_images/Ciel_LOGO.png",
+            "logo_width": 160,
+            "logo_spacing": 10,
+            "furigana": "シエルペール",
+            "furigana_size": 14,
+            "furigana_spacing": 15,
+            "description": "<p>\"空を見上げるように心を解放し、真珠のように凛と輝く肌と自己肯定感を育む\"</p><p>そんな願いを込めたブランドです。</p><p>⠀</p><p>空を見上げると、心がふっと軽くなる。</p><p>自分に自信を持つと、自然と視線は上を向き、歩く姿も凛と美しくなる。</p><p>そんな\"前を向く力\"を象徴するのが、空=Ciel。</p><p>⠀</p><p>そして、真珠=Perleは、長い時をかけて生まれる自然の宝石。</p><p>白く艶やかで、きめ細やかな光を放つその姿は、理想とする肌の象徴です。</p><p>派手ではなく、静かな気品をたたえるその美しさは、</p><p>自分を受け入れ、穏やかに輝く心を映し出します。</p>",
+            "description_size": 13,
+            "description_line_height": 1.1,
+            "description_max_width": 580,
+            "content_bg_color": "#ffffff",
+            "text_color": "#707070",
+            "content_padding": 40,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_mLRbac": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 180,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1050321_bwRi7X": {
+          "type": "ai_gen_block_1050321",
+          "settings": {
+            "image_1": "shopify://shop_images/p_-2-17.jpg",
+            "image_2": "shopify://shop_images/p_-2_a809e90a-f0f4-4185-a249-3215540b5727.jpg",
+            "image_width": 380,
+            "gap": 0,
+            "desktop_width_percent": 100,
+            "border_radius": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_UPQ3BJ": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_29e1596_BGbVHf": {
+          "type": "ai_gen_block_29e1596",
+          "settings": {
+            "text": "<p>29歳・30歳と2年連続での年子の出産は、私にとって人生の転換期でした。</p><p>まだまだ未熟な自分に子供が産まれ、全てが未知で手探りの世界。</p><p>特にo歳児を育てている間は、自分の時間を全振りして子育てに奮闘する日々。</p><p>私にとって娘は、日々がどれだけ大変でも、私に向けてくれる満面の笑みをみるだけで</p><p>一日の疲れを吹っ飛ばしてくれる魔法も使えるお姫様のようで、心から愛おしい存在です。</p><p>しかしその中で自分の時間を捻出することが本当に難しく、</p><p>出産前は大好きだったスキンケアの時間も疎かに。</p><p>⠀</p><p>お風呂あがりは自分より娘を優先に、朝の洗顔後にいざスキンケアを始めようとすると泣き始めてしまったり。</p><p>そこで頼りになったのがシートマスクの存在でした。顔に装着さえすれば、s分10分は時間を稼げる!</p><p>ただ、ゆっくり鏡を見ながらシートマスクのズレを整えることすらできないとにかく忙しない日もあり、</p><p>娘から目を離さないようにノールックで何となく顔に乗せたパックを後々鏡で見ると、</p><p>ぐちゃぐちゃで一人で吹き出したこともありました。</p><p>この見た目でよく娘は私を母親と認識してくれていたなぁ、と。</p>",
+            "desktop_width_percent": 100,
+            "font_size": 14,
+            "line_height": 2,
+            "text_color": "#707070",
+            "background_color": "#ffffff",
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_GRKG8m": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1ba5736_Wg49Jt": {
+          "type": "ai_gen_block_1ba5736",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-18.jpg",
+            "max_width": 550,
+            "aspect_ratio": "16/9",
+            "border_radius": 0,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_LxWq78": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_29e1596_hxwXGk": {
+          "type": "ai_gen_block_29e1596",
+          "settings": {
+            "text": "<p>子育て中のお母さんだけではないと思います。男女問わず毎日遅くまでお仕事をしてヘロヘロで帰宅する方、</p><p>久しぶりの友人と会ってキャッチアップに花が咲いてしまい翌日早朝から仕事にも関わらず</p><p>ついつい帰宅が遅くなってしまった方、</p><p>日々の疲れが溜まりすぎて今日は風呂キャンセルしてしまおうかと悩んでいる方、</p><p>毎日全員に与えられている24時間という時間。</p><p>だけど時間の使い方は誰一人同じではなくて、それぞれがそれぞれに戦う日々ですよね。</p><p>前置きが長くなってしまいましたが、今回のプロダクトはそんな分和の時代で戦っている方達へのお守りのような存</p><p>在になってほしいなと願いを込めて作りました。通称「塗るパック」、Collagemeil Push Packです。</p>",
+            "desktop_width_percent": 100,
+            "font_size": 14,
+            "line_height": 2,
+            "text_color": "#707070",
+            "background_color": "#ffffff",
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_qUN6rB": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 180,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b95d13_GQ74JN": {
+          "type": "ai_gen_block_2b95d13",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-19.jpg",
+            "image_width": 50,
+            "image_border_radius": 0,
+            "description": "<p>ここに説明文を入力してください。</p>",
+            "text_color": "#707070",
+            "text_size": 16,
+            "line_height": 1.6,
+            "gap": 45,
+            "desktop_width_percent": 80,
+            "mobile_text_alignment": "left"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_jkbe6Q": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 200,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_bnYPLF": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7af327c_htLwmQ": {
+          "type": "ai_gen_block_7af327c",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-20.jpg",
+            "image_width": 75,
+            "image_border_radius": 0,
+            "description": "<p>ここに説明文を入力してください</p>",
+            "text_width": 50,
+            "text_alignment": "right",
+            "text_color": "#707070",
+            "text_size": 16,
+            "line_height": 1.6,
+            "desktop_width_percent": 50,
+            "gap": 44
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_aaed733_fdABbn",
+        "ai_gen_block_8f0134b_mLRbac",
+        "ai_gen_block_1050321_bwRi7X",
+        "ai_gen_block_8f0134b_UPQ3BJ",
+        "ai_gen_block_29e1596_BGbVHf",
+        "ai_gen_block_8f0134b_GRKG8m",
+        "ai_gen_block_1ba5736_Wg49Jt",
+        "ai_gen_block_8f0134b_LxWq78",
+        "ai_gen_block_29e1596_hxwXGk",
+        "ai_gen_block_8f0134b_qUN6rB",
+        "ai_gen_block_2b95d13_GQ74JN",
+        "ai_gen_block_8f0134b_jkbe6Q",
+        "ai_gen_block_8f0134b_bnYPLF",
+        "ai_gen_block_7af327c_htLwmQ"
+      ],
+      "disabled": true,
+      "name": "ブランド紹介",
+      "settings": {}
+    },
+    "blocks_aAXjGH": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_72a1b51_LMXngi": {
+          "type": "ai_gen_block_72a1b51",
+          "settings": {
+            "heading_text": "PRODUCTS",
+            "heading_font": "cormorant_n3",
+            "font_size": 48,
+            "text_color": "#707070",
+            "text_alignment": "left",
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_meMqYc": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b69e55e_eKqjVk": {
+          "type": "ai_gen_block_b69e55e",
+          "settings": {
+            "desktop_width_percent": 90,
+            "image_border_radius": 0,
+            "main_image": "shopify://shop_images/p_-2-09.jpg",
+            "sub_image_1": "shopify://shop_images/p_-2-10.jpg",
+            "sub_image_2": "shopify://shop_images/p_-2-15.jpg",
+            "sub_image_3": "shopify://shop_images/p_-2-12.jpg",
+            "sub_image_4": "shopify://shop_images/p_-2-13.jpg",
+            "product_title": "Moisture Veil Spray Pack",
+            "product_title_size": 30,
+            "product_subtitle": "コラーゲンヴェール プッシュパック",
+            "product_subtitle_size": 16,
+            "product_info": "120ml　¥9,800 tax in",
+            "product_info_size": 20,
+            "product_price": "",
+            "product_price_size": 20,
+            "product_catchphrase": "「満ちる透明感 水光肌へ」",
+            "product_catchphrase_size": 14,
+            "product_description": "内側からうるおいがにじむような水光肌へ導く美容液.透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。\nうるおいを与え角層までしっかり保湿し、やわらかな肌へ導き、明るく澄んだ印象へ。顔・首はもちろん、全身にも使えるマルチ処方です。",
+            "product_description_size": 14,
+            "quantity_label": "数量",
+            "quantity_label_size": 14,
+            "quantity_border_color": "#ffffff",
+            "quantity_border_radius": 0,
+            "quantity_button_bg": "#f4f4f4",
+            "quantity_button_hover_bg": "#e0e0e0",
+            "quantity_button_color": "#707070",
+            "primary_button_text": "Add To Cart",
+            "secondary_button_text": "定期購入",
+            "button_font_size": 17,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 32,
+            "button_border_radius": 0,
+            "button_min_width": 200,
+            "primary_button_bg": "#707070",
+            "primary_button_hover_bg": "#4b4b4b",
+            "primary_button_color": "#ffffff",
+            "secondary_button_bg": "#707070",
+            "secondary_button_hover_bg": "#4b4b4b",
+            "secondary_button_color": "#ffffff",
+            "features_heading": "これ１本で叶える、８つのスキンケアポイント",
+            "features_heading_size": 18,
+            "features_description": "保湿・整肌・保護など、スキンケアに必要な８つの機能をバランスよく配合。毎日のケアで肌本来の美しさを引き出します。",
+            "features_description_size": 14,
+            "features_image": "shopify://shop_images/p_-2.jpg",
+            "text_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_ixJKRC": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_9WVwEw": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "１. うるおいそのものを肌に仕込む高密度保湿",
+            "image": "shopify://shop_images/2__1-01.jpg",
+            "description": "<p>水の代わりに、より保湿力の高い「コラーゲン水を80%以上」配合。コラーゲン由来のアミノ酸やペプチドが角質層に親和し、うるおいを抱え込む土台を形成します。肌を満たしながらキメを整え、表面だけでなく内側から(※角質層まで)みずみずしく光を放つ\"水光肌\"へ導きます。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_CHeU4e": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "２. みずみずしさが続く持続型モイスチャーケア",
+            "image": "shopify://shop_images/2__1-02.jpg",
+            "description": "<p>高い保湿力と浸透性があるヒアルロン酸Naに加え、楊貴妃も美容のために用いたと伝えられるシロキクラゲ由来の多糖体などの高保水成分をバランスよく配合。角質層にうるおいを与え、時間が経っても乾燥しにくい肌へ整えます。時間が経ってもうるおいが逃げにくい設計です。日中の乾燥によるくすみやメイク崩れを防ぎ、素肌そのものがしっとりと艶めく状態を保ちます。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_TUnNdc": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "３. 発酵の力で角質までなじむ高い浸透力",
+            "image": "shopify://shop_images/2__1-03.jpg",
+            "description": "<p>発酵技術により整えられた成分が、角質層まで浸透。保湿成分が、うるおいを与え、なめらかな肌へ導き、美容成分を受け取りやすい肌状態へ整えます。導入美容液として使うことで、内側から光がにじむような、なめらかで透明感のある質感を引き出します。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_jCDHjw": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "４. 濁りを払い澄みきった印象へ導く透明感・ブライトニング",
+            "image": "shopify://shop_images/2__1-06.jpg",
+            "description": "<p>α-ｱﾙﾌﾞﾁﾝに加え、セイヨウネズ果実エキスやセイヨウオオバコ種子エキスを配合。乾燥によるくすみを防ぎ、うるおいに満ちた明るい印象の肌へ導きます。角層までうるおいを届け、光を美しく反射する澄んだ透明感のある肌へ。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_fQ96m3": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "５. 明るさを引き出すくすみケア",
+            "image": "shopify://shop_images/2__1-05.jpg",
+            "description": "<p>ナイアシンアミドや発酵由来成分(※コメ発酵液、乳酸桿菌/乳発酵液など)を配合。乾燥によるくすみを防ぎ、うるおいを与えることで、明るく健やかな印象の肌へ導きます。いきいきとしたツヤ感のある肌印象へ。忙しい日々で肌の元気が失われがちな方にもおすすめのアプローチです。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_8BeAPM": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "６. ふっくら弾む若々しい印象を叶えるハリ・弾力ケア",
+            "image": "shopify://shop_images/2__1-04.jpg",
+            "description": "<p>水溶性プロテオグリカンや加水分解コラーゲンエキスが角質水分量を高め、肌の弾力をサポート。ハリ不足にアプローチし、内側から押し返すようなふっくら感を与えます。使うたびに、なめらかで立体感のある肌印象へ導きます。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_rpcPBM": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "７. ハリ不足にアプローチ",
+            "image": "shopify://shop_images/2__1-07.jpg",
+            "description": "<p>抗糖化作用を持つカルノシンと発酵イソフラボン(アスペルギルス/ダイズ種子エキス発酵エキス液)を配合。年齢によるくすみ印象やハリ不足に多角的にアプローチ。乾燥による黄ぐすみを防ぎ、ハリのある印象へ。透明感と弾力を同時に守り、肌本来の若々しい質感を保つエイジング対策です。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_EYzn8V": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "８. 外的刺激に負けない安定した輝きを保つバリア機能サポート",
+            "image": "shopify://shop_images/2__1-08.jpg",
+            "description": "<p>アルテロモナス発酵エキスを中心に、うるおいにより乾燥から肌を守ります。乾燥や紫外線、環境ストレスによって乱れがちな角質層を整え、外部刺激から肌を守ります。ダメージを受けた肌を整えながら、水分保持力を高め、ゆらぎにくく安定したツヤ肌へ。毎日のケアで、コンディションに左右されない健やかな肌状態を維持します。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_Qj3tg3": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_NfQaB3": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 50,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_LjBG8W": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "ご使用方法・使用目安",
+            "image": "shopify://shop_images/2.jpg",
+            "description": "<p>洗顔後、適量(5〜6プッシュ)を手に取り、顔や首になじませてください。</p><p>また、全身にもお使いいただけます。日中、乾燥が気になる際の保湿ケアにもおすすめです。</p><p>⠀</p><p>1本を使い切るまでの目安期間:1ヶ月半〜2ヶ月程度</p><p>(1回5〜6プッシュを朝晩使用した場合)</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_d18b67e_Ber7Hh": {
+          "type": "ai_gen_block_d18b67e",
+          "settings": {
+            "title": "角質層までうるおいを与え、ツヤとハリのある水光肌へ。",
+            "title_font_size": 18,
+            "title_color": "#707070",
+            "image_1": "shopify://shop_images/p_-2-13_5582889a-5bb8-4169-99d2-5208705fa123.jpg",
+            "description_1": "Before：美容液ご使用前",
+            "image_2": "shopify://shop_images/p_-2-13_c15b26b5-5aca-428c-b6ca-87402ac3cc4f.jpg",
+            "description_2": "After：美容液ご使用後",
+            "description_font_size": 16,
+            "description_color": "#707070",
+            "image_border_radius": 0,
+            "content_width": 49
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_xVmPek": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_yNtHNJ": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_kQJ3JR": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 50,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b4055d_Gt38Wk": {
+          "type": "ai_gen_block_2b4055d",
+          "settings": {
+            "title": "香り",
+            "description": "<p>ゼラニウムの香りが心身のパランスを整えるような穏やかなアロマを感じる仕上がり。肌だけでなく、気分までやさしくリセットするスキンケア体験を提供します。</p>",
+            "content_width": 50,
+            "spacing": 8,
+            "padding": 16,
+            "text_alignment": "left",
+            "title_size": 18,
+            "title_color": "#707070",
+            "image_radius": 0,
+            "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_AQJwmR": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_wAVy3F": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_b46aBB": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b91897f_Q86GHH": {
+          "type": "ai_gen_block_b91897f",
+          "settings": {
+            "title": "",
+            "description": "<p>成分</p><p></p><p>加水分解コラーゲンエキス、グリセリン、水、プロパンジオール、ペンチレングリコール、1,2へキサンジオール、BG、ナイアシンアミド、スーパーオキシドジスムターゼ、水溶性プロテオグリカン、a-アルブチン、カルノシン、ツボクサエキス、タイマツバナカルスエキス、セイヨウネズ果実エキス、セイヨウオオバコ種子エキス、ヒアルロン酸Na、アスペルギルス/ダイズ種子エキス発酵エキス液、乳酸桿菌/セイヨウナシ果汁発酵液、乳酸桿菌乳発酵液、コメ発酵液、バチルス発酵物、アルテロモナス発酵エキス、バチルス/ダイズ発酵エキス、フェルラ酸、30-エチルアスコルビン酸、シロキクラゲ多糖体、グリセリルグルコシド、ニオイテンジクアオイ花油、アルギニン、カルボマー、ステアロキシヒドロキシプロピルメチルセルロース、キサンタンガム、フェノキシエタノール</p>",
+            "spacing": 0,
+            "padding": 15,
+            "desktop_width_percent": 100,
+            "title_size": 18,
+            "title_color": "#707070",
+            "title_weight": "300",
+            "description_size": 18,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_47X8cE": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_xyzxLj": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_tUBVbQ": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 50,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_3429f52_UPV4y3": {
+          "type": "ai_gen_block_3429f52",
+          "settings": {
+            "title": "フリー処方",
+            "description": "<p>Ciel Perleの製品は腐剤であるパラベン類を配合していません。そのため、肌への刺激やアレルギーリスクを減らし、お肌のことを考えた処方です。</p>",
+            "image": "shopify://shop_images/2_e82e5d58-eb24-46ac-8c82-2311120a948c.jpg",
+            "title_size": 18,
+            "title_weight": 600,
+            "title_color": "#707070",
+            "description_size": 18,
+            "description_color": "#707070",
+            "spacing": 8,
+            "padding": 16,
+            "image_radius": 0,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_EpRQAD": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_4KNiHT": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_bfyyEP": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b91897f_XkaFiH": {
+          "type": "ai_gen_block_b91897f",
+          "settings": {
+            "title": "",
+            "description": "<p>ご使用上の注意</p><p>お肌に異常が生じていないかよく注意して使用してください。化粧品がお肌に合わないとき即ち次のような場合には、使用を中止してください。そのまま化粧品類の使用を続けますと、症状を悪化させることがありますので、皮膚科専門医等にご相談されることをおすすめします。</p><p>(1)使用中、赤味、はれ、かゆみ、刺激、色抜け(白斑等)や黒ずみ等の異常があらわれた場合</p><p>(2)使用したお肌に、直接日光があたって上記のような異常があらわれた場合</p><p>傷やはれもの、しっしん等、異常のある部位にはお使いにならないでください</p><p>目に入らないようご注意ください。目に入った場合はこすらず、すぐに水で洗い流してください。</p><p>合成成分の特性上、ロットや経時変化により色味の違いや分離が生じる場合がございますが、品質には問題ございません。</p>",
+            "spacing": 0,
+            "padding": 15,
+            "desktop_width_percent": 100,
+            "title_size": 18,
+            "title_color": "#707070",
+            "title_weight": "300",
+            "description_size": 18,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_UfVNdw": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 30,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1f53d73_PNU7Kg": {
+          "type": "ai_gen_block_1f53d73",
+          "settings": {
+            "desktop_width_percent": 49,
+            "right_spacing": 11,
+            "line_thickness": 1,
+            "line_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_fCbRUC": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b91897f_EeUgmC": {
+          "type": "ai_gen_block_b91897f",
+          "settings": {
+            "title": "",
+            "description": "<p>配送方法・配送時間の指定</p><p>配送方法:クロネコヤマト便(ヤマト運輸)配送時間の指定について下記の時間帯指定が可能でございます。ご希望の方は、ご購入の際にご指定頂きますようお願いいたします。</p><p>午前中、14:00〜16:00、16:00〜18:00、18:00〜20:00、19:00〜21:00のいずれかでご指定可能です。</p><p>送料</p><p>ご注文金額が税込13,000円以上の場合、送料は以下のとおりとなります。</p>",
+            "spacing": 0,
+            "padding": 15,
+            "desktop_width_percent": 100,
+            "title_size": 18,
+            "title_color": "#707070",
+            "title_weight": "300",
+            "description_size": 18,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_tV3mQy": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_72a1b51_LMXngi",
+        "ai_gen_block_8f0134b_meMqYc",
+        "ai_gen_block_b69e55e_eKqjVk",
+        "ai_gen_block_8f0134b_ixJKRC",
+        "ai_gen_block_2b4055d_9WVwEw",
+        "ai_gen_block_2b4055d_CHeU4e",
+        "ai_gen_block_2b4055d_TUnNdc",
+        "ai_gen_block_2b4055d_jCDHjw",
+        "ai_gen_block_2b4055d_fQ96m3",
+        "ai_gen_block_2b4055d_8BeAPM",
+        "ai_gen_block_2b4055d_rpcPBM",
+        "ai_gen_block_2b4055d_EYzn8V",
+        "ai_gen_block_1f53d73_Qj3tg3",
+        "ai_gen_block_8f0134b_NfQaB3",
+        "ai_gen_block_2b4055d_LjBG8W",
+        "ai_gen_block_d18b67e_Ber7Hh",
+        "ai_gen_block_8f0134b_xVmPek",
+        "ai_gen_block_1f53d73_yNtHNJ",
+        "ai_gen_block_8f0134b_kQJ3JR",
+        "ai_gen_block_2b4055d_Gt38Wk",
+        "ai_gen_block_8f0134b_AQJwmR",
+        "ai_gen_block_1f53d73_wAVy3F",
+        "ai_gen_block_8f0134b_b46aBB",
+        "ai_gen_block_b91897f_Q86GHH",
+        "ai_gen_block_8f0134b_47X8cE",
+        "ai_gen_block_1f53d73_xyzxLj",
+        "ai_gen_block_8f0134b_tUBVbQ",
+        "ai_gen_block_3429f52_UPV4y3",
+        "ai_gen_block_8f0134b_EpRQAD",
+        "ai_gen_block_1f53d73_4KNiHT",
+        "ai_gen_block_8f0134b_bfyyEP",
+        "ai_gen_block_b91897f_XkaFiH",
+        "ai_gen_block_8f0134b_UfVNdw",
+        "ai_gen_block_1f53d73_PNU7Kg",
+        "ai_gen_block_8f0134b_fCbRUC",
+        "ai_gen_block_b91897f_EeUgmC",
+        "ai_gen_block_8f0134b_tV3mQy"
+      ],
       "settings": {}
     }
   },
   "order": [
     "main",
     "177268433200359968",
-    "177268379906cc029c"
+    "177268379906cc029c",
+    "blocks_AN3KGm",
+    "blocks_aAXjGH"
   ]
 }

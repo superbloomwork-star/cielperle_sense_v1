@@ -57,22 +57,6 @@
         "padding_bottom": 20
       }
     },
-    "1778831412394fadc5": {
-      "type": "_blocks",
-      "settings": {}
-    },
-    "17788315353a78ccc3": {
-      "type": "_blocks",
-      "settings": {}
-    },
-    "1778831616e8e9758d": {
-      "type": "_blocks",
-      "settings": {}
-    },
-    "1778831816b879ad5a": {
-      "type": "_blocks",
-      "settings": {}
-    },
     "17788318904b69f995": {
       "type": "_blocks",
       "blocks": {
@@ -108,7 +92,7 @@
             "icon_spacing": 20,
             "icon_color": "#4b4b4b",
             "icon_hover_color": "#f5f0e8",
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "vertical_padding": 30,
             "horizontal_padding": 40,
             "border_thickness": 1,
@@ -126,10 +110,6 @@
   "order": [
     "announcement_bar_DeCwWb",
     "header",
-    "1778831412394fadc5",
-    "17788315353a78ccc3",
-    "1778831616e8e9758d",
-    "1778831816b879ad5a",
     "17788318904b69f995"
   ]
 }
