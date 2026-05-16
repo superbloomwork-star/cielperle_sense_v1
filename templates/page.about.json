@@ -666,6 +666,196 @@
         "ai_gen_block_72a1b51_X9UNYM",
         "ai_gen_block_a315b82_bccVa4"
       ],
+      "disabled": true,
+      "settings": {}
+    },
+    "blocks_iDJgxW": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_aaed733_dGNKEF": {
+          "type": "ai_gen_block_aaed733",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-16.jpg",
+            "min_height": 500,
+            "logo": "shopify://shop_images/Ciel_LOGO.png",
+            "logo_width": 160,
+            "logo_spacing": 10,
+            "furigana": "シエルペール",
+            "furigana_size": 14,
+            "furigana_spacing": 15,
+            "description": "<p>\"空を見上げるように心を解放し、真珠のように凛と輝く肌と自己肯定感を育む\"</p><p>そんな願いを込めたブランドです。</p><p>⠀</p><p>空を見上げると、心がふっと軽くなる。</p><p>自分に自信を持つと、自然と視線は上を向き、歩く姿も凛と美しくなる。</p><p>そんな\"前を向く力\"を象徴するのが、空=Ciel。</p><p>⠀</p><p>そして、真珠=Perleは、長い時をかけて生まれる自然の宝石。</p><p>白く艶やかで、きめ細やかな光を放つその姿は、理想とする肌の象徴です。</p><p>派手ではなく、静かな気品をたたえるその美しさは、</p><p>自分を受け入れ、穏やかに輝く心を映し出します。</p>",
+            "description_size": 13,
+            "description_line_height": 1.1,
+            "description_max_width": 580,
+            "content_bg_color": "#ffffff",
+            "text_color": "#707070",
+            "content_padding": 40,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_XpMgKn": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 180,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1050321_Ui6Jyg": {
+          "type": "ai_gen_block_1050321",
+          "settings": {
+            "image_1": "shopify://shop_images/p_-2-17.jpg",
+            "image_2": "shopify://shop_images/p_-2_a809e90a-f0f4-4185-a249-3215540b5727.jpg",
+            "image_width": 380,
+            "gap": 0,
+            "desktop_width_percent": 100,
+            "border_radius": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_qbbxgt": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_29e1596_hfNCrM": {
+          "type": "ai_gen_block_29e1596",
+          "settings": {
+            "text": "<p>29歳・30歳と2年連続での年子の出産は、私にとって人生の転換期でした。</p><p>まだまだ未熟な自分に子供が産まれ、全てが未知で手探りの世界。</p><p>特にo歳児を育てている間は、自分の時間を全振りして子育てに奮闘する日々。</p><p>私にとって娘は、日々がどれだけ大変でも、私に向けてくれる満面の笑みをみるだけで</p><p>一日の疲れを吹っ飛ばしてくれる魔法も使えるお姫様のようで、心から愛おしい存在です。</p><p>しかしその中で自分の時間を捻出することが本当に難しく、</p><p>出産前は大好きだったスキンケアの時間も疎かに。</p><p>⠀</p><p>お風呂あがりは自分より娘を優先に、朝の洗顔後にいざスキンケアを始めようとすると泣き始めてしまったり。</p><p>そこで頼りになったのがシートマスクの存在でした。顔に装着さえすれば、s分10分は時間を稼げる!</p><p>ただ、ゆっくり鏡を見ながらシートマスクのズレを整えることすらできないとにかく忙しない日もあり、</p><p>娘から目を離さないようにノールックで何となく顔に乗せたパックを後々鏡で見ると、</p><p>ぐちゃぐちゃで一人で吹き出したこともありました。</p><p>この見た目でよく娘は私を母親と認識してくれていたなぁ、と。</p>",
+            "desktop_width_percent": 100,
+            "font_size": 14,
+            "line_height": 2,
+            "text_color": "#707070",
+            "background_color": "#ffffff",
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_YCzWjY": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_1ba5736_y34Fi8": {
+          "type": "ai_gen_block_1ba5736",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-18.jpg",
+            "max_width": 550,
+            "aspect_ratio": "16/9",
+            "border_radius": 0,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_yrNRqe": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 100,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_29e1596_3cJ3cm": {
+          "type": "ai_gen_block_29e1596",
+          "settings": {
+            "text": "<p>子育て中のお母さんだけではないと思います。男女問わず毎日遅くまでお仕事をしてヘロヘロで帰宅する方、</p><p>久しぶりの友人と会ってキャッチアップに花が咲いてしまい翌日早朝から仕事にも関わらず</p><p>ついつい帰宅が遅くなってしまった方、</p><p>日々の疲れが溜まりすぎて今日は風呂キャンセルしてしまおうかと悩んでいる方、</p><p>毎日全員に与えられている24時間という時間。</p><p>だけど時間の使い方は誰一人同じではなくて、それぞれがそれぞれに戦う日々ですよね。</p><p>前置きが長くなってしまいましたが、今回のプロダクトはそんな分和の時代で戦っている方達へのお守りのような存</p><p>在になってほしいなと願いを込めて作りました。通称「塗るパック」、Collagemeil Push Packです。</p>",
+            "desktop_width_percent": 100,
+            "font_size": 14,
+            "line_height": 2,
+            "text_color": "#707070",
+            "background_color": "#ffffff",
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_gFWwKB": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 180,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_2b95d13_38r4By": {
+          "type": "ai_gen_block_2b95d13",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-19.jpg",
+            "image_width": 50,
+            "image_border_radius": 0,
+            "description": "<p>ここに説明文を入力してください。</p>",
+            "text_color": "#707070",
+            "text_size": 16,
+            "line_height": 1.6,
+            "gap": 45,
+            "desktop_width_percent": 80,
+            "mobile_text_alignment": "left"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_GkDHjW": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 200,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_8f0134b_iehQAA": {
+          "type": "ai_gen_block_8f0134b",
+          "settings": {
+            "spacing_desktop": 40,
+            "spacing_mobile": 30
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7af327c_HbBJmY": {
+          "type": "ai_gen_block_7af327c",
+          "settings": {
+            "image": "shopify://shop_images/p_-2-20.jpg",
+            "image_width": 75,
+            "image_border_radius": 0,
+            "description": "<p>ここに説明文を入力してください</p>",
+            "text_width": 50,
+            "text_alignment": "right",
+            "text_color": "#707070",
+            "text_size": 16,
+            "line_height": 1.6,
+            "desktop_width_percent": 50,
+            "gap": 44
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_aaed733_dGNKEF",
+        "ai_gen_block_8f0134b_XpMgKn",
+        "ai_gen_block_1050321_Ui6Jyg",
+        "ai_gen_block_8f0134b_qbbxgt",
+        "ai_gen_block_29e1596_hfNCrM",
+        "ai_gen_block_8f0134b_YCzWjY",
+        "ai_gen_block_1ba5736_y34Fi8",
+        "ai_gen_block_8f0134b_yrNRqe",
+        "ai_gen_block_29e1596_3cJ3cm",
+        "ai_gen_block_8f0134b_gFWwKB",
+        "ai_gen_block_2b95d13_38r4By",
+        "ai_gen_block_8f0134b_GkDHjW",
+        "ai_gen_block_8f0134b_iehQAA",
+        "ai_gen_block_7af327c_HbBJmY"
+      ],
+      "name": "ブランド紹介",
       "settings": {}
     }
   },
@@ -673,6 +863,7 @@
     "main",
     "177268433200359968",
     "177268379906cc029c",
-    "blocks_6p6fyz"
+    "blocks_6p6fyz",
+    "blocks_iDJgxW"
   ]
 }
