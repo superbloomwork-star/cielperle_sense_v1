@@ -197,7 +197,7 @@
             "capacity_price": "120ml　¥9,800 tax in",
             "description": "<p>「満ちる透明感水光肌へ」</p><p>内側からうるおいがにじむような水光肌へ導く美容液。</p><p>透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p><p>うるおいを与え角層までしっかり保湿</p><p>し、やわらかな肌へ導き、明るく澄んだ印象へ。</p><p>顔・首はもちろん、全身にも使えるマルチ処方です。</p>",
             "text_font": "serif",
-            "text_color": "#F5F0E8",
+            "text_color": "#f5f0e8",
             "label_size": 13,
             "product_name_en_size": 18,
             "product_name_jp_size": 16,
@@ -253,7 +253,7 @@
             "price_info": "120ml　¥9,800 tax in",
             "description": "<p>「満ちる透明感水光肌へ」</p><p>内側からうるおいがにじむような水光肌へ導く美容液。</p><p>透明感ケアにより乾燥によるくすみを防ぎ、肌本来の防御機能をサポートします。</p><p>うるおいを与え角層までしっかり保湿</p><p>し、やわらかな肌へ導き、明るく澄んだ印象へ。</p><p>顔・首はもちろん、全身にも使えるマルチ処方です。</p>",
             "text_font": "serif",
-            "text_color": "#F5F0E8"
+            "text_color": "#f5f0e8"
           },
           "blocks": {}
         },
@@ -402,7 +402,7 @@
             "horizontal_margin": 60,
             "section_padding": 0,
             "content_padding": 40,
-            "left_bg_color": "#FFFFFF",
+            "left_bg_color": "#ffffff",
             "heading": "Our Philosophy",
             "heading_font": "serif",
             "heading_size": 34,
@@ -412,7 +412,7 @@
             "button_link": "",
             "button_bg_color": "#707070",
             "button_hover_bg_color": "#4b4b4b",
-            "button_text_color": "#FFFFFF",
+            "button_text_color": "#ffffff",
             "button_font_size": 15,
             "button_padding_vertical": 8,
             "button_padding_horizontal": 40,
@@ -499,7 +499,7 @@
             "show_overlay": true,
             "overlay_color": "#000000",
             "overlay_opacity": 0.7,
-            "overlay_text_color": "#FFFFFF",
+            "overlay_text_color": "#ffffff",
             "instagram_url_1": "",
             "instagram_caption_1": "",
             "instagram_likes_1": "",
@@ -530,7 +530,7 @@
             "button_spacing": 40,
             "button_font": "hina_mincho_n4",
             "button_font_size": 14,
-            "button_background": "#FFFFFF",
+            "button_background": "#ffffff",
             "button_text_color": "#4b4b4b",
             "button_border_color": "#cccccc",
             "button_border_width": 1,
@@ -783,6 +783,7 @@
         "ai_gen_block_8f0134b_WrJazE",
         "ai_gen_block_7af327c_enN36p"
       ],
+      "disabled": true,
       "name": "ブランド紹介",
       "settings": {}
     },
@@ -1329,6 +1330,7 @@
         "ai_gen_block_b91897f_WNFWBi",
         "ai_gen_block_8f0134b_DqecUt"
       ],
+      "disabled": true,
       "settings": {}
     }
   },
