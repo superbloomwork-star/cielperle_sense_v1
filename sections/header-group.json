@@ -70,7 +70,7 @@
             "show_about": true,
             "about_link": "",
             "show_products": true,
-            "products_link": "",
+            "products_link": "shopify://products/brightest-first-essence",
             "show_news": true,
             "news_link": "",
             "show_faq": true,
