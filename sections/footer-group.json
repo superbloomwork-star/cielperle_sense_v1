@@ -59,7 +59,6 @@
       "blocks": {
         "ai_gen_block_ec91145_yzjTEV": {
           "type": "ai_gen_block_ec91145",
-          "disabled": true,
           "settings": {
             "desktop_width_percent": 100,
             "max_width": 1400,
