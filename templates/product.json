@@ -449,6 +449,7 @@
         },
         "ai_gen_block_2b4055d_QR9TNa": {
           "type": "ai_gen_block_2b4055d",
+          "disabled": true,
           "settings": {
             "title": "香り",
             "description": "<p>ゼラニウムの香りが心身のパランスを整えるような穏やかなアロマを感じる仕上がり。肌だけでなく、気分までやさしくリセットするスキンケア体験を提供します。</p>",
@@ -460,6 +461,22 @@
             "title_color": "#707070",
             "image_radius": 0,
             "description_size": 13,
+            "description_color": "#707070"
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_b91897f_GnNHnY": {
+          "type": "ai_gen_block_b91897f",
+          "settings": {
+            "title": "",
+            "description": "<p>香り</p><p></p><p>ゼラニウムの香りが心身のパランスを整えるような穏やかなアロマを感じる仕上がり。肌だけでなく、気分までやさしくリセットするスキンケア体験を提供します。</p>",
+            "spacing": 0,
+            "padding": 15,
+            "desktop_width_percent": 100,
+            "title_size": 18,
+            "title_color": "#707070",
+            "title_weight": "300",
+            "description_size": 18,
             "description_color": "#707070"
           },
           "blocks": {}
@@ -665,6 +682,7 @@
         "ai_gen_block_1f53d73_xxkn3x",
         "ai_gen_block_8f0134b_HpyXmE",
         "ai_gen_block_2b4055d_QR9TNa",
+        "ai_gen_block_b91897f_GnNHnY",
         "ai_gen_block_8f0134b_bbHFJD",
         "ai_gen_block_1f53d73_aAfjaD",
         "ai_gen_block_8f0134b_YU9FVa",
